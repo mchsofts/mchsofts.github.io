@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Find Replace Explorer (FRE) – Powerful search & batch rename for Windows</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f5f9ff 0%, #eef2f8 100%);
+      color: #0a1c2a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    /* glass card style (consistent with MCH SOFTS) */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.2s ease;
+    }
+
+    /* header area */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      background: linear-gradient(145deg, #0f2c38, #0a1f28);
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-icon span {
+      font-size: 30px;
+      font-weight: 800;
+      color: #f2b541;
+    }
+
+    .brand h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b38, #1e5a7a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .version-badge {
+      background: #eef2f8;
+      padding: 0.4rem 1rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #1f6e8c;
+    }
+
+    /* intro section */
+    .intro-section {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .intro-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #dd8e2c, #f2b341);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      color: #1f5068;
+      max-width: 85%;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .badge-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      background: #e9f0f5;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #0c4e6e;
+    }
+
+    /* section title style */
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 70%;
+      height: 4px;
+      background: linear-gradient(90deg, #e2a03c, #f2bc4b);
+      border-radius: 4px;
+    }
+
+    /* features grid */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .feature-card {
+      flex: 1;
+      min-width: 260px;
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.6rem;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eef2f0;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+      border-color: #f0bc6e50;
+    }
+
+    .feature-icon {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #0e3346;
+    }
+
+    .feature-card p {
+      color: #2d5a74;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+    .feature-list li {
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+      color: #386a84;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .feature-list li::before {
+      content: "✓";
+      color: #e2a03c;
+      font-weight: bold;
+    }
+
+    /* file type badges */
+    .file-types {
+      background: #ffffffdd;
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.8rem;
+      margin: 1rem 0;
+    }
+    .type-badge {
+      display: inline-block;
+      background: #eef3f7;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin: 0.25rem;
+      color: #0a4b66;
+    }
+
+    /* two-col use cases */
+    .use-cases {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .case {
+      flex: 1;
+      background: #f9fdfe;
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+      border-left: 5px solid #f2b341;
+    }
+    .case h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* sys req + download row */
+    .sys-download {
+      background: linear-gradient(110deg, #11212e 0%, #1a3e4f 100%);
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .sys-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+    }
+    .spec-item p:first-child {
+      font-weight: 600;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+    .spec-item p:last-child {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .download-btn {
+      background: #f2b341;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #0f1f29;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
+    }
+    .download-btn:hover {
+      background: #ffc55a;
+      transform: scale(1.02);
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding-top: 1.8rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.85rem;
+      color: #3c657e;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .intro-title {
+        font-size: 2rem;
+      }
+      .intro-text {
+        max-width: 100%;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .sys-download {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header -->
+  <div class="hero">
+    <div class="brand">
+      <div class="logo-icon">
+        <span>🔍</span>
+      </div>
+      <h1>Find Replace Explorer <span style="font-size: 1.2rem;">(FRE)</span></h1>
+    </div>
+    <div class="version-badge">
+      ⚡ v1.0 · Windows 10/11
+    </div>
+  </div>
+
+  <!-- main intro -->
+  <div class="glass-card intro-section">
+    <div class="intro-title">
+      Professional <span class="highlight">Text Search, Replace, File Search</span> & Batch Rename Tool
+    </div>
+    <div class="intro-text">
+      FRE is a powerful Windows desktop application designed to help developers, sysadmins, IT pros, and power users
+      search inside files, replace content across thousands of documents, locate files instantly, and rename batches with ease.
+    </div>
+    <div class="badge-container">
+      <div class="pill">⚡ Recursive scanning</div>
+      <div class="pill">🔐 Backup support</div>
+      <div class="pill">📁 Regex & filters</div>
+      <div class="pill">📊 Export results</div>
+    </div>
+  </div>
+
+  <!-- key features (grouped) -->
+  <div>
+    <div class="section-title">Key Features</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔎📄</div>
+        <h3>Text Search</h3>
+        <p>Find text inside thousands of files within seconds. Advanced options for precision.</p>
+        <ul class="feature-list">
+          <li>Recursive folder scanning</li>
+          <li>Case sensitive & whole word</li>
+          <li>Regular expressions</li>
+          <li>File mask filtering (*.txt, *.xml, *.cs, etc.)</li>
+          <li>Real-time result listing</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✍️🔄</div>
+        <h3>Text Replacement</h3>
+        <p>Safely replace text across multiple files with full preview & backup.</p>
+        <ul class="feature-list">
+          <li>Replace all matches or selected only</li>
+          <li>Preview before replacement</li>
+          <li>Automatic file backup</li>
+          <li>Detailed replacement log</li>
+          <li>Multi-file batch operations</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📂⚡</div>
+        <h3>File Search & Batch Rename</h3>
+        <p>Quickly locate files & rename hundreds of items in one go.</p>
+        <ul class="feature-list">
+          <li>Search by name, extension, size, date modified</li>
+          <li>Add prefix / suffix to filenames</li>
+          <li>Sequential numbering & replace text</li>
+          <li>Recursive folder processing</li>
+          <li>Rename selected files only</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supported file types (extensive list) -->
+  <div class="file-types glass-card" style="padding: 1.4rem 1.8rem;">
+    <h3 style="font-weight: 700; margin-bottom: 0.5rem;">📁 Supported file types</h3>
+    <p style="margin-bottom: 0.7rem; color:#2e5c78;">TXT, LOG, INI, XML, JSON, CSV, HTML, CSS, JS, PHP, C#, C++, VB, Markdown, and many more text-based formats.</p>
+    <div>
+      <span class="type-badge">.txt</span><span class="type-badge">.log</span><span class="type-badge">.ini</span><span class="type-badge">.xml</span>
+      <span class="type-badge">.json</span><span class="type-badge">.csv</span><span class="type-badge">.html</span><span class="type-badge">.css</span>
+      <span class="type-badge">.js</span><span class="type-badge">.php</span><span class="type-badge">.cs</span><span class="type-badge">.cpp</span>
+      <span class="type-badge">.vb</span><span class="type-badge">.py</span><span class="type-badge">.md</span><span class="type-badge">.sql</span>
+    </div>
+  </div>
+
+  <!-- results & export block -->
+  <div class="features-grid" style="margin-bottom: 0.5rem;">
+    <div class="feature-card">
+      <div class="feature-icon">📋✅</div>
+      <h3>Results Management</h3>
+      <ul class="feature-list">
+        <li>Sort columns & select individual results</li>
+        <li>Export search results</li>
+        <li>Copy file paths / open files directly</li>
+        <li>Open containing folder from context</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📎📑</div>
+      <h3>Export Options</h3>
+      <ul class="feature-list">
+        <li>Export results to CSV / Excel</li>
+        <li>PDF export (future release)</li>
+        <li>Copy to clipboard</li>
+        <li>Save replacement logs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Why choose FRE -->
+  <div class="section-title">Why Choose FRE?</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0 1.5rem;">
+    <div class="glass-card" style="padding: 1rem 1.5rem; flex:1; min-width:140px;"><span style="font-weight:800;">⚡ Fast</span><br>Optimized for large directories</div>
+    <div class="glass-card" style="padding: 1rem 1.5rem; flex:1;"><span style="font-weight:800;">🎯 Accurate</span><br>Advanced search & filters</div>
+    <div class="glass-card" style="padding: 1rem 1.5rem; flex:1;"><span style="font-weight:800;">🛡️ Safe</span><br>Backup before any modification</div>
+    <div class="glass-card" style="padding: 1rem 1.5rem; flex:1;"><span style="font-weight:800;">💼 Professional</span><br>Modern, productivity-first UI</div>
+  </div>
+
+  <!-- Typical use cases -->
+  <div class="section-title">Typical Use Cases</div>
+  <div class="use-cases">
+    <div class="case"><h4>👨‍💻 Developers</h4><p>Find source code references, refactor variables, update configs across entire projects.</p></div>
+    <div class="case"><h4>🖥️ System Administrators</h4><p>Search server configs, replace settings in bulk, locate log files and deployment artifacts.</p></div>
+    <div class="case"><h4>📞 Technical Support</h4><p>Analyze error logs, verify configurations, find relevant messages quickly.</p></div>
+    <div class="case"><h4>📸 Power Users</h4><p>Organize photo collections, rename files in bulk, search personal archives with ease.</p></div>
+  </div>
+
+  <!-- System requirements + download CTA -->
+  <div class="sys-download">
+    <div>
+      <h3 style="font-weight: 700; font-size: 1.6rem; margin-bottom: 0.75rem;">⬇️ Get FRE</h3>
+      <p style="opacity:0.9; margin-bottom: 1rem;">Find • Replace • Explore — one powerful Windows utility</p>
+      <div class="sys-specs">
+        <div class="spec-item"><p>OS</p><p>Windows 10 / 11</p></div>
+        <div class="spec-item"><p>Framework</p><p>.NET 8 Runtime</p></div>
+        <div class="spec-item"><p>Memory</p><p>4 GB (8 GB rec.)</p></div>
+        <div class="spec-item"><p>Storage</p><p>100 MB free</p></div>
+      </div>
+    </div>
+    <div>
+      <button class="download-btn" id="downloadFREBtn">📥 Download FRE v1.0 (exe)</button>
+      <p style="font-size: 0.7rem; margin-top: 0.6rem; opacity:0.8;">Windows x64 | Installer / portable</p>
+    </div>
+  </div>
+
+  <!-- version info & closing -->
+  <div class="glass-card" style="padding: 1.5rem 2rem; background: #ffffffdd; margin: 0.5rem 0 1rem;">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+      <div><strong>Product:</strong> Find Replace Explorer (FRE) &nbsp;|&nbsp; <strong>Version:</strong> 1.0 &nbsp;|&nbsp; <strong>Platform:</strong> Windows x64</div>
+      <div><span style="background: #f0e7d8; padding: 0.2rem 0.8rem; border-radius: 30px;">🔍 FRE — Find • Replace • Explore</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2026 MCH SOFTS — Find Replace Explorer (FRE) is a flagship Windows utility for professionals worldwide.<br>
+    Optimized for speed, accuracy, and complete file management.</p>
+  </div>
+</div>
+
+<!-- simple download simulation modal (professional info) -->
+<div id="downloadModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); z-index: 1000; justify-content: center; align-items: center;">
+  <div style="background: #ffffff; max-width: 480px; width: 90%; border-radius: 2rem; padding: 2rem; text-align: center; box-shadow: 0 30px 40px rgba(0,0,0,0.2);">
+    <div style="font-size: 3rem;">📦</div>
+    <h3 style="font-size: 1.7rem; margin: 0.5rem 0;">Start your download</h3>
+    <p style="margin: 0.5rem 0; color:#1f6e8c;">Find Replace Explorer (FRE) <strong>v1.0</strong> for Windows</p>
+    <div style="background: #f2f6f9; border-radius: 1.2rem; padding: 0.7rem; margin: 1rem 0;">
+      <code style="font-size: 0.9rem;">/fre.exe</code> – 64-bit setup
+    </div>
+    <p style="font-size:0.85rem;">Your download will begin shortly. FRE is lightweight, safe, and includes backup features.</p>
+    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center;">
+      <button id="confirmDownload" style="background: #f2b341; border: none; padding: 0.6rem 1.5rem; border-radius: 40px; font-weight: bold; cursor: pointer;">⬇️ Download now</button>
+      <button id="closeDownloadModal" style="background: #e2e8f0; border: none; padding: 0.6rem 1.5rem; border-radius: 40px; cursor: pointer;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // download button logic (simulates download trigger)
+  const downloadBtn = document.getElementById('downloadFREBtn');
+  const modal = document.getElementById('downloadModal');
+  const closeModalBtn = document.getElementById('closeDownloadModal');
+  const confirmBtn = document.getElementById('confirmDownload');
+
+  function openDownloadModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDownloadModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  function triggerDownload() {
+    // simulate actual download anchor for /fre.exe
+    const link = document.createElement('a');
+    link.href = '/fre.exe';   // the given download link path
+    link.download = 'FindReplaceExplorer_FRE_v1.0.exe';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    closeDownloadModal();
+    // optional success message
+    setTimeout(() => {
+      alert("Download started: FindReplaceExplorer_FRE_v1.0.exe");
+    }, 100);
+  }
+
+  downloadBtn.addEventListener('click', openDownloadModal);
+  closeModalBtn.addEventListener('click', closeDownloadModal);
+  confirmBtn.addEventListener('click', triggerDownload);
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) closeDownloadModal();
+  });
+  console.log("FRE page ready — professional text search, replace, batch rename tool");
+</script>
+</body>
+</html>
