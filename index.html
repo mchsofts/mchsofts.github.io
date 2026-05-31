@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MCH SOFTS | Windows, Android & Chrome Solutions</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      color: #0a1c2f;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    /* glassmorphic card style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* header area */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      background: #1e2f3e;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1f2e3a, #0f1a24);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-icon span {
+      font-size: 30px;
+      font-weight: 700;
+      color: #f0b90b;
+    }
+
+    .brand h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2c5a7a;
+      background: rgba(44, 90, 122, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* main intro */
+    .intro-section {
+      padding: 2rem 2.5rem;
+      margin-bottom: 3rem;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .intro-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #dd8e2c, #f2b341);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      color: #1e3a4d;
+      max-width: 85%;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+    }
+
+    .stats-badge {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .stat-item {
+      background: #eff3f6;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1c4e70;
+    }
+
+    /* services grid */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, #e2a03c, #f4c542);
+      border-radius: 4px;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .service-card {
+      flex: 1;
+      min-width: 260px;
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -14px rgba(0, 0, 0, 0.12);
+      border-color: rgba(226, 160, 60, 0.2);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #0e2f40;
+    }
+
+    .service-card p {
+      color: #2c4e6e;
+      margin-bottom: 1.2rem;
+    }
+
+    .tech-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #2d6a4f;
+    }
+
+    /* showcase section (small preview) */
+    .showcase {
+      margin: 3rem 0 2rem;
+    }
+
+    .showcase-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .showcase-item {
+      background: #ffffffdd;
+      backdrop-filter: blur(4px);
+      border-radius: 1.8rem;
+      padding: 1.4rem 1.8rem;
+      flex: 1;
+      min-width: 200px;
+      border-left: 5px solid #f0b341;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .showcase-item h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .showcase-item p {
+      font-size: 0.9rem;
+      color: #2c5a7a;
+    }
+
+    /* CTA & contact */
+    .contact-area {
+      margin: 3.5rem 0 2rem;
+      background: linear-gradient(115deg, #111f2b 0%, #142c3b 100%);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .contact-text h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .contact-text p {
+      opacity: 0.85;
+      margin-top: 0.6rem;
+    }
+
+    .contact-btn {
+      background: #f3b33d;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0f1f29;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      font-family: inherit;
+    }
+
+    .contact-btn:hover {
+      background: #ffc857;
+      transform: scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 4rem;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.85rem;
+      color: #3c657e;
+    }
+
+    .small-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .small-links a {
+      text-decoration: none;
+      color: #2c6285;
+      font-weight: 500;
+    }
+
+    .small-links a:hover {
+      color: #e2a03c;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .intro-title {
+        font-size: 2rem;
+      }
+      .intro-text {
+        max-width: 100%;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .contact-area {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 40px;
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      color: white;
+      font-size: 0.8rem;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header / hero -->
+  <div class="hero">
+    <div class="brand">
+      <div class="logo-icon">
+        <span>⚡</span>
+      </div>
+      <h1>MCH SOFTS</h1>
+    </div>
+    <div class="tagline">
+      🖥️ Windows • 📱 Android • 🌐 Chrome Extensions
+    </div>
+  </div>
+
+  <!-- intro card -->
+  <div class="glass-card intro-section">
+    <div class="intro-title">
+      Code that <span class="highlight">empowers</span> every screen
+    </div>
+    <div class="intro-text">
+      MCH SOFTS delivers high-performance Windows software, intuitive Android apps, 
+      and powerful Chrome extensions. Precision engineering, modern UI, and cross-platform expertise.
+    </div>
+    <div class="stats-badge">
+      <div class="stat-item">✅ 50+ projects shipped</div>
+      <div class="stat-item">🚀 4.9 ★ client satisfaction</div>
+      <div class="stat-item">⚡ 24/7 dedicated support</div>
+    </div>
+  </div>
+
+  <!-- Core services: Windows, Android, Chrome Extensions -->
+  <div>
+    <div class="section-title">What we build</div>
+    <div class="services-grid">
+      <!-- Windows Software -->
+      <div class="service-card">
+        <div class="service-icon">🖥️</div>
+        <h3>Windows Software</h3>
+        <p>Native & modern Windows applications — from system utilities to business tools. Optimized for performance, security, and seamless UX on Windows 10/11.</p>
+        <span class="tech-badge">C# / .NET / WinUI</span>
+        <span class="tech-badge" style="margin-left: 8px;">⚡ WPF & MAUI</span>
+      </div>
+      <!-- Android Apps -->
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Android Apps</h3>
+        <p>Feature-rich, smooth, and scalable Android applications. We craft everything from productivity tools to entertainment apps with material design and clean architecture.</p>
+        <span class="tech-badge">Kotlin · Jetpack Compose</span>
+        <span class="tech-badge" style="margin-left: 8px;">📦 Firebase · Room</span>
+      </div>
+      <!-- Chrome Extensions -->
+      <div class="service-card">
+        <div class="service-icon">🌐🔧</div>
+        <h3>Chrome Extensions</h3>
+        <p>Boost browser productivity with custom Chrome extensions. Ad blockers, automation tools, tab managers, and enterprise plugins — lightweight and secure.</p>
+        <span class="tech-badge">Manifest V3 · JS/TS</span>
+        <span class="tech-badge" style="margin-left: 8px;">🔒 Privacy-first</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- showcase mini portfolio (three platforms specific examples) -->
+  <div class="showcase">
+    <div class="section-title">Featured solutions</div>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h4>🔷 SysGuard Pro</h4>
+        <p>Windows system optimizer & real-time performance monitor. Trusted by 10k+ IT professionals.</p>
+      </div>
+      <div class="showcase-item">
+        <h4>📱 TaskFlow</h4>
+        <p>Android productivity suite with offline sync, smart reminders & collaborative lists.</p>
+      </div>
+      <div class="showcase-item">
+        <h4>🧩 TabSleeper</h4>
+        <p>Chrome extension that auto-suspends idle tabs, reduces RAM usage by 45% – open source friendly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- why MCH SOFTS section -->
+  <div style="margin: 2rem 0 1rem;">
+    <div class="section-title">Why MCH SOFTS</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.8rem;">
+      <div style="flex:1; min-width: 200px; background: white; padding: 1.5rem; border-radius: 1.8rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+        <div style="font-size: 2rem;">🎯</div>
+        <h3 style="margin: 0.5rem 0 0.3rem;">Cross-Platform DNA</h3>
+        <p style="color:#2a577a;">Unified development approach ensuring consistent quality across Windows, Android, and Web extensions.</p>
+      </div>
+      <div style="flex:1; min-width: 200px; background: white; padding: 1.5rem; border-radius: 1.8rem;">
+        <div style="font-size: 2rem;">⚙️</div>
+        <h3 style="margin: 0.5rem 0 0.3rem;">Modern Architecture</h3>
+        <p style="color:#2a577a;">Clean code, scalable microservices where needed, and optimized binaries for every platform.</p>
+      </div>
+      <div style="flex:1; min-width: 200px; background: white; padding: 1.5rem; border-radius: 1.8rem;">
+        <div style="font-size: 2rem;">🤝</div>
+        <h3 style="margin: 0.5rem 0 0.3rem;">Client-Centric</h3>
+        <p style="color:#2a577a;">Transparent communication, agile iterations, and long-term support – your success is ours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- tech stack & partnership brief -->
+  <div class="glass-card" style="padding: 1.8rem 2rem; margin: 2.5rem 0 1rem; background: #fefcf7;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;">
+      <div>
+        <h3 style="font-weight: 700; font-size: 1.3rem;">🛠️ Tech arsenal & tools</h3>
+        <p style="margin-top: 0.3rem; color:#1f597b;">.NET | C++ | Kotlin | Java | React (for extension UI) | Node.js · MVVM · Material You</p>
+      </div>
+      <div>
+        <span class="tech-badge" style="background:#e2a03c20; font-weight: 600;">✨ 100% original code</span>
+        <span class="tech-badge" style="background:#e2a03c20; margin-left: 0.7rem;">🔒 Security audited</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- contact / call to action -->
+  <div class="contact-area">
+    <div class="contact-text">
+      <h3>Let’s build something great</h3>
+      <p>Have a Windows app idea, Android project, or Chrome extension concept? <br> Reach out to MCH SOFTS — we turn code into impact.</p>
+    </div>
+    <button class="contact-btn" id="contactTrigger">📧 Contact MCH SOFTS</button>
+  </div>
+
+  <!-- footer with fake contact modal simulation (professional alert) -->
+  <div class="footer">
+    <div class="small-links">
+      <a href="#">Portfolio</a>
+      <a href="#">GitHub</a>
+      <a href="#">Support</a>
+      <a href="#">Privacy & Terms</a>
+    </div>
+    <p>© 2026 MCH SOFTS — Innovation across Windows, Android & Chrome ecosystems.<br>📍 Global remote · Delivering excellence since 2020</p>
+  </div>
+</div>
+
+<!-- simple modal dialog for showcasing contact info, non-intrusive and elegant -->
+<div id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 1000; justify-content: center; align-items: center;">
+  <div style="background: white; max-width: 450px; width: 90%; border-radius: 2rem; padding: 2rem; text-align: center; box-shadow: 0 25px 40px rgba(0,0,0,0.2);">
+    <div style="font-size: 2.5rem;">📬</div>
+    <h3 style="font-size: 1.6rem; margin: 0.5rem 0;">Let’s connect</h3>
+    <p style="margin: 0.5rem 0 1rem; color:#2a577a;">You can reach MCH SOFTS directly:</p>
+    <div style="background: #f0f4f9; border-radius: 2rem; padding: 0.8rem; margin: 1rem 0;">
+      <p style="font-weight: 600;">📧 hello@mchsofts.dev</p>
+      <p style="font-size: 0.85rem;">📞 +1 (555) 432-2026</p>
+    </div>
+    <p style="font-size: 0.8rem; margin-bottom: 1rem;">We reply within 24h — ready to discuss your Windows, Android or Chrome extension project.</p>
+    <button id="closeModalBtn" style="background: #1f3e52; border: none; color: white; padding: 0.6rem 1.8rem; border-radius: 40px; font-weight: 600; cursor: pointer;">Close</button>
+  </div>
+</div>
+
+<script>
+  // Modal logic for contact CTA
+  const contactBtn = document.getElementById('contactTrigger');
+  const modal = document.getElementById('contactModal');
+  const closeModal = document.getElementById('closeModalBtn');
+
+  function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModalFunc() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  contactBtn.addEventListener('click', openModal);
+  closeModal.addEventListener('click', closeModalFunc);
+  window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModalFunc();
+    }
+  });
+  // small effect: interactive console info (professional)
+  console.log('MCH SOFTS | Windows, Android & Chrome extensions — ready to innovate');
+</script>
+
+</body>
+</html>
