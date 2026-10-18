@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Privacy & Terms | MCH SOFTS</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      color: #0a1c2f;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    /* glass card style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* header area (identical to site) */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      background: #1e2f3e;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1f2e3a, #0f1a24);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-icon span {
+      font-size: 30px;
+      font-weight: 700;
+      color: #f0b90b;
+    }
+
+    .brand h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2c5a7a;
+      background: rgba(44, 90, 122, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* page header */
+    .page-header {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .page-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title .highlight {
+      background: linear-gradient(120deg, #dd8e2c, #f2b341);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: #1e3a4d;
+      max-width: 85%;
+    }
+
+    /* important notice banner */
+    .notice-banner {
+      background: #fff8e6;
+      border-left: 6px solid #f0b90b;
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0 0;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .notice-banner i {
+      font-size: 1.8rem;
+      color: #dd8e2c;
+      margin-top: 2px;
+    }
+
+    .notice-banner div h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #6b4a00;
+      margin-bottom: 0.3rem;
+    }
+
+    .notice-banner div p {
+      font-size: 0.95rem;
+      color: #5a4a1a;
+      margin-bottom: 0;
+    }
+
+    /* navigation tabs */
+    .tabs-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .tab-btn {
+      background: white;
+      border: 1.5px solid #d9eaff;
+      color: #1f4b6e;
+      padding: 0.7rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .tab-btn i {
+      font-size: 0.95rem;
+      color: #0066cc;
+    }
+
+    .tab-btn:hover {
+      background: #f2f9ff;
+      border-color: #b0d0f0;
+    }
+
+    .tab-btn.active {
+      background: #0066cc;
+      border-color: #0066cc;
+      color: white;
+      box-shadow: 0 8px 18px -6px rgba(0, 102, 204, 0.4);
+    }
+
+    .tab-btn.active i {
+      color: white;
+    }
+
+    /* content sections */
+    .content-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .policy-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 10px 28px -10px rgba(0, 40, 80, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .policy-card h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0e2f40;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .policy-card h2 i {
+      color: #0066cc;
+      font-size: 1.4rem;
+    }
+
+    .policy-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #103a5e;
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    .policy-card p {
+      color: #2c4e6e;
+      margin-bottom: 0.9rem;
+    }
+
+    .policy-card ul {
+      list-style: none;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .policy-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.65rem;
+      color: #2c4e6e;
+    }
+
+    .policy-card li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .badge {
+      background: #eff3f6;
+      color: #1c4e70;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge i {
+      color: #0066cc;
+    }
+
+    .license-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .license-item {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #0066cc;
+    }
+
+    .license-item h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .license-item h4 i {
+      font-size: 0.9rem;
+      color: #0066cc;
+    }
+
+    .license-item p {
+      font-size: 0.88rem;
+      color: #3f5e7a;
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      background: linear-gradient(115deg, #111f2b 0%, #142c3b 100%);
+      border-radius: 2rem;
+      padding: 2rem 2.2rem;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-box-text h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-box-text p {
+      opacity: 0.85;
+      font-size: 0.98rem;
+      max-width: 500px;
+    }
+
+    .contact-email {
+      background: #f3b33d;
+      color: #0f1f29;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .contact-email i {
+      font-size: 1.1rem;
+    }
+
+    .contact-email:hover {
+      background: #ffc857;
+      transform: scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .last-updated {
+      font-size: 0.85rem;
+      color: #6f8da8;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.85rem;
+      color: #3c657e;
+    }
+
+    .small-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .small-links a {
+      text-decoration: none;
+      color: #2c6285;
+      font-weight: 500;
+    }
+
+    .small-links a:hover {
+      color: #e2a03c;
+    }
+
+    /* responsiveness */
+    @media (max-width: 780px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .page-title {
+        font-size: 2rem;
+      }
+      .page-subtitle {
+        max-width: 100%;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .policy-card {
+        padding: 1.6rem 1.4rem;
+      }
+      .contact-box {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contact-email {
+        width: 100%;
+        justify-content: center;
+      }
+      .page-header {
+        padding: 1.6rem 1.4rem;
+      }
+      .notice-banner {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header / Hero (same as original) -->
+  <div class="hero">
+    <div class="brand">
+      <div class="logo-icon">
+        <span>⚡</span>
+      </div>
+      <h1>MCH SOFTS</h1>
+    </div>
+    <div class="tagline">
+      🖥️ Windows • 📱 Android • 🌐 Chrome Extensions
+    </div>
+  </div>
+
+  <!-- Page header -->
+  <div class="glass-card page-header">
+    <div class="page-title">Privacy & <span class="highlight">Terms</span></div>
+    <div class="page-subtitle">
+      This page sets out the general privacy practices and terms of use for the MCH SOFTS website and for all of our projects — Windows software, Android apps, and Chrome extensions.
+    </div>
+    <!-- Important notice banner -->
+    <div class="notice-banner">
+      <i class="fas fa-circle-info"></i>
+      <div>
+        <h3>Applies to our website and all projects — but each product has its own policy</h3>
+        <p>
+          This is a <strong>general policy</strong> covering our website and the projects we publish. However, our programs and apps are built for <strong>all ages</strong>, including children, and differ in features (free, ad-supported, paid, open-source). Therefore, <strong>every individual app or program has its own specific privacy policy and terms</strong> that you must review before use. Where a product-specific policy differs from this general page, the product-specific policy prevails for that product.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation tabs -->
+  <div class="tabs-container">
+    <button class="tab-btn active" data-tab="privacy"><i class="fas fa-shield-haltered"></i> Privacy Policy</button>
+    <button class="tab-btn" data-tab="terms"><i class="fas fa-file-contract"></i> Terms of Use</button>
+    <button class="tab-btn" data-tab="licenses"><i class="fas fa-code-branch"></i> Open Source & Licenses</button>
+  </div>
+
+  <!-- ============ PRIVACY POLICY TAB ============ -->
+  <div id="privacy" class="content-section active">
+    <div class="policy-card">
+      <h2><i class="fas fa-shield-haltered"></i> Privacy Policy</h2>
+      <p>
+        At MCH SOFTS, we build Windows software, Android applications, and Chrome extensions with privacy as a core principle. This page explains our general approach to data across our website and projects. <strong>Because our apps and programs are designed for all ages — including children — and vary in nature, each individual product provides its own privacy policy that you should read before installing or using it.</strong>
+      </p>
+
+      <h3><i class="fas fa-layer-group" style="margin-right: 8px; color: #0066cc;"></i> Scope of this policy</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> This general policy applies to the MCH SOFTS website and to our projects as a whole.</li>
+        <li><i class="fas fa-check-circle"></i> It is <strong>not a substitute</strong> for the specific privacy policy of each app or program.</li>
+        <li><i class="fas fa-check-circle"></i> Every product page links to its own privacy policy, which describes exactly what that product does with data.</li>
+        <li><i class="fas fa-check-circle"></i> If a product-specific policy conflicts with this page, the product-specific policy governs for that product.</li>
+      </ul>
+
+      <h3><i class="fas fa-microchip" style="margin-right: 8px; color: #0066cc;"></i> General principles</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> We do not sell, rent, or trade your personal data to third parties.</li>
+        <li><i class="fas fa-check-circle"></i> Most of our software works fully offline, with no telemetry or tracking.</li>
+        <li><i class="fas fa-check-circle"></i> We only collect the minimum information necessary to deliver and improve our products.</li>
+        <li><i class="fas fa-check-circle"></i> We never store your keystrokes, document content, or private files.</li>
+      </ul>
+
+      <h3><i class="fas fa-desktop" style="margin-right: 8px; color: #0066cc;"></i> Windows software</h3>
+      <p>
+        Our Windows programs are designed to run locally. Unless explicitly stated in a product's own privacy policy, they do not transmit data to external servers. Any optional diagnostic or usage data is anonymized, opt-in, and used solely to improve stability and performance.
+      </p>
+
+      <h3><i class="fas fa-mobile-alt" style="margin-right: 8px; color: #0066cc;"></i> Android applications</h3>
+      <p>
+        Android apps published by MCH SOFTS may be free, ad-supported, paid, or open-source, and may be intended for all ages. Depending on the app, the following may apply — but <strong>always check the app's own privacy policy</strong>:
+      </p>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Ad-supported apps may use Google's advertising ID to show relevant ads. You can reset or limit this ID in your device settings.</li>
+        <li><i class="fas fa-check-circle"></i> Free apps may collect anonymous crash reports and basic analytics to help us fix issues.</li>
+        <li><i class="fas fa-check-circle"></i> Paid apps typically do not display ads and may collect no personal data at all.</li>
+        <li><i class="fas fa-check-circle"></i> Apps distributed through Google Play are subject to Google Play's own policies in addition to ours.</li>
+        <li><i class="fas fa-check-circle"></i> Apps directed at children comply with applicable children's privacy laws (such as COPPA and GDPR-K) as described in each app's specific policy.</li>
+      </ul>
+
+      <h3><i class="fas fa-puzzle-piece" style="margin-right: 8px; color: #0066cc;"></i> Chrome extensions</h3>
+      <p>
+        Our Chrome extensions operate with the minimum permissions required for their functionality. We do not collect browsing history, keystrokes, or any personal information unless a specific extension explicitly requests and explains such data collection. In those cases, data processing is described on the extension's store page and in its own privacy policy.
+      </p>
+
+      <h3><i class="fas fa-database" style="margin-right: 8px; color: #0066cc;"></i> Data we may collect</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Contact information you voluntarily provide (e.g., when emailing us at contact@mchsofts.com).</li>
+        <li><i class="fas fa-check-circle"></i> Anonymous usage and crash analytics for certain apps (only if enabled and clearly disclosed in that product's policy).</li>
+        <li><i class="fas fa-check-circle"></i> Purchase records for paid products, managed by the platform (Google Play, etc.) — we do not store payment details.</li>
+      </ul>
+
+      <h3><i class="fas fa-child" style="margin-right: 8px; color: #0066cc;"></i> Children's privacy</h3>
+      <p>
+        Some of our products are designed for all ages, including children. We take children's privacy seriously. We do not knowingly collect personal information from children beyond what is strictly necessary for the product to function, and we never sell children's data. Each child-directed app provides a specific privacy policy describing its practices and any parental controls. If you believe a child has provided us with personal data, please contact us and we will delete it.
+      </p>
+
+      <h3><i class="fas fa-envelope" style="margin-right: 8px; color: #0066cc;"></i> Your rights & contact</h3>
+      <p>
+        You may request access to, correction of, or deletion of any personal data we hold about you. For any privacy-related question, contact us at <strong>contact@mchsofts.com</strong>. We respond within 30 days.
+      </p>
+      <div class="badge-row">
+        <span class="badge"><i class="fas fa-lock"></i> No data selling</span>
+        <span class="badge"><i class="fas fa-wifi"></i> Offline-first</span>
+        <span class="badge"><i class="fas fa-user-shield"></i> GDPR-friendly</span>
+        <span class="badge"><i class="fas fa-child"></i> Child-safe principles</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TERMS OF USE TAB ============ -->
+  <div id="terms" class="content-section">
+    <div class="policy-card">
+      <h2><i class="fas fa-file-contract"></i> Terms of Use</h2>
+      <p>
+        These Terms of Use are the general terms for the MCH SOFTS website and our projects. By downloading, installing, or using any software, app, or extension provided by MCH SOFTS, you agree to these terms. <strong>Each individual product may also have its own specific terms, which you should review.</strong> Where a product-specific term differs, the product-specific term governs for that product.
+      </p>
+
+      <h3><i class="fas fa-check-circle" style="margin-right: 8px; color: #0066cc;"></i> 1. Acceptance of terms</h3>
+      <p>
+        These Terms of Use apply to all MCH SOFTS products — including freeware, ad-supported apps, paid software, and open-source projects — unless a specific product includes its own separate license or terms. Products intended for all ages, including children, may include additional usage terms described in their own pages.
+      </p>
+
+      <h3><i class="fas fa-box" style="margin-right: 8px; color: #0066cc;"></i> 2. Licenses and usage rights</h3>
+      <p>Our products fall into several categories, each with its own usage conditions:</p>
+      <div class="license-grid">
+        <div class="license-item">
+          <h4><i class="fas fa-gift"></i> Freeware</h4>
+          <p>Free to download and use for personal and commercial purposes. Redistribution is allowed only with prior written permission.</p>
+        </div>
+        <div class="license-item">
+          <h4><i class="fas fa-ad"></i> Ad-supported apps</h4>
+          <p>Free to use, supported by advertising. Removing or blocking ads outside the app's built-in options is not permitted.</p>
+        </div>
+        <div class="license-item">
+          <h4><i class="fas fa-shopping-cart"></i> Paid products</h4>
+          <p>Purchased via Google Play or another official store. Your license is personal and non-transferable. Refunds follow the store's policy.</p>
+        </div>
+        <div class="license-item">
+          <h4><i class="fas fa-code-branch"></i> Open-source</h4>
+          <p>Released under a specific open-source license (e.g., MIT, GPL). You may use, modify, and redistribute the code according to that license.</p>
+        </div>
+      </div>
+
+      <h3><i class="fas fa-code" style="margin-right: 8px; color: #0066cc;"></i> 3. Open-source projects</h3>
+      <p>
+        For our open-source software and apps, you are free to obtain, modify, and build upon the source code, provided you comply with the applicable open-source license. <strong>You must not remove or alter any copyright notices, author attributions, or license headers.</strong> All rights not explicitly granted by the open-source license remain with MCH SOFTS.
+      </p>
+
+      <h3><i class="fas fa-ban" style="margin-right: 8px; color: #0066cc;"></i> 4. Prohibited uses</h3>
+      <ul>
+        <li><i class="fas fa-times-circle"></i> Reverse-engineering, decompiling, or disassembling closed-source products (except where permitted by law).</li>
+        <li><i class="fas fa-times-circle"></i> Removing or obscuring copyright, trademark, or attribution notices in any product.</li>
+        <li><i class="fas fa-times-circle"></i> Distributing modified versions of closed-source software without permission.</li>
+        <li><i class="fas fa-times-circle"></i> Using our products for illegal activities or to infringe on the rights of others.</li>
+      </ul>
+
+      <h3><i class="fas fa-exclamation-triangle" style="margin-right: 8px; color: #0066cc;"></i> 5. Disclaimer of warranty</h3>
+      <p>
+        Our software and apps are provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not guarantee that any product will be error-free or uninterrupted.
+      </p>
+
+      <h3><i class="fas fa-balance-scale" style="margin-right: 8px; color: #0066cc;"></i> 6. Limitation of liability</h3>
+      <p>
+        In no event shall MCH SOFTS be liable for any direct, indirect, incidental, special, or consequential damages arising from the use or inability to use our products, even if advised of the possibility of such damages. Some jurisdictions do not allow certain limitations, so parts of this section may not apply to you.
+      </p>
+
+      <h3><i class="fas fa-gavel" style="margin-right: 8px; color: #0066cc;"></i> 7. Changes to these terms</h3>
+      <p>
+        We may update these Terms of Use from time to time. The latest version will always be published on this page. Continued use of our products after changes constitutes acceptance of the revised terms.
+      </p>
+
+      <h3><i class="fas fa-envelope" style="margin-right: 8px; color: #0066cc;"></i> 8. Contact</h3>
+      <p>
+        Questions about licensing or terms? Email us at <strong>contact@mchsofts.com</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ OPEN SOURCE & LICENSES TAB ============ -->
+  <div id="licenses" class="content-section">
+    <div class="policy-card">
+      <h2><i class="fas fa-code-branch"></i> Open Source & Licenses</h2>
+      <p>
+        MCH SOFTS believes in the power of open source. Some of our Windows programs, Android apps, and Chrome extensions are released under open-source licenses so the community can learn from, modify, and improve them. As with all our projects, each open-source product has its own license file and repository that you should review.
+      </p>
+
+      <h3><i class="fas fa-cubes" style="margin-right: 8px; color: #0066cc;"></i> What you can do</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Download the source code for free from the official repository or product page.</li>
+        <li><i class="fas fa-check-circle"></i> Study, modify, and adapt the code for your own projects.</li>
+        <li><i class="fas fa-check-circle"></i> Redistribute your modified versions under the same open-source license.</li>
+        <li><i class="fas fa-check-circle"></i> Use open-source components in commercial projects if the license permits.</li>
+      </ul>
+
+      <h3><i class="fas fa-copyright" style="margin-right: 8px; color: #0066cc;"></i> What you must respect</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> <strong>Do not remove or alter copyright notices, author attributions, or license headers.</strong></li>
+        <li><i class="fas fa-check-circle"></i> Include the original license text and attribution in any redistribution.</li>
+        <li><i class="fas fa-check-circle"></i> Respect the specific terms of each license (MIT, GPL, Apache, etc.).</li>
+        <li><i class="fas fa-check-circle"></i> Do not claim original authorship of code you did not write.</li>
+      </ul>
+
+      <h3><i class="fas fa-list-check" style="margin-right: 8px; color: #0066cc;"></i> Which licenses do we use?</h3>
+      <div class="license-grid">
+        <div class="license-item">
+          <h4><i class="fas fa-scroll"></i> MIT License</h4>
+          <p>Permissive: use, modify, distribute, and sublicense freely, provided the copyright notice is retained.</p>
+        </div>
+        <div class="license-item">
+          <h4><i class="fas fa-globe"></i> Apache 2.0</h4>
+          <p>Permissive with patent protection. Requires retention of notices and disclosure of modifications.</p>
+        </div>
+        <div class="license-item">
+          <h4><i class="fas fa-copyleft"></i> GPL v3</h4>
+          <p>Copyleft: derivative works must also be open-source under GPL. Great for community-driven projects.</p>
+        </div>
+        <div class="license-item">
+          <h4><i class="fas fa-balance-scale"></i> Other licenses</h4>
+          <p>Some projects may use BSD, MPL, or custom licenses. Always check the LICENSE file in each repository.</p>
+        </div>
+      </div>
+
+      <h3><i class="fas fa-folder-open" style="margin-right: 8px; color: #0066cc;"></i> How to find the source code</h3>
+      <p>
+        For any open-source product, the source code is linked directly on its product page or available in our public repositories. If you can't find it, email us at <strong>contact@mchsofts.com</strong> and we'll point you to the right place.
+      </p>
+
+      <h3><i class="fas fa-handshake" style="margin-right: 8px; color: #0066cc;"></i> Contributing</h3>
+      <p>
+        We welcome contributions, bug reports, and feature suggestions for our open-source projects. Please open an issue or pull request on the respective repository. By contributing, you agree that your contributions will be licensed under the same open-source license.
+      </p>
+
+      <div class="badge-row" style="margin-top: 1.5rem;">
+        <span class="badge"><i class="fas fa-code"></i> Source available</span>
+        <span class="badge"><i class="fas fa-copyright"></i> Attribution required</span>
+        <span class="badge"><i class="fas fa-heart"></i> Community friendly</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact / CTA box -->
+  <div class="contact-box">
+    <div class="contact-box-text">
+      <h3><i class="fas fa-envelope" style="margin-right: 12px;"></i>Questions about privacy or licensing?</h3>
+      <p>We're happy to clarify anything about data handling, product licenses, or terms of use — for the website or any individual project. Reach out anytime.</p>
+    </div>
+    <a href="mailto:contact@mchsofts.com" class="contact-email">
+      <i class="fas fa-paper-plane"></i> contact@mchsofts.com
+    </a>
+  </div>
+
+  <div class="last-updated">
+    <i class="fas fa-calendar-alt" style="margin-right: 6px;"></i> Last updated: June 2026 — this general policy is reviewed alongside each product's own policy.
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="small-links">
+      <a href="#">Portfolio</a>
+      <a href="#">GitHub</a>
+      <a href="#">Support</a>
+      <a href="#">Privacy & Terms</a>
+    </div>
+    <p>© 2026 MCH SOFTS — Innovation across Windows, Android & Chrome ecosystems.<br>📍 Global remote · Delivering excellence since 2020</p>
+  </div>
+</div>
+
+<script>
+  // Tab switching logic
+  const tabs = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('.content-section');
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      sections.forEach(s => s.classList.remove('active'));
+      const targetId = btn.getAttribute('data-tab');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+
+  // Optional: open tab from hash (e.g., #terms)
+  if (window.location.hash) {
+    const hash = window.location.hash.substring(1);
+    const targetTab = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
+    if (targetTab) {
+      tabs.forEach(b => b.classList.remove('active'));
+      targetTab.classList.add('active');
+      sections.forEach(s => s.classList.remove('active'));
+      document.getElementById(hash).classList.add('active');
+    }
+  }
+</script>
+</body>
+</html>
