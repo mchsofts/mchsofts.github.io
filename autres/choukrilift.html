@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ChoukriLift | Gestion de maintenance ascenseurs & portes automatiques — MCH SOFTS</title>
+  <meta name="description" content="ChoukriLift centralise votre parc d'ascenseurs et de portes automatiques : équipements, interventions, dépannages, planning, astreintes et indicateurs. Demandez une démonstration.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      color: #0a1c2f;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    /* glass card style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* header area */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .brand { display: flex; align-items: center; gap: 1rem; }
+
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1f2e3a, #0f1a24);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-icon span { font-size: 30px; font-weight: 700; color: #f0b90b; }
+
+    .brand h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2c5a7a;
+      background: rgba(44, 90, 122, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* navigation */
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem 1.4rem;
+      margin-bottom: 2rem;
+      padding: .8rem 1.2rem;
+      background: rgba(255,255,255,.9);
+      border: 1px solid #dce5ed;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 24px -18px #142c3b;
+      align-items: center;
+    }
+
+    .navigation a {
+      color: #165780;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 1rem;
+      padding: .55rem .85rem;
+    }
+
+    .navigation a:hover { background: #edf3f8; }
+    .navigation .current-section { background: #142c3b; color: #fff; }
+    .navigation a:focus-visible { outline: 3px solid #b56a00; outline-offset: 3px; }
+
+    /* page header */
+    .page-header {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .page-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title .highlight {
+      background: linear-gradient(120deg, #dd8e2c, #f2b341);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: #1e3a4d;
+      max-width: 85%;
+    }
+
+    /* product hero section */
+    .product-hero {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .product-hero-text { flex: 2; min-width: 300px; }
+
+    .product-hero-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0e2f40;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-hero-text p {
+      font-size: 1.1rem;
+      color: #1e3a4d;
+      margin-bottom: 1.4rem;
+    }
+
+    .product-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e7f2fe;
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+      border: 1px solid #d0e4ff;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0066cc;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      box-shadow: 0 10px 22px -8px rgba(0, 102, 204, 0.45);
+      transition: all 0.2s ease;
+      border: 1px solid #0055aa;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .btn-primary i { font-size: 1.1rem; }
+
+    .btn-primary:hover {
+      background: #0055aa;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -8px rgba(0, 85, 170, 0.55);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      border: 1.5px solid #b0d0f0;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-secondary:hover {
+      background: #e6f0fe;
+      border-color: #0066cc;
+      transform: translateY(-2px);
+    }
+
+    .product-hero-icon {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* price offer block */
+    .offer-card {
+      background: linear-gradient(135deg, #0f2b3b 0%, #142c3b 100%);
+      border-radius: 2.5rem;
+      padding: 2.4rem 2.5rem;
+      color: white;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      box-shadow: 0 24px 44px -18px rgba(10, 30, 45, 0.5);
+    }
+
+    .offer-text h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.3px;
+    }
+
+    .offer-text p { opacity: 0.88; max-width: 560px; }
+
+    .offer-price {
+      text-align: center;
+      min-width: 240px;
+    }
+
+    .price-old {
+      font-size: 1.15rem;
+      color: #9fb4c4;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .price-new {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #f3b33d;
+      line-height: 1.1;
+    }
+
+    .price-note {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 0.3rem;
+    }
+
+    .price-badge {
+      display: inline-block;
+      background: #f3b33d;
+      color: #0f1f29;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* included list */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin: 1.6rem 0 0.5rem;
+    }
+
+    .included-item {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.1rem 1.3rem;
+      border-left: 5px solid #0066cc;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .included-item i {
+      color: #0066cc;
+      font-size: 1.1rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .included-item p {
+      font-size: 0.92rem;
+      color: #2c4e6e;
+      margin: 0;
+    }
+
+    /* section title */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, #e2a03c, #f4c542);
+      border-radius: 4px;
+    }
+
+    /* features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.8rem 1.6rem;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -14px rgba(0, 0, 0, 0.12);
+      border-color: rgba(226, 160, 60, 0.25);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0066cc;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: #0e2f40;
+    }
+
+    .feature-card p { color: #2c4e6e; font-size: 0.95rem; }
+
+    /* screenshots placeholders */
+    .screens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.6rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .screen-card {
+      background: white;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .screen-placeholder {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #e8f1f8 0%, #d6e6f2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #4a7292;
+      border-bottom: 1px dashed #b9d3e8;
+    }
+
+    .screen-placeholder i { font-size: 2.6rem; opacity: 0.7; }
+    .screen-placeholder span { font-size: 0.9rem; font-weight: 600; }
+
+    .screen-caption {
+      padding: 1rem 1.4rem;
+      font-size: 0.92rem;
+      color: #2c4e6e;
+      font-weight: 500;
+    }
+
+    .screen-caption em {
+      display: block;
+      font-size: 0.78rem;
+      color: #7a94a8;
+      font-style: normal;
+      margin-top: 2px;
+    }
+
+    /* detailed sections */
+    .detail-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 10px 28px -10px rgba(0, 40, 80, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .detail-card h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0e2f40;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .detail-card h2 i { color: #0066cc; font-size: 1.4rem; }
+
+    .detail-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #103a5e;
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    .detail-card p { color: #2c4e6e; margin-bottom: 0.9rem; }
+
+    .detail-card ul { list-style: none; margin: 0.5rem 0 1rem 0; }
+
+    .detail-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.65rem;
+      color: #2c4e6e;
+    }
+
+    .detail-card li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* steps grid */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .step-item {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #0066cc;
+      position: relative;
+    }
+
+    .step-item .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0066cc;
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .step-item h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 4px;
+    }
+
+    .step-item p { font-size: 0.86rem; color: #3f5e7a; margin-bottom: 0; }
+
+    /* optional modules */
+    .optional-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .optional-item {
+      background: #fff8e6;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #dd8e2c;
+    }
+
+    .optional-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #6b4a00;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .optional-item h4 i { font-size: 0.9rem; color: #dd8e2c; }
+
+    .optional-item p { font-size: 0.88rem; color: #5a4a1a; margin-bottom: 0; }
+
+    /* mobile banner */
+    .mobile-banner {
+      background: #e7f2fe;
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .mobile-banner-text { flex: 2; min-width: 280px; }
+
+    .mobile-banner-text h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-banner-text ul { list-style: none; margin: 0.5rem 0 0; }
+
+    .mobile-banner-text li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.6rem;
+      color: #1f4668;
+      font-size: 0.97rem;
+    }
+
+    .mobile-banner-text li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .mobile-banner-icon {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      font-size: 5rem;
+      color: #0066cc;
+      opacity: 0.8;
+    }
+
+    /* privacy box */
+    .privacy-box {
+      background: #e7f2fe;
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .privacy-box-text { flex: 2; }
+
+    .privacy-box-text h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-box-text ul { list-style: none; margin: 0.5rem 0 1rem 0; }
+
+    .privacy-box-text li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.6rem;
+      color: #1f4668;
+      font-size: 0.97rem;
+    }
+
+    .privacy-box-text li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .privacy-box-icon {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      font-size: 5rem;
+      color: #0066cc;
+      opacity: 0.8;
+    }
+
+    /* FAQ */
+    .faq-item {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 14px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0e2f40;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-item h3 i { color: #0066cc; font-size: 1rem; }
+
+    .faq-item p {
+      margin-top: 0.5rem;
+      color: #2c4e6e;
+      font-size: 0.95rem;
+      padding-left: 28px;
+    }
+
+    /* download CTA */
+    .download-cta {
+      background: linear-gradient(115deg, #111f2b 0%, #142c3b 100%);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    .download-cta-text h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .download-cta-text p {
+      opacity: 0.85;
+      margin-top: 0.6rem;
+      max-width: 550px;
+    }
+
+    .btn-light {
+      background: #f3b33d;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0f1f29;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-light i { font-size: 1.1rem; }
+
+    .btn-light:hover {
+      background: #ffc857;
+      transform: scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .store-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.85rem;
+      color: #3c657e;
+    }
+
+    .small-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .small-links a {
+      text-decoration: none;
+      color: #2c6285;
+      font-weight: 500;
+    }
+
+    .small-links a:hover { color: #e2a03c; }
+
+    /* responsiveness */
+    @media (max-width: 780px) {
+      .container { padding: 1.5rem; }
+      .page-title { font-size: 2rem; }
+      .page-subtitle { max-width: 100%; }
+      .hero { flex-direction: column; align-items: flex-start; }
+      .product-hero { padding: 1.6rem 1.4rem; }
+      .page-header { padding: 1.6rem 1.4rem; }
+      .detail-card { padding: 1.6rem 1.4rem; }
+      .privacy-box { padding: 1.6rem 1.4rem; flex-direction: column; text-align: center; }
+      .mobile-banner { padding: 1.6rem 1.4rem; flex-direction: column; text-align: center; }
+      .download-cta { flex-direction: column; text-align: center; }
+      .hero-buttons { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .offer-card { padding: 1.8rem 1.4rem; flex-direction: column; text-align: center; }
+      .cta-buttons { justify-content: center; }
+    }
+
+    @media (max-width:480px) {
+      .navigation { gap: .3rem; padding: .6rem; }
+      .navigation a { padding: .5rem; font-size: .9rem; }
+      .price-new { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header / Hero -->
+  <div class="hero">
+    <div class="brand">
+      <div class="logo-icon"><span>⚡</span></div>
+      <h1>MCH SOFTS</h1>
+    </div>
+    <div class="tagline">🖥️ Windows • 📱 Android • 🌐 Extensions Chrome</div>
+  </div>
+
+  <nav class="navigation" aria-label="Navigation principale">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../windows/index.html">Logiciels Windows</a>
+    <a href="../../android/index.html">Applications Android</a>
+    <a href="../../chrome/index.html">Extensions Chrome</a>
+    <a href="../../Support.html">Assistance</a>
+  </nav>
+
+  <!-- Page header -->
+  <div class="glass-card page-header">
+    <div class="page-title">Choukri<span class="highlight">Lift</span></div>
+    <div class="page-subtitle">
+      Gestion de maintenance pour ascenseurs et portes automatiques. Votre parc, vos techniciens, vos interventions — une vision claire, du bureau jusqu'au terrain.
+    </div>
+  </div>
+
+  <!-- Product hero -->
+  <div class="glass-card product-hero">
+    <div class="product-hero-text">
+      <div class="product-hero-badge"><i class="fas fa-elevator"></i> Logiciel métier web · Ascenseurs & portes automatiques</div>
+      <h2>Votre parc, vos techniciens, vos interventions. Une vision claire avec ChoukriLift.</h2>
+      <p>
+        Centralisez vos équipements, planifiez les visites et suivez les dépannages dans une application web métier. Donnez à votre équipe un point de référence commun pour organiser les opérations et retrouver l'historique de chaque appareil.
+      </p>
+      <div class="hero-buttons">
+        <a href="../../Support.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Demander une démonstration</a>
+        <a href="#fonctionnalites" class="btn-secondary"><i class="fas fa-arrow-down"></i> Découvrir les fonctionnalités</a>
+      </div>
+    </div>
+    <div class="product-hero-icon">
+      <div class="screen-placeholder" style="width:100%;max-width:260px;aspect-ratio:1/1;border-radius:24px;border:none;">
+        <i class="fas fa-elevator" style="font-size:4.5rem;"></i>
+        <span>Visuel ChoukriLift</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offer / pricing block -->
+  <div class="offer-card">
+    <div class="offer-text">
+      <span class="price-badge">Offre de lancement</span>
+      <h2>Un investissement unique, un outil durable.</h2>
+      <p>
+        Paiement unique de <strong>1 300 €</strong> au lieu de <strong>5 000 €</strong>. Licence valable <strong>5 ans</strong>, installation et configuration sur votre serveur incluses, remise de l'accès administrateur et accompagnement à la prise en main.
+      </p>
+    </div>
+    <div class="offer-price">
+      <div class="price-old">5 000 €</div>
+      <div class="price-new">1 300 €</div>
+      <div class="price-note">Paiement unique · Licence 5 ans incluse</div>
+    </div>
+  </div>
+
+  <div class="detail-card" style="margin-top:0;">
+    <h2><i class="fas fa-box-open"></i> Ce que comprend l'offre</h2>
+    <div class="included-grid">
+      <div class="included-item"><i class="fas fa-check-circle"></i><p><strong>Licence 5 ans</strong> — utilisation du script sur la durée convenue.</p></div>
+      <div class="included-item"><i class="fas fa-check-circle"></i><p><strong>Installation & configuration</strong> du script sur votre serveur par nos soins.</p></div>
+      <div class="included-item"><i class="fas fa-check-circle"></i><p><strong>Remise de l'accès administrateur</strong> à la fin de l'installation.</p></div>
+      <div class="included-item"><i class="fas fa-check-circle"></i><p><strong>Explication de l'utilisation</strong> et prise en main guidée.</p></div>
+      <div class="included-item"><i class="fas fa-check-circle"></i><p><strong>Support technique continu</strong> pour vous accompagner.</p></div>
+      <div class="included-item"><i class="fas fa-check-circle"></i><p><strong>Évolutions sur demande</strong> — ajouts et adaptations possibles sur devis.</p></div>
+    </div>
+  </div>
+
+  <!-- Problem statement -->
+  <h2 class="section-title">Pourquoi ChoukriLift ?</h2>
+  <div class="detail-card">
+    <h2><i class="fas fa-circle-exclamation"></i> Quand les informations sont dispersées, chaque intervention devient plus difficile à coordonner.</h2>
+    <p>
+      Quel appareil attend une visite ? À qui le dépannage a-t-il été confié ? Quelles opérations ont déjà été réalisées ? ChoukriLift rassemble ces informations pour vous aider à décider et à agir avec davantage de visibilité.
+    </p>
+  </div>
+
+  <!-- Features -->
+  <div id="fonctionnalites">
+    <h2 class="section-title">Fonctionnalités principales</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-folder-open"></i></div>
+        <h3>Un dossier pour chaque appareil</h3>
+        <p>Gestion des équipements, adresse, ville, type, rattachement aux responsables et aux clients, statut et historique des interventions. Retrouvez le contexte d'un appareil avant de préparer une visite.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-triangle-exclamation"></i></div>
+        <h3>Des priorités de maintenance plus visibles</h3>
+        <p>Listes et filtres pour les appareils en alerte, en maintenance, à l'arrêt, nouveaux, à visiter ou rattachés à un technicien. Repérez les appareils qui demandent une attention particulière.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
+        <h3>Des interventions mieux documentées</h3>
+        <p>Enregistrement des visites et tâches réalisées, consultation de l'historique, bons distincts pour ascenseurs et portes, impression et export groupé de bons. Conservez une trace exploitable du travail effectué.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+        <h3>Un suivi des pannes de l'ouverture à la clôture</h3>
+        <p>Demandes de dépannage, affectation et réaffectation, notes, suivi des pannes en cours et archivage des clôtures. Sachez qui prend en charge un problème et suivez son avancement.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-calendar-days"></i></div>
+        <h3>Une organisation des rendez-vous et des missions</h3>
+        <p>Calendrier personnel et vue de gestion, création et modification de rendez-vous, demandes adressées aux techniciens et missions avec date, équipement, description et notes de matériel. Préparez les journées avec des informations partagées.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-map-location-dot"></i></div>
+        <h3>Des cartes pour préparer le terrain</h3>
+        <p>Localisation des appareils et recherche d'appareils à proximité, lorsque les coordonnées sont disponibles. Situez le parc et préparez les déplacements.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Des indicateurs pour piloter l'activité</h3>
+        <p>Tableau analytique du parc, avancement et performances, analyse des dépannages et charge de travail des équipes. Prenez du recul sur les opérations et repérez les déséquilibres de charge.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-users-rectangle"></i></div>
+        <h3>Un espace dédié aux clients</h3>
+        <p>Tableau de bord client, appareils associés et consultation des informations et bons disponibles selon les accès prévus. Facilitez la consultation du suivi de leur parc.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+        <h3>Des accès adaptés aux rôles</h3>
+        <p>Comptes et parcours distincts pour administration, personnel et clients, affectations de supervision. Organisez l'accès aux informations selon les responsabilités.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+        <h3>La gestion des astreintes</h3>
+        <p>Module de planification et de consultation des permanences. Rendez l'organisation des équipes d'astreinte plus lisible.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-mobile-screen-button"></i></div>
+        <h3>Un suivi des téléphones et cartes SIM</h3>
+        <p>Enregistrement de tests téléphoniques, consultation de pannes et gestion des cartes SIM. Centralisez aussi le suivi des moyens de communication associés au parc.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bell"></i></div>
+        <h3>Présence et alertes de suivi des équipes</h3>
+        <p>Module de confirmation de présence, historique, paramètres et alertes. Disposer d'un suivi complémentaire des confirmations et alertes opérationnelles.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screenshots -->
+  <h2 class="section-title">Aperçu de l'interface</h2>
+  <div class="screens-grid">
+    <div class="screen-card">
+      <div class="screen-placeholder"><i class="fas fa-table-columns"></i><span>Tableau de bord</span></div>
+      <div class="screen-caption">Vue d'ensemble du parc et des indicateurs<em>Illustration de l'interface</em></div>
+    </div>
+    <div class="screen-card">
+      <div class="screen-placeholder"><i class="fas fa-elevator"></i><span>Liste des appareils</span></div>
+      <div class="screen-caption">Fiches équipements, filtres et statuts<em>Illustration de l'interface</em></div>
+    </div>
+    <div class="screen-card">
+      <div class="screen-placeholder"><i class="fas fa-calendar-check"></i><span>Planning & missions</span></div>
+      <div class="screen-caption">Calendrier des visites et interventions<em>Illustration de l'interface</em></div>
+    </div>
+    <div class="screen-card">
+      <div class="screen-placeholder"><i class="fas fa-screwdriver-wrench"></i><span>Suivi des pannes</span></div>
+      <div class="screen-caption">Dépannages en cours et historique<em>Illustration de l'interface</em></div>
+    </div>
+    <div class="screen-card">
+      <div class="screen-placeholder"><i class="fas fa-chart-pie"></i><span>Analytique</span></div>
+      <div class="screen-caption">Charge de travail et performances<em>Illustration de l'interface</em></div>
+    </div>
+    <div class="screen-card">
+      <div class="screen-placeholder"><i class="fas fa-mobile-screen"></i><span>Vue mobile</span></div>
+      <div class="screen-caption">Interface adaptée aux techniciens sur le terrain<em>Illustration de l'interface</em></div>
+    </div>
+  </div>
+
+  <!-- Detailed modules -->
+  <h2 class="section-title">Une organisation plus lisible, du bureau jusqu'au terrain</h2>
+  <div class="detail-card">
+    <p>
+      Avec ChoukriLift, chaque appareil retrouve son historique, chaque dépannage son suivi et chaque équipe ses informations de travail. Vous disposez d'une base commune pour préparer les visites, coordonner les interventions et consulter l'activité de votre parc.
+    </p>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> Centraliser les informations utiles au suivi des équipements.</li>
+      <li><i class="fas fa-check-circle"></i> Faciliter la coordination entre responsables et techniciens.</li>
+      <li><i class="fas fa-check-circle"></i> Donner de la visibilité sur les visites, les pannes et l'activité.</li>
+    </ul>
+    <p style="font-size:0.9rem;color:#4a7292;"><i class="fas fa-info-circle"></i> Ces bénéfices sont des objectifs d'usage, pas des résultats chiffrés démontrés.</p>
+  </div>
+
+  <!-- Steps -->
+  <div class="detail-card">
+    <h2><i class="fas fa-list-ol"></i> Parcours en trois étapes</h2>
+    <div class="steps-grid">
+      <div class="step-item">
+        <span class="step-number">1</span>
+        <h4>Organisez votre parc</h4>
+        <p>Appareils, clients et responsables.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">2</span>
+        <h4>Préparez les opérations</h4>
+        <p>Visites, rendez-vous, missions et astreintes.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">3</span>
+        <h4>Suivez le terrain</h4>
+        <p>Interventions, pannes, bons et indicateurs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional modules -->
+  <h2 class="section-title">Fonctions optionnelles</h2>
+  <div class="optional-grid">
+    <div class="optional-item">
+      <h4><i class="fas fa-robot"></i> Plan de maintenance assisté par IA</h4>
+      <p>Préparation de données opérationnelles et appel à un service externe pour proposer un plan. Nécessite une clé API, une configuration et la disponibilité du fournisseur. Les résultats sont des suggestions à valider.</p>
+    </div>
+    <div class="optional-item">
+      <h4><i class="fas fa-paper-plane"></i> Notifications</h4>
+      <p>Intégrations pour Telegram, OneSignal et SMS via Free Mobile. Leur fonctionnement dépend des identifiants, comptes et services configurés.</p>
+    </div>
+    <div class="optional-item">
+      <h4><i class="fas fa-map"></i> Cartographie & localisation</h4>
+      <p>Dépendent des données de position, permissions et services utilisés.</p>
+    </div>
+  </div>
+
+  <!-- Mobile & app -->
+  <div class="mobile-banner">
+    <div class="mobile-banner-text">
+      <h2><i class="fas fa-mobile-screen-button" style="margin-right: 12px; color: #0066cc;"></i>Conçu pour le terrain, 100 % responsive</h2>
+      <p>ChoukriLift est pensé pour être utilisé sur le terrain comme au bureau. L'interface s'adapte parfaitement aux smartphones et tablettes : les techniciens peuvent consulter les fiches appareils, les missions et les bons d'intervention depuis leur mobile.</p>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Interface adaptée aux écrans de téléphone et de tablette.</li>
+        <li><i class="fas fa-check-circle"></i> Accès aux informations essentielles en déplacement.</li>
+        <li><i class="fas fa-check-circle"></i> Navigation fluide sans perte de fonctionnalité.</li>
+      </ul>
+      <p style="margin-top:1rem;font-size:0.95rem;color:#1f4668;"><i class="fas fa-info-circle"></i> Une application mobile dédiée (native) peut être demandée en complément. Elle fera l'objet de frais supplémentaires selon le périmètre défini. Le site web, lui, fonctionne déjà professionnellement sur mobile sans application.</p>
+    </div>
+    <div class="mobile-banner-icon"><i class="fas fa-mobile-screen"></i></div>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="section-title">Questions fréquentes</h2>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> À qui s'adresse ChoukriLift ?</h3>
+    <p>Aux entreprises qui assurent la maintenance d'ascenseurs et de portes automatiques et souhaitent centraliser le suivi de leur parc et de leurs équipes.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> Est-ce un logiciel Windows à installer sur chaque poste ?</h3>
+    <p>C'est une application web avec un backend PHP et une base de données. Les modalités d'hébergement, d'installation et de déploiement sont à définir avec le vendeur.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> Les clients disposent-ils d'un espace dédié ?</h3>
+    <p>Oui, le code comprend un espace client et un rattachement des appareils aux clients. Le périmètre des accès doit être configuré lors du déploiement.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> L'intelligence artificielle est-elle nécessaire pour tout utiliser ?</h3>
+    <p>Le module de proposition de plan IA utilise un service externe. Les modules métier de gestion sont distincts de cette fonction ; les intégrations doivent être configurées selon le déploiement.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> Quel est le prix et que comprend l'offre ?</h3>
+    <p>L'offre de lancement est à <strong>1 300 €</strong> (au lieu de 5 000 €), incluant la licence 5 ans, l'installation et la configuration sur votre serveur, la remise de l'accès administrateur et l'explication de l'utilisation. Contactez MCH SOFTS pour préciser le périmètre, les conditions de licence, les éventuelles adaptations et le support.</p>
+  </div>
+
+  <!-- Final CTA -->
+  <div class="download-cta" id="contact">
+    <div class="download-cta-text">
+      <h3>Découvrez comment ChoukriLift peut s'intégrer à votre organisation.</h3>
+      <p>Présentez-nous votre parc, vos équipes et vos besoins. Échangeons sur les fonctionnalités et le déploiement adaptés à votre activité.</p>
+      <div class="store-note"><i class="fas fa-info-circle"></i> Aucun paiement en ligne — échangeons d'abord sur votre projet.</div>
+    </div>
+    <div class="cta-buttons">
+      <a href="../../Support.html" class="btn-light"><i class="fas fa-calendar-check"></i> Demander une démonstration</a>
+      <a href="../../Support.html" class="btn-light" style="background:transparent;border:1.5px solid #f3b33d;color:#f3b33d;"><i class="fas fa-envelope"></i> Contacter MCH SOFTS</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="small-links">
+      <a href="https://mchsofts.com">mchsofts.com</a>
+      <a href="../../index.html#catalogue">Portfolio</a>
+      <a href="https://github.com/mchsofts">GitHub</a>
+      <a href="../../Support.html">Support</a>
+      <a href="../../privacy.html">Confidentialité & Conditions</a>
+    </div>
+    <p>Développé par <strong>mchsofts.com</strong> · © 2026 mchsofts.com. Tous droits réservés.</p>
+  </div>
+</div>
+</body>
+</html>
