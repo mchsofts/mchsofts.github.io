@@ -752,6 +752,31 @@
       .navigation a { padding: .5rem; font-size: .9rem; }
       .price-new { font-size: 2.4rem; }
     }
+    /* Full-size screenshot preview, shared by mouse, touch and keyboard. */
+    img[data-preview] { cursor: zoom-in; }
+    img[data-preview]:focus-visible { outline: 3px solid #dd8e2c; outline-offset: 5px; }
+    .image-preview {
+      position: fixed; inset: 0; margin: auto;
+      width: min(1200px, 94vw); max-width: 94vw;
+      max-height: 92dvh; padding: 14px;
+      border: 1px solid rgba(255,255,255,.35); border-radius: 24px;
+      background: #101f2e; color: #fff; overflow: auto;
+      box-shadow: 0 30px 100px #0008;
+    }
+    .image-preview[open] { animation: preview-reveal .2s ease-out; }
+    .image-preview:not(:modal) { pointer-events: none; box-shadow: 0 0 0 100vmax #071421b8, 0 30px 100px #0008; }
+    .image-preview::backdrop { background: #071421c9; backdrop-filter: blur(8px); }
+    .image-preview img { display: block; width: 100%; height: auto; max-height: calc(92dvh - 100px); object-fit: contain; border-radius: 14px; background: #fff; }
+    .image-preview-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 4px 0; }
+    .image-preview-caption { margin: 0; font-size: .9rem; line-height: 1.4; }
+    .image-preview-close { flex-shrink: 0; border: 1px solid #ffffff50; border-radius: 50%; width: 40px; height: 40px; background: #ffffff14; color: white; font-size: 1.5rem; cursor: pointer; }
+    .image-preview-close:hover { background: #ffffff30; }
+    .image-preview-close:focus-visible { outline: 3px solid #f3b33d; outline-offset: 3px; }
+    .image-preview:not(:modal) .image-preview-close { visibility: hidden; }
+    html.image-preview-active { overflow: hidden; }
+    @keyframes preview-reveal { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .image-preview[open] { animation: none; } }
+    @media (max-width: 600px) { .image-preview { padding: 8px; border-radius: 16px; } .image-preview-caption { font-size: .8rem; } }
   </style>
 </head>
 <body>
@@ -1048,5 +1073,76 @@
     <p>Développé par <strong>mchsofts.com</strong> · © 2026 mchsofts.com. Tous droits réservés.</p>
   </div>
 </div>
+<dialog class="image-preview" aria-label="Aperçu agrandi" aria-describedby="image-preview-caption">
+  <img alt="">
+  <div class="image-preview-footer">
+    <p class="image-preview-caption" id="image-preview-caption"></p>
+    <button class="image-preview-close" type="button" aria-label="Fermer l’aperçu">×</button>
+  </div>
+</dialog>
+<script>
+(() => {
+  const viewer = document.querySelector('.image-preview');
+  const enlarged = viewer.querySelector('img');
+  const caption = viewer.querySelector('.image-preview-caption');
+  const closeButton = viewer.querySelector('button');
+  const hoverDevice = window.matchMedia('(hover: hover) and (pointer: fine)');
+  let source = null;
+  let pinned = false;
+  let timer;
+  const close = () => {
+    clearTimeout(timer);
+    if (viewer.open) viewer.close();
+  };
+  viewer.addEventListener('close', () => {
+    if (viewer.open) return;
+    document.documentElement.classList.remove('image-preview-active');
+    if (pinned && source) source.focus({ preventScroll: true });
+    pinned = false;
+  });
+  const open = (image, modal) => {
+    if (pinned) return;
+    clearTimeout(timer);
+    if (viewer.open) viewer.close();
+    source = image;
+    enlarged.src = image.currentSrc || image.src;
+    enlarged.alt = image.alt;
+    caption.textContent = image.alt;
+    if (modal) {
+      pinned = true;
+      viewer.showModal();
+      document.documentElement.classList.add('image-preview-active');
+      closeButton.focus({ preventScroll: true });
+    } else {
+      // A hover preview must never steal keyboard focus from the page.
+      const active = document.activeElement;
+      viewer.show();
+      if (document.activeElement !== active && active instanceof HTMLElement) active.focus({ preventScroll: true });
+    }
+  };
+  document.querySelectorAll('.product-hero img, .screens-grid img').forEach(image => {
+    image.dataset.preview = '';
+    image.tabIndex = 0;
+    image.setAttribute('role', 'button');
+    image.setAttribute('aria-haspopup', 'dialog');
+    image.setAttribute('aria-label', 'Agrandir : ' + image.alt);
+    image.addEventListener('pointerenter', event => {
+      if (hoverDevice.matches && event.pointerType === 'mouse' && !pinned) timer = setTimeout(() => open(image, false), 180);
+    });
+    image.addEventListener('pointerleave', () => { clearTimeout(timer); if (!pinned) close(); });
+    image.addEventListener('click', () => open(image, true));
+    image.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(image, true); }
+    });
+  });
+  closeButton.addEventListener('click', close);
+  viewer.addEventListener('click', event => {
+    const rect = viewer.getBoundingClientRect();
+    if (event.target === viewer && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) close();
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !pinned) close(); });
+  window.addEventListener('pagehide', close);
+})();
+</script>
 </body>
 </html>
