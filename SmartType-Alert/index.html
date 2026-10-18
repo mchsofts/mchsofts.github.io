@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartType Alert – Know your keyboard language, write with confidence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SmartType Alert | MCH SOFTS</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -14,280 +16,313 @@
     }
 
     body {
-      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #f9fcff;
-      color: #1a2b3c;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      color: #0a1c2f;
+      line-height: 1.5;
+      scroll-behavior: smooth;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 2rem 2rem 3rem;
     }
 
-    /* header / hero */
+    /* glass card style matching original site */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* hero header area (identical to original) */
     .hero {
-      background: linear-gradient(145deg, #ffffff 0%, #f0f7fe 100%);
-      border-radius: 0 0 40px 40px;
-      box-shadow: 0 8px 24px rgba(0, 20, 40, 0.04);
-      padding: 40px 0 60px;
-      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
     }
 
-    .hero-content {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      background: #1e2f3e;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1f2e3a, #0f1a24);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2c5a7a;
+      background: rgba(44, 90, 122, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* intro card (modified for product) */
+    .intro-section {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      background: rgba(255, 255, 255, 0.96);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
+      gap: 2rem;
     }
 
-    .hero-text {
-      flex: 1 1 400px;
+    .intro-text-block {
+      flex: 2;
+      min-width: 300px;
     }
 
-    .hero-badge {
-      display: inline-block;
-      background: #d4e9ff;
-      color: #0057b3;
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 6px 16px;
-      border-radius: 40px;
-      letter-spacing: 0.3px;
-      margin-bottom: 20px;
-      border: 1px solid #b8d8ff;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
+    .intro-title {
+      font-size: 2.6rem;
+      font-weight: 800;
       line-height: 1.2;
       letter-spacing: -0.02em;
-      color: #0b2a4a;
-      margin-bottom: 18px;
+      margin-bottom: 1rem;
     }
 
-    .hero h1 span {
-      color: #0066cc;
-      background: linear-gradient(135deg, #0066cc, #2a8cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .highlight {
+      background: linear-gradient(120deg, #dd8e2c, #f2b341);
       background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .hero p {
-      font-size: 1.25rem;
-      color: #345e81;
-      margin-bottom: 30px;
-      max-width: 600px;
+    .intro-text {
+      font-size: 1.2rem;
+      color: #1e3a4d;
+      max-width: 90%;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
     }
 
+    .stats-badge {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .stat-item {
+      background: #eff3f6;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1c4e70;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      width: 280px;
+      border-radius: 1.5rem;
+      box-shadow: 0 18px 35px -10px rgba(0, 40, 80, 0.15);
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    /* buttons */
     .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       background: #0066cc;
       color: white;
-      font-weight: 600;
-      font-size: 1.2rem;
-      padding: 16px 38px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 14px 32px;
       border-radius: 60px;
       text-decoration: none;
-      box-shadow: 0 12px 28px -8px rgba(0, 102, 204, 0.4);
+      box-shadow: 0 12px 24px -8px rgba(0, 102, 204, 0.4);
       transition: all 0.2s ease;
       border: 1px solid #0055aa;
+      margin-top: 0.5rem;
+      font-family: inherit;
     }
 
     .btn-primary i {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
 
     .btn-primary:hover {
       background: #0055aa;
-      box-shadow: 0 16px 32px -8px rgba(0, 85, 170, 0.5);
+      box-shadow: 0 16px 28px -8px rgba(0, 85, 170, 0.5);
       transform: translateY(-2px);
     }
 
-    .btn-secondary {
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #b0d0f0;
+      color: #0066cc;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 60px;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: transparent;
-      color: #0066cc;
-      font-weight: 500;
-      padding: 10px 22px;
-      border-radius: 40px;
-      text-decoration: none;
-      border: 1.5px solid #b0d0f0;
       transition: 0.2s;
+      font-size: 0.95rem;
     }
 
-    .btn-secondary:hover {
+    .btn-outline:hover {
       background: #e6f0fe;
       border-color: #0066cc;
     }
 
-    .hero-visual {
-      flex: 1 1 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .keyboard-card {
-      background: #ffffff;
-      border-radius: 32px;
-      padding: 24px 28px;
-      box-shadow: 0 30px 50px -20px rgba(0, 40, 80, 0.2), 0 0 0 1px rgba(0, 102, 204, 0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      width: 280px;
-      border: 1px solid #d9eaff;
-    }
-
-    .lang-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      background: #f5faff;
-      border-radius: 18px;
-      border-left: 6px solid #0066cc;
-    }
-
-    .lang-row span:first-child {
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .sound-icon {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 6px;
-      background: #b0c9e8;
-    }
-
-    .dot.active {
-      background: #0066cc;
-      box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-    }
-
-    .dot-group {
-      display: flex;
-      gap: 5px;
-    }
-
-    /* features section */
+    /* section title */
     .section-title {
-      text-align: center;
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 700;
+      margin: 2rem 0 1.2rem 0;
       letter-spacing: -0.01em;
-      color: #0b2a4a;
-      margin: 60px 0 16px;
+      position: relative;
+      display: inline-block;
     }
 
-    .section-sub {
-      text-align: center;
-      font-size: 1.15rem;
-      color: #4b6f8f;
-      max-width: 700px;
-      margin: 0 auto 48px;
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, #e2a03c, #f4c542);
+      border-radius: 4px;
     }
 
+    /* features grid */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-      margin-bottom: 60px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
     }
 
     .feature-card {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 32px 26px;
-      box-shadow: 0 8px 26px -6px rgba(0, 40, 80, 0.06);
-      border: 1px solid #e2efff;
-      transition: all 0.25s;
+      background: white;
+      border-radius: 2rem;
+      padding: 1.8rem 1.5rem;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .feature-card:hover {
-      border-color: #b8d6ff;
-      box-shadow: 0 20px 32px -10px rgba(0, 90, 180, 0.12);
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -14px rgba(0, 0, 0, 0.12);
+      border-color: rgba(226, 160, 60, 0.2);
     }
 
     .feature-icon {
-      background: #e1f0ff;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
       color: #0066cc;
-      width: 56px;
-      height: 56px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      margin-bottom: 22px;
     }
 
     .feature-card h3 {
       font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #103a5e;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #0e2f40;
     }
 
-    .feature-card p {
-      color: #3f5e7a;
+    .feature-card p, .feature-card ul {
+      color: #2c4e6e;
       font-size: 0.98rem;
     }
 
-    .sound-badge-group {
+    .feature-card ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .feature-card li {
+      margin-bottom: 8px;
       display: flex;
-      gap: 16px;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .feature-card li i {
+      color: #0066cc;
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+
+    .sound-badges {
+      display: flex;
       flex-wrap: wrap;
-      margin-top: 18px;
-      padding-top: 10px;
-      border-top: 1px solid #e2efff;
+      gap: 12px;
+      margin: 14px 0 6px;
     }
 
     .sound-badge {
+      background: #f2f9ff;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: #f2f9ff;
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      font-weight: 500;
+      gap: 8px;
+      border: 1px solid #d9eaff;
     }
 
-    .sound-badge .fa-volume-up {
-      color: #0066cc;
-      font-size: 0.9rem;
-    }
-
-    /* privacy & trust */
+    /* privacy section */
     .privacy-section {
       background: #e7f2fe;
-      border-radius: 40px;
-      padding: 56px 40px;
-      margin: 40px 0 60px;
+      border-radius: 2.5rem;
+      padding: 2.5rem 2.5rem;
+      margin: 2.5rem 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 40px;
+      gap: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
     }
 
     .privacy-text {
@@ -295,207 +330,208 @@
     }
 
     .privacy-text h2 {
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-weight: 700;
       color: #0b2a4a;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
     }
 
     .privacy-text p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #1f4668;
-      margin-bottom: 16px;
+      margin-bottom: 0.8rem;
     }
 
-    .privacy-badge {
+    .privacy-icon {
       flex: 1;
       display: flex;
       justify-content: center;
       font-size: 5rem;
       color: #0066cc;
-      opacity: 0.85;
+      opacity: 0.8;
     }
 
-    /* download cta */
-    .download-cta {
-      background: linear-gradient(120deg, #0b2a4a, #103a5e);
-      border-radius: 40px;
-      padding: 56px 40px;
-      text-align: center;
+    /* download CTA area (matches contact-area from original site) */
+    .download-area {
+      margin: 2.5rem 0 2rem;
+      background: linear-gradient(115deg, #111f2b 0%, #142c3b 100%);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
       color: white;
-      margin: 60px 0 40px;
-      box-shadow: 0 20px 36px -10px rgba(0, 40, 80, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.8rem;
     }
 
-    .download-cta h2 {
-      font-size: 2.2rem;
+    .download-text h3 {
+      font-size: 1.8rem;
       font-weight: 700;
-      margin-bottom: 16px;
+      letter-spacing: -0.3px;
     }
 
-    .download-cta p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-bottom: 32px;
+    .download-text p {
+      opacity: 0.85;
+      margin-top: 0.6rem;
+      max-width: 600px;
     }
 
     .btn-light {
-      background: white;
-      color: #0b2a4a;
-      font-weight: 700;
-      padding: 16px 44px;
+      background: #f3b33d;
+      border: none;
+      padding: 0.9rem 2rem;
       border-radius: 60px;
-      text-decoration: none;
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0f1f29;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      font-family: inherit;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.3);
-      transition: 0.2s;
-      border: 1px solid #d9eaff;
-    }
-
-    .btn-light:hover {
-      background: #f0f7ff;
-      transform: scale(1.02);
+      gap: 10px;
+      text-decoration: none;
     }
 
     .btn-light i {
-      color: #0066cc;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
+    }
+
+    .btn-light:hover {
+      background: #ffc857;
+      transform: scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
     }
 
     .file-note {
-      margin-top: 20px;
-      font-size: 0.9rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
       opacity: 0.7;
     }
 
-    footer {
+    /* footer */
+    .footer {
+      margin-top: 3rem;
       text-align: center;
-      padding: 32px 0 48px;
-      color: #6b8aa8;
-      font-size: 0.95rem;
-      border-top: 1px solid #d3e6ff;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.85rem;
+      color: #3c657e;
     }
 
-    footer strong {
-      color: #0066cc;
+    .small-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .small-links a {
+      text-decoration: none;
+      color: #2c6285;
+      font-weight: 500;
+    }
+
+    .small-links a:hover {
+      color: #e2a03c;
     }
 
     .disclaimer {
       max-width: 900px;
-      margin: 24px auto 0;
-      font-size: 0.85rem;
+      margin: 1.5rem auto 0;
+      font-size: 0.8rem;
       color: #6f8da8;
       text-align: center;
       padding: 0 20px;
-      background: #f9fcff;
-      border-radius: 20px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #3f6b94;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .footer-links a:hover {
-      color: #0066cc;
     }
 
     /* responsiveness */
-    @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 2.2rem;
+    @media (max-width: 780px) {
+      .container {
+        padding: 1.5rem;
       }
-      .hero p {
-        font-size: 1.1rem;
+      .intro-title {
+        font-size: 2rem;
       }
-      .btn-primary {
-        padding: 14px 28px;
-        font-size: 1rem;
+      .intro-text {
+        max-width: 100%;
       }
-      .section-title {
-        font-size: 1.8rem;
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .download-area {
+        flex-direction: column;
+        text-align: center;
       }
       .privacy-section {
-        padding: 32px 24px;
-      }
-      .download-cta h2 {
-        font-size: 1.7rem;
-      }
-      .btn-light {
-        padding: 14px 28px;
-        font-size: 1rem;
+        padding: 2rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- HERO section -->
+<div class="container">
+  <!-- Header / Hero (same as original with logo) -->
   <div class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <div class="hero-badge"><i class="fas fa-bolt" style="margin-right: 8px;"></i>SmartType Alert</div>
-        <h1>Write with confidence.<br>Know your <span>keyboard language</span> before you continue.</h1>
-        <p>Ever typed a full sentence then realized the keyboard was in the wrong language? With constant switching between Arabic, French, and English, SmartType Alert gives you instant audio cues and a smart layout assistant – so you never re-type again.</p>
-        <a href="/files/stupe.exe" class="btn-primary" download><i class="fas fa-download"></i> Download for Windows</a>
-        <div style="margin-top: 20px;">
-          <a href="#features" class="btn-secondary"><i class="fas fa-arrow-down"></i> See features</a>
-        </div>
+    <div class="brand">
+      <div class="logo-icon">
+        <img src="logo.png" alt="SmartType Alert logo">
       </div>
-      <div class="hero-visual">
-        <div class="keyboard-card">
-          <div class="lang-row" style="border-left-color: #0066cc;">
-            <span><i class="fas fa-language" style="color:#0066cc;"></i> French</span>
-            <div class="sound-icon"><div class="dot active"></div></div>
-          </div>
-          <div class="lang-row" style="border-left-color: #00a86b;">
-            <span><i class="fas fa-language" style="color:#00a86b;"></i> Arabic</span>
-            <div class="sound-icon"><div class="dot active"></div><div class="dot active"></div></div>
-          </div>
-          <div class="lang-row" style="border-left-color: #b35900;">
-            <span><i class="fas fa-language" style="color:#b35900;"></i> English</span>
-            <div class="sound-icon"><div class="dot active"></div><div class="dot active"></div><div class="dot active"></div></div>
-          </div>
-          <div style="margin-top: 6px; font-size: 0.8rem; color: #4b6f8f; text-align: center; background: #f2f9ff; border-radius: 16px; padding: 8px;">
-            <i class="fas fa-volume-up" style="margin-right: 6px;"></i> Distinct audio cues per language
-          </div>
-        </div>
-      </div>
+      <h1>MCH SOFTS</h1>
+    </div>
+    <div class="tagline">
+      🖥️ Windows • 📱 Android • 🌐 Chrome Extensions
     </div>
   </div>
 
-  <!-- KEY FEATURES -->
-  <div class="container" id="features">
-    <h2 class="section-title">One tiny alert, endless confidence</h2>
-    <p class="section-sub">SmartType Alert is a Windows desktop assistant that makes language awareness effortless – with unique sounds, optional layout correction, and a sleek interface in three languages.</p>
+  <!-- Intro / Hero product section -->
+  <div class="glass-card intro-section">
+    <div class="intro-text-block">
+      <div class="intro-title">
+        SmartType Alert <span class="highlight">write with confidence</span>
+      </div>
+      <div class="intro-text">
+        Ever typed a full sentence then realized your keyboard was in the wrong language? SmartType Alert gives you instant audio cues and a smart layout assistant – so you never re‑type again.
+      </div>
+      <div class="stats-badge">
+        <div class="stat-item">🔊 Distinct sounds per language</div>
+        <div class="stat-item">🛡️ 100% offline & private</div>
+        <div class="stat-item">🌐 Arabic · French · English</div>
+      </div>
+      <a href="/files/stupe.exe" class="btn-primary" download style="margin-top: 1.8rem;">
+        <i class="fas fa-download"></i> Download for Windows
+      </a>
+      <a href="#features" class="btn-outline" style="margin-left: 1rem;">
+        <i class="fas fa-arrow-down"></i> Features
+      </a>
+    </div>
+    <div class="hero-image">
+      <img src="image1.png" alt="SmartType Alert interface preview">
+    </div>
+  </div>
 
+  <!-- Features Section -->
+  <div id="features">
+    <h2 class="section-title">One tiny alert, endless confidence</h2>
     <div class="features-grid">
-      <!-- Feature 1 -->
+      <!-- Feature 1: Sound notification -->
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-volume-high"></i></div>
         <h3>Instant sound notification</h3>
         <p>Each language has its own easily recognizable sound:</p>
-        <div class="sound-badge-group">
-          <div class="sound-badge"><i class="fas fa-volume-up"></i> French · 1 beep</div>
-          <div class="sound-badge"><i class="fas fa-volume-up"></i> Arabic · 2 beeps</div>
-          <div class="sound-badge"><i class="fas fa-volume-up"></i> English · 3 beeps</div>
+        <div class="sound-badges">
+          <span class="sound-badge"><i class="fas fa-volume-up"></i> French · 1 beep</span>
+          <span class="sound-badge"><i class="fas fa-volume-up"></i> Arabic · 2 beeps</span>
+          <span class="sound-badge"><i class="fas fa-volume-up"></i> English · 3 beeps</span>
         </div>
-        <p style="margin-top: 14px;">Plays when you change layout in the active window, and reminds you of the current language when you start typing or return after a pause. Opening the app or moving the mouse between windows stays silent.</p>
+        <p style="margin-top: 12px;">Plays when you change layout in the active window, and reminds you of the current language when you start typing or return after a pause. Opening the app or moving the mouse between windows stays silent.</p>
       </div>
 
-      <!-- Feature 2 -->
+      <!-- Feature 2: Layout error detection -->
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-spell-check"></i></div>
         <h3>Layout error detection</h3>
@@ -503,36 +539,36 @@
         <p style="margin-top: 12px;"><i class="fas fa-hand-pointer" style="color: #0066cc;"></i> You decide: accept to copy to clipboard and paste manually, or ignore. The program never replaces text or switches layout automatically.</p>
       </div>
 
-      <!-- Feature 3 -->
+      <!-- Feature 3: Customizable -->
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-sliders"></i></div>
         <h3>Customizable to your workflow</h3>
-        <ul style="list-style: none; margin-top: 8px;">
-          <li style="margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #0066cc; margin-right: 10px;"></i>Custom WAV sounds & volume</li>
-          <li style="margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #0066cc; margin-right: 10px;"></i>Adjustable pause before reminder</li>
-          <li style="margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #0066cc; margin-right: 10px;"></i>Enable/disable writing analysis + sensitivity</li>
-          <li style="margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #0066cc; margin-right: 10px;"></i>Show or hide correction suggestions</li>
-          <li style="margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #0066cc; margin-right: 10px;"></i>Exclude specific apps from analysis</li>
-          <li style="margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #0066cc; margin-right: 10px;"></i>Launch automatically at Windows login</li>
-          <li><i class="fas fa-check-circle" style="color: #0066cc; margin-right: 10px;"></i>Pause/resume from UI or tray icon</li>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Custom WAV sounds & volume</li>
+          <li><i class="fas fa-check-circle"></i> Adjustable pause before reminder</li>
+          <li><i class="fas fa-check-circle"></i> Enable/disable writing analysis</li>
+          <li><i class="fas fa-check-circle"></i> Show or hide correction suggestions</li>
+          <li><i class="fas fa-check-circle"></i> Exclude specific apps from analysis</li>
+          <li><i class="fas fa-check-circle"></i> Launch automatically at Windows login</li>
+          <li><i class="fas fa-check-circle"></i> Pause/resume from UI or tray icon</li>
         </ul>
       </div>
 
-      <!-- Feature 4 -->
+      <!-- Feature 4: Interface & languages -->
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-palette"></i></div>
         <h3>Clean interface, 3 languages</h3>
         <p>Enjoy a dark, organized interface with dedicated cards per language, clear toggle switches, and current keyboard layout display. Available in Arabic, French, and English – choose your preferred language.</p>
       </div>
 
-      <!-- Feature 5 -->
+      <!-- Feature 5: Privacy -->
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-shield-haltered"></i></div>
         <h3>Privacy comes first</h3>
         <p>SmartType Alert works completely offline. Writing is processed locally, never sent to external servers, and no text content is stored. It ignores password fields it can recognize, and lets you exclude sensitive applications entirely.</p>
       </div>
 
-      <!-- Feature 6 -->
+      <!-- Feature 6: Who is it for -->
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-users"></i></div>
         <h3>Who is it for?</h3>
@@ -541,49 +577,47 @@
     </div>
   </div>
 
-  <!-- PRIVACY / TRUST -->
-  <div class="container">
-    <div class="privacy-section">
-      <div class="privacy-text">
-        <h2><i class="fas fa-lock" style="margin-right: 16px; color: #0066cc;"></i>Your privacy stays on your device</h2>
-        <p>No internet connection required. All analysis is done locally. SmartType Alert never saves your keystrokes and automatically ignores password fields it can identify. You can also exclude any sensitive application with one click.</p>
-        <p style="font-weight: 500; color: #0b2a4a;"><i class="fas fa-microchip"></i> 100% offline · no telemetry · no text storage</p>
-      </div>
-      <div class="privacy-badge">
-        <i class="fas fa-shield-haltered"></i>
-      </div>
+  <!-- Privacy / Trust -->
+  <div class="privacy-section">
+    <div class="privacy-text">
+      <h2><i class="fas fa-lock" style="margin-right: 16px; color: #0066cc;"></i>Your privacy stays on your device</h2>
+      <p>No internet connection required. All analysis is done locally. SmartType Alert never saves your keystrokes and automatically ignores password fields it can identify. You can also exclude any sensitive application with one click.</p>
+      <p style="font-weight: 600; color: #0b2a4a;"><i class="fas fa-microchip"></i> 100% offline · no telemetry · no text storage</p>
+    </div>
+    <div class="privacy-icon">
+      <i class="fas fa-shield-haltered"></i>
     </div>
   </div>
 
-  <!-- DOWNLOAD CTA -->
-  <div class="container">
-    <div class="download-cta">
-      <h2>Ready to stop retyping?</h2>
+  <!-- Download CTA (matching brand style) -->
+  <div class="download-area">
+    <div class="download-text">
+      <h3>Ready to stop retyping?</h3>
       <p>Download SmartType Alert and get a gentle audio nudge every time the layout changes.</p>
-      <a href="/files/stupe.exe" class="btn-light" download><i class="fas fa-download"></i> Download SmartType Alert (EXE)</a>
-      <div class="file-note"><i class="fas fa-info-circle"></i> File: /files/stupe.exe · Tested on Windows 10, expected to work on Windows 11 (actual testing recommended).</div>
+      <div class="file-note">
+        <i class="fas fa-info-circle"></i> Tested on Windows 10, expected to work on Windows 11 (actual testing recommended).
+      </div>
     </div>
+    <a href="/files/stupe.exe" class="btn-light" download>
+      <i class="fas fa-download"></i> Download SmartType Alert (EXE)
+    </a>
   </div>
 
-  <!-- small disclaimer -->
-  <div class="container disclaimer">
+  <!-- Small disclaimer -->
+  <div class="disclaimer">
     <p><strong>Note:</strong> Layout error detection is an optional aid based on initial expandable dictionaries; it may miss some errors or show an unsuitable suggestion. It does not guarantee recognition of all custom sensitive fields.</p>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="#features">Features</a>
-        <a href="/files/stupe.exe" download>Download</a>
-        <a href="#">Privacy</a>
-        <a href="#">Support</a>
-      </div>
-      <p style="margin-bottom: 8px;">SmartType Alert — a small alert that saves you from retyping.</p>
-      <p>Powered by <strong>mchsofts.com</strong></p>
-      <p style="margin-top: 16px; font-size: 0.8rem; opacity: 0.7;">&copy; 2025 SmartType Alert. All rights reserved.</p>
+  <!-- Footer -->
+  <div class="footer">
+    <div class="small-links">
+      <a href="#">Portfolio</a>
+      <a href="#">GitHub</a>
+      <a href="#">Support</a>
+      <a href="#">Privacy & Terms</a>
     </div>
-  </footer>
-
+    <p>© 2026 MCH SOFTS — SmartType Alert: a small alert that saves you from retyping.<br>Powered by mchsofts.com</p>
+  </div>
+</div>
 </body>
 </html>
