@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Header Controller | MCH SOFTS</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      color: #0a1c2f;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    /* glass card style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* header area (same as original site) */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      background: #1e2f3e;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1f2e3a, #0f1a24);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-icon span {
+      font-size: 30px;
+      font-weight: 700;
+      color: #f0b90b;
+    }
+
+    .brand h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2c5a7a;
+      background: rgba(44, 90, 122, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* page header */
+    .page-header {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .page-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title .highlight {
+      background: linear-gradient(120deg, #dd8e2c, #f2b341);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: #1e3a4d;
+      max-width: 85%;
+    }
+
+    /* hero product section */
+    .product-hero {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .product-hero-text {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .product-hero-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0e2f40;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-hero-text p {
+      font-size: 1.1rem;
+      color: #1e3a4d;
+      margin-bottom: 1.4rem;
+    }
+
+    .product-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e7f2fe;
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+      border: 1px solid #d0e4ff;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0066cc;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      box-shadow: 0 10px 22px -8px rgba(0, 102, 204, 0.45);
+      transition: all 0.2s ease;
+      border: 1px solid #0055aa;
+      font-family: inherit;
+    }
+
+    .btn-primary i {
+      font-size: 1.1rem;
+    }
+
+    .btn-primary:hover {
+      background: #0055aa;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -8px rgba(0, 85, 170, 0.55);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      border: 1.5px solid #b0d0f0;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-secondary:hover {
+      background: #e6f0fe;
+      border-color: #0066cc;
+      transform: translateY(-2px);
+    }
+
+    .product-hero-icon {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+      justify-content: center;
+      font-size: 6.5rem;
+      color: #0066cc;
+      opacity: 0.8;
+    }
+
+    /* section title */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, #e2a03c, #f4c542);
+      border-radius: 4px;
+    }
+
+    /* features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.8rem 1.6rem;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -14px rgba(0, 0, 0, 0.12);
+      border-color: rgba(226, 160, 60, 0.25);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0066cc;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: #0e2f40;
+    }
+
+    .feature-card p {
+      color: #2c4e6e;
+      font-size: 0.95rem;
+    }
+
+    /* detailed sections */
+    .detail-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 10px 28px -10px rgba(0, 40, 80, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .detail-card h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0e2f40;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .detail-card h2 i {
+      color: #0066cc;
+      font-size: 1.4rem;
+    }
+
+    .detail-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #103a5e;
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    .detail-card p {
+      color: #2c4e6e;
+      margin-bottom: 0.9rem;
+    }
+
+    .detail-card ul {
+      list-style: none;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .detail-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.65rem;
+      color: #2c4e6e;
+    }
+
+    .detail-card li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* iframe lab specific card */
+    .lab-card {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.8rem;
+      margin: 1.2rem 0 0.5rem;
+      border-left: 5px solid #0066cc;
+    }
+
+    .lab-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lab-card h4 i {
+      color: #0066cc;
+      font-size: 0.95rem;
+    }
+
+    .lab-card p, .lab-card ul {
+      font-size: 0.93rem;
+      color: #3f5e7a;
+      margin-bottom: 0.6rem;
+    }
+
+    .lab-card ul {
+      list-style: none;
+      margin: 0.5rem 0 0.3rem;
+    }
+
+    .lab-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 0.45rem;
+      color: #3f5e7a;
+    }
+
+    .lab-card li i {
+      color: #0066cc;
+      margin-top: 4px;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* steps grid */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .step-item {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #0066cc;
+      position: relative;
+    }
+
+    .step-item .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0066cc;
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .step-item h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 4px;
+    }
+
+    .step-item p {
+      font-size: 0.86rem;
+      color: #3f5e7a;
+      margin-bottom: 0;
+    }
+
+    /* privacy box */
+    .privacy-box {
+      background: #e7f2fe;
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .privacy-box-text {
+      flex: 2;
+    }
+
+    .privacy-box-text h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-box-text ul {
+      list-style: none;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .privacy-box-text li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.6rem;
+      color: #1f4668;
+      font-size: 0.97rem;
+    }
+
+    .privacy-box-text li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .privacy-box-icon {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      font-size: 5rem;
+      color: #0066cc;
+      opacity: 0.8;
+    }
+
+    /* limitations grid */
+    .limits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .limit-item {
+      background: #fff8e6;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #dd8e2c;
+    }
+
+    .limit-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #6b4a00;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .limit-item h4 i {
+      font-size: 0.9rem;
+      color: #dd8e2c;
+    }
+
+    .limit-item p {
+      font-size: 0.88rem;
+      color: #5a4a1a;
+      margin-bottom: 0;
+    }
+
+    /* FAQ mini section */
+    .faq-item {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 14px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0e2f40;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-item h3 i {
+      color: #0066cc;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      margin-top: 0.5rem;
+      color: #2c4e6e;
+      font-size: 0.95rem;
+      padding-left: 28px;
+    }
+
+    /* download CTA */
+    .download-cta {
+      background: linear-gradient(115deg, #111f2b 0%, #142c3b 100%);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    .download-cta-text h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .download-cta-text p {
+      opacity: 0.85;
+      margin-top: 0.6rem;
+      max-width: 550px;
+    }
+
+    .btn-light {
+      background: #f3b33d;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0f1f29;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-light i {
+      font-size: 1.1rem;
+    }
+
+    .btn-light:hover {
+      background: #ffc857;
+      transform: scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .store-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.85rem;
+      color: #3c657e;
+    }
+
+    .small-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .small-links a {
+      text-decoration: none;
+      color: #2c6285;
+      font-weight: 500;
+    }
+
+    .small-links a:hover {
+      color: #e2a03c;
+    }
+
+    /* responsiveness */
+    @media (max-width: 780px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .page-title {
+        font-size: 2rem;
+      }
+      .page-subtitle {
+        max-width: 100%;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .product-hero {
+        padding: 1.6rem 1.4rem;
+      }
+      .page-header {
+        padding: 1.6rem 1.4rem;
+      }
+      .detail-card {
+        padding: 1.6rem 1.4rem;
+      }
+      .privacy-box {
+        padding: 1.6rem 1.4rem;
+        flex-direction: column;
+        text-align: center;
+      }
+      .download-cta {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-buttons {
+        flex-direction: column;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header / Hero (same as original site) -->
+  <div class="hero">
+    <div class="brand">
+      <div class="logo-icon">
+        <span>⚡</span>
+      </div>
+      <h1>MCH SOFTS</h1>
+    </div>
+    <div class="tagline">
+      🖥️ Windows • 📱 Android • 🌐 Extensions Chrome
+    </div>
+  </div>
+
+  <!-- Page header -->
+  <div class="glass-card page-header">
+    <div class="page-title">Header <span class="highlight">Controller</span></div>
+    <div class="page-subtitle">
+      Contrôlez les en-têtes de requêtes, organisez les règles pour vos sites, et testez l'intégration dans un véritable iframe — depuis un seul endroit.
+    </div>
+  </div>
+
+  <!-- Product hero section -->
+  <div class="glass-card product-hero">
+    <div class="product-hero-text">
+      <div class="product-hero-badge">
+        <i class="fas fa-puzzle-piece"></i> Extension Chrome · Manifest V3
+      </div>
+      <h2>Header Controller</h2>
+      <p>
+        Header Controller est une extension Google Chrome qui aide les développeurs et les testeurs à personnaliser certains en-têtes de requêtes HTTP, à gérer des règles d'application pour des sites spécifiques, et à tester le rendu de sites dans un véritable iframe.
+      </p>
+      <p style="font-size: 1rem;">
+        L'extension combine la gestion des en-têtes de requêtes et un espace de test intégré appelé <strong>Iframe lab</strong>. Elle repose sur Manifest V3 et l'API officielle Chrome <code>declarativeNetRequest</code>, et fonctionne sans création de compte.
+      </p>
+      <div class="hero-buttons">
+        <!-- Placeholder for install link – not invented, to be added later -->
+        <a href="Header%20Controller.zip" class="btn-primary" download="Header Controller.zip">
+          <i class="fas fa-download"></i> Installer l'extension
+        </a>
+        <a href="#features" class="btn-secondary">
+          <i class="fas fa-arrow-down"></i> Découvrir les fonctionnalités
+        </a>
+      </div>
+    </div>
+    <div class="product-hero-icon">
+      <img src="header-controler.png" alt="Header Controller" style="width:100%;max-width:240px;height:auto;object-fit:contain;border-radius:24px">
+    </div>
+  </div>
+
+  <!-- Core features -->
+  <div id="features">
+    <h2 class="section-title">Fonctionnalités principales</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
+        <h3>Personnalisation des en-têtes HTTP</h3>
+        <p>Créez des règles pour définir les valeurs d'en-têtes de requêtes : User-Agent, Referer, Origin, ou des en-têtes personnalisés. Activez ou désactivez chaque en-tête indépendamment, activez ou désactivez chaque règle, et utilisez un interrupteur global pour contrôler les modifications des règles enregistrées.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-list-check"></i></div>
+        <h3>Gestion de plusieurs règles</h3>
+        <p>La page de paramètres avancés affiche la liste des règles enregistrées et vous permet de : créer et nommer une règle, définir le site cible, ajouter plusieurs en-têtes, modifier et supprimer des règles, les activer ou les désactiver, les réordonner pour définir la priorité, et restaurer les paramètres par défaut.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-globe"></i></div>
+        <h3>Ciblage des sites et permissions</h3>
+        <p>Appliquez des règles à une origine spécifique comme <code>https://example.com</code> (incluant le protocole, le nom d'hôte et le port). Les sous-domaines ou protocoles différents ne sont pas inclus automatiquement. Vous pouvez aussi appliquer les règles à tous les sites HTTP et HTTPS, après avoir accordé explicitement la permission.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-window-maximize"></i></div>
+        <h3>Ouverture de sites dans un iframe réel</h3>
+        <p>La page Iframe lab offre un espace dédié pour tester des sites dans un véritable élément iframe : champ de saisie d'URL HTTP/HTTPS, bouton d'ouverture, bouton de rechargement, affichage de l'URL demandée, agrandissement de l'iframe, bouton d'ouverture dans un onglet normal, et messages d'état.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-user-cog"></i></div>
+        <h3>User-Agent et Referer depuis le lab</h3>
+        <p>Saisissez directement User-Agent et Referer à côté du lien, puis cliquez sur « Apply headers & open iframe ». L'extension applique les modifications avant le début de la navigation de l'iframe, en utilisant des règles temporaires propres à l'onglet du lab et à l'origine du lien.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shield-haltered"></i></div>
+        <h3>Contrôle du Sandbox</h3>
+        <p>L'option « Enable iframe sandbox » est activée par défaut et ajoute des restrictions à l'iframe. Vous pouvez la désactiver pour tester des sites qui refusent de fonctionner dans un iframe sandboxé. La modification nécessite de rouvrir ou recharger l'iframe, et le mode appliqué s'affiche à côté de l'URL demandée.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-code"></i></div>
+        <h3>Affichage du code source HTML</h3>
+        <p>Le bouton « View page source » récupère le code source du lien saisi et l'affiche sous forme de texte. Il s'agit d'une requête séparée, sans identifiants, qui ne suit pas les redirections, avec un délai d'attente et une limite de taille. Ce code n'est pas une copie du DOM live dans l'iframe.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-circle-question"></i></div>
+        <h3>Aide et diagnostics</h3>
+        <p>La page « Help & diagnostics » explique comment utiliser les outils de développement Chrome pour comprendre les causes d'échec : X-Frame-Options, CSP frame-ancestors, CSP frame-src, vérification des en-têtes réellement envoyés, comparaison entre ouverture directe et iframe, erreurs CORS, problèmes SameSite et cookies tiers, et problèmes réseau.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed sections -->
+  <h2 class="section-title">En détail</h2>
+
+  <!-- Headers & rules management -->
+  <div class="detail-card">
+    <h2><i class="fas fa-sliders-h"></i> Gestion des en-têtes et des règles</h2>
+    <p>
+      La page de paramètres avancés vous permet de créer des règles qui définissent les valeurs d'en-têtes de requêtes. Les en-têtes pris en charge incluent :
+    </p>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> <strong>User-Agent</strong> — pour tester la valeur reçue par le serveur dans l'en-tête d'identification du navigateur.</li>
+      <li><i class="fas fa-check-circle"></i> <strong>Referer</strong> — pour définir la valeur de l'en-tête de page de référence dans les requêtes correspondantes.</li>
+      <li><i class="fas fa-check-circle"></i> <strong>Origin</strong> — pour tester la valeur de l'en-tête source, dans les limites autorisées par Chrome.</li>
+      <li><i class="fas fa-check-circle"></i> <strong>En-têtes personnalisés</strong> — pour ajouter d'autres noms et valeurs, selon les restrictions du navigateur et la validation appliquée par l'extension.</li>
+    </ul>
+    <p>
+      L'extension valide les noms et valeurs d'en-têtes avant l'enregistrement et rejette les entrées invalides, comme les valeurs contenant des retours à la ligne, ainsi que certains en-têtes sensibles ou contrôlés par le navigateur. Lorsque plusieurs règles ciblent le même en-tête, la priorité va à la règle la plus haute dans la liste, tandis que les en-têtes différents peuvent se compléter.
+    </p>
+  </div>
+
+  <!-- Iframe lab -->
+  <div class="detail-card">
+    <h2><i class="fas fa-window-maximize"></i> Iframe lab</h2>
+    <p>
+      La page Iframe lab est un espace dédié pour tester des sites dans un véritable élément iframe. Elle inclut :
+    </p>
+    <div class="lab-card">
+      <h4><i class="fas fa-list"></i> Éléments disponibles</h4>
+      <ul>
+        <li><i class="fas fa-check"></i> Champ de saisie d'URL HTTP ou HTTPS.</li>
+        <li><i class="fas fa-check"></i> Bouton pour ouvrir le lien dans l'iframe.</li>
+        <li><i class="fas fa-check"></i> Bouton pour recharger l'iframe.</li>
+        <li><i class="fas fa-check"></i> Affichage de l'URL demandée.</li>
+        <li><i class="fas fa-check"></i> Agrandissement de l'iframe pour remplir la page de l'extension.</li>
+        <li><i class="fas fa-check"></i> Bouton pour ouvrir l'URL demandée dans un onglet normal.</li>
+        <li><i class="fas fa-check"></i> Messages d'état indiquant le début de la navigation, les événements de chargement et les erreurs disponibles.</li>
+      </ul>
+    </div>
+    <div class="lab-card">
+      <h4><i class="fas fa-user-cog"></i> User-Agent et Referer depuis le lab</h4>
+      <p>Vous pouvez saisir User-Agent et Referer directement à côté du lien, puis cliquer sur <strong>Apply headers & open iframe</strong>. L'extension applique les modifications avant le début de la navigation de l'iframe, en utilisant des règles temporaires propres à l'onglet du lab et à l'origine du lien, y compris pour ses sous-requêtes correspondant à cette origine.</p>
+      <ul>
+        <li><i class="fas fa-check"></i> Ces modifications ne ciblent pas les autres onglets.</li>
+        <li><i class="fas fa-check"></i> Elles n'incluent pas automatiquement les sites de ressources externes ni les destinations de redirection différentes.</li>
+        <li><i class="fas fa-check"></i> Elles ont priorité sur les règles enregistrées pour les mêmes en-têtes dans leur périmètre.</li>
+        <li><i class="fas fa-check"></i> Elles fonctionnent indépendamment de l'interrupteur global des règles enregistrées.</li>
+        <li><i class="fas fa-check"></i> Elles peuvent être supprimées via le bouton <strong>Clear lab overrides</strong>.</li>
+        <li><i class="fas fa-check"></i> Elles ne sont pas enregistrées comme profils permanents et disparaissent à la fermeture de l'onglet ou au redémarrage de Chrome.</li>
+      </ul>
+    </div>
+    <div class="lab-card">
+      <h4><i class="fas fa-shield-haltered"></i> Contrôle du Sandbox</h4>
+      <p>L'option <strong>Enable iframe sandbox</strong> est activée par défaut et ajoute des restrictions à l'iframe, tout en autorisant l'exécution des scripts, des formulaires et l'utilisation de l'origine du site. Vous pouvez la désactiver pour tester des sites qui refusent de fonctionner dans un iframe sandboxé. La modification nécessite de rouvrir ou recharger l'iframe, et le mode appliqué s'affiche à côté de l'URL demandée.</p>
+      <p>La désactivation du sandbox élargit le comportement autorisé du site, comme l'ouverture de fenêtres pop-up ou la tentative de navigation de l'onglet selon les règles de Chrome, mais elle ne désactive pas la protection du navigateur et ne supprime pas les politiques CSP ou X-Frame-Options du site.</p>
+    </div>
+  </div>
+
+  <!-- View source -->
+  <div class="detail-card">
+    <h2><i class="fas fa-code"></i> Affichage du code source HTML</h2>
+    <p>
+      Le bouton <strong>View page source</strong> récupère le code source du lien saisi et l'affiche sous forme de texte dans la page de l'extension. L'affichage du code source présente les caractéristiques suivantes :
+    </p>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> Il affiche le code sous forme de texte, sans exécuter les scripts qu'il contient.</li>
+      <li><i class="fas fa-check-circle"></i> Il demande la permission d'accéder au site.</li>
+      <li><i class="fas fa-check-circle"></i> Il utilise une requête séparée, sans identifiants.</li>
+      <li><i class="fas fa-check-circle"></i> Il ne suit pas les redirections.</li>
+      <li><i class="fas fa-check-circle"></i> Il applique un délai d'attente et une limite de taille du code source affiché.</li>
+      <li><i class="fas fa-check-circle"></i> Il affiche un message compréhensible en cas d'échec de récupération.</li>
+    </ul>
+    <p>
+      Ce code source n'est pas une copie du DOM live dans l'iframe, et sa réponse et ses en-têtes de requête peuvent différer de la navigation de l'iframe. Pour examiner la réponse réelle reçue par l'iframe, l'extension recommande d'utiliser la section Network → Response dans Chrome DevTools.
+    </p>
+  </div>
+
+  <!-- How to use -->
+  <h2 class="section-title">Comment l'utiliser</h2>
+  <div class="detail-card">
+    <h2><i class="fas fa-list-ol"></i> Exemple d'utilisation simple</h2>
+    <div class="steps-grid">
+      <div class="step-item">
+        <span class="step-number">1</span>
+        <h4>Ouvrez les paramètres</h4>
+        <p>Accédez aux paramètres de l'extension.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">2</span>
+        <h4>Créez une règle</h4>
+        <p>Créez une règle pour un site de test que vous possédez ou pour lequel vous avez l'autorisation de tester.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">3</span>
+        <h4>Définissez les en-têtes</h4>
+        <p>Sélectionnez les en-têtes requis et leurs valeurs.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">4</span>
+        <h4>Enregistrez et autorisez</h4>
+        <p>Enregistrez la règle et accordez la permission du site.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">5</span>
+        <h4>Activez et rechargez</h4>
+        <p>Activez les règles enregistrées et rechargez le site.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">6</span>
+        <h4>Vérifiez dans DevTools</h4>
+        <p>Inspectez les requêtes dans DevTools pour confirmer les valeurs envoyées.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">7</span>
+        <h4>Testez dans Iframe lab</h4>
+        <p>Ouvrez Iframe lab et saisissez le lien pour tester l'intégration.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">8</span>
+        <h4>Configurez et ouvrez l'iframe</h4>
+        <p>Définissez User-Agent et Referer si nécessaire, choisissez le mode Sandbox, puis ouvrez l'iframe.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-number">9</span>
+        <h4>Diagnostiquez si besoin</h4>
+        <p>Utilisez la page de diagnostics en cas de refus ou d'erreur.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy & permissions -->
+  <div class="privacy-box">
+    <div class="privacy-box-text">
+      <h2><i class="fas fa-shield-haltered" style="margin-right: 12px; color: #0066cc;"></i>Confidentialité et sécurité</h2>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> L'extension enregistre les règles et paramètres via <code>chrome.storage.local</code>.</li>
+        <li><i class="fas fa-check-circle"></i> Elle n'utilise pas de comptes utilisateurs ni de synchronisation cloud.</li>
+        <li><i class="fas fa-check-circle"></i> Elle ne collecte pas les journaux de navigation et ne les envoie pas à des serveurs externes.</li>
+        <li><i class="fas fa-check-circle"></i> Elle n'utilise pas d'outils de suivi ou d'analyse.</li>
+        <li><i class="fas fa-check-circle"></i> Elle ne charge pas de JavaScript distant ou non fiable.</li>
+        <li><i class="fas fa-check-circle"></i> Elle demande les permissions de sites lorsque c'est nécessaire.</li>
+        <li><i class="fas fa-check-circle"></i> Elle permet de révoquer les permissions de sites accordées.</li>
+        <li><i class="fas fa-check-circle"></i> Elle valide les entrées avant de les appliquer.</li>
+      </ul>
+      <p style="font-size: 0.92rem; color: #1f4668;">
+        L'ouverture de sites dans l'iframe ou la récupération de leur code source se connecte naturellement aux serveurs de ces sites. Le stockage des paramètres est local et non un coffre-fort chiffré ; il ne faut donc pas saisir de mots de passe ou de clés secrètes dans les valeurs d'en-têtes.
+      </p>
+    </div>
+    <div class="privacy-box-icon">
+      <i class="fas fa-lock"></i>
+    </div>
+  </div>
+
+  <!-- Technical limitations -->
+  <h2 class="section-title">Limites techniques</h2>
+  <div class="detail-card">
+    <h2><i class="fas fa-triangle-exclamation"></i> Ce que l'extension ne fait pas</h2>
+    <div class="limits-grid">
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> User-Agent et capacités du navigateur</h4>
+        <p>La modification de User-Agent change l'en-tête HTTP, mais ne modifie pas automatiquement <code>navigator.userAgent</code>, les Client Hints ou les capacités du navigateur.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Origin et Referer</h4>
+        <p>La modification d'Origin ou de Referer ne change pas l'origine de sécurité réelle de la page.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Restrictions de Chrome</h4>
+        <p>Chrome peut refuser ou restreindre certaines modifications ; il faut vérifier la requête réelle.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> X-Frame-Options et CSP</h4>
+        <p>L'extension ne supprime pas X-Frame-Options ni CSP.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Authentification et accès</h4>
+        <p>Elle ne contourne pas l'authentification, les contrôles d'accès ou la protection des domaines.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Fonctionnement dans iframe</h4>
+        <p>Elle ne garantit pas que chaque site fonctionnera dans un iframe.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Désactivation du Sandbox</h4>
+        <p>La désactivation du Sandbox ne garantit pas le fonctionnement du site.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Lecture du DOM externe</h4>
+        <p>L'extension ne peut généralement pas lire le DOM ni l'URL finale des iframes externes en raison de la politique de même origine.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Code source et réponse de l'iframe</h4>
+        <p>L'affichage du code source utilise une requête séparée et ne capture pas la réponse de l'iframe.</p>
+      </div>
+      <div class="limit-item">
+        <h4><i class="fas fa-times-circle"></i> Pages internes de Chrome</h4>
+        <p>Certaines pages internes de Chrome et requêtes ou réponses gérées par le navigateur peuvent ne pas être affectées par les règles.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interface note -->
+  <div class="detail-card">
+    <h2><i class="fas fa-desktop"></i> Interface utilisateur</h2>
+    <p>L'extension comporte quatre interfaces principales :</p>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> <strong>Popup</strong> : une fenêtre rapide affichant l'état des règles enregistrées, permettant de les activer ou désactiver et d'accéder aux autres pages.</li>
+      <li><i class="fas fa-check-circle"></i> <strong>Request rules</strong> : une page de paramètres avancés pour gérer les règles, les en-têtes et les permissions.</li>
+      <li><i class="fas fa-check-circle"></i> <strong>Iframe lab</strong> : un espace de test de liens dans un véritable iframe, avec options d'en-têtes, Sandbox et affichage du code source.</li>
+      <li><i class="fas fa-check-circle"></i> <strong>Help & diagnostics</strong> : un guide pour comprendre les erreurs, les limites et vérifier les résultats.</li>
+    </ul>
+    <p>
+      L'interface actuelle de l'extension est en anglais, avec un design sombre responsive et des indicateurs d'état et messages de succès et d'erreur clairs. L'interface de l'extension n'est pas encore traduite en français.
+    </p>
+  </div>
+
+  <!-- Target audience -->
+  <div class="detail-card">
+    <h2><i class="fas fa-users"></i> À qui s'adresse l'extension ?</h2>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> Les développeurs web qui testent le comportement de leurs serveurs face à différents en-têtes.</li>
+      <li><i class="fas fa-check-circle"></i> Les testeurs QA qui comparent le comportement des pages dans un onglet normal et dans un iframe.</li>
+      <li><i class="fas fa-check-circle"></i> Les développeurs de systèmes autorisant l'intégration et ayant besoin d'en diagnostiquer les problèmes.</li>
+      <li><i class="fas fa-check-circle"></i> Les utilisateurs techniques souhaitant gérer des règles d'en-têtes claires et à portée limitée.</li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="section-title">Questions fréquentes</h2>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> L'extension fonctionne-t-elle sans compte ?</h3>
+    <p>Oui. Header Controller fonctionne sans création de compte et n'utilise ni synchronisation cloud ni comptes utilisateurs.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> Les règles s'appliquent-elles à tous les sites ?</h3>
+    <p>Par défaut, les règles s'appliquent à l'origine spécifiée. Un option permet de les appliquer à tous les sites HTTP et HTTPS, après avoir accordé explicitement la permission nécessaire.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> Puis-je tester des sites qui refusent l'intégration ?</h3>
+    <p>L'extension ne supprime pas X-Frame-Options ni CSP. La désactivation du Sandbox peut aider dans certains cas, mais elle ne garantit pas que le site fonctionnera dans un iframe, et elle ne désactive pas la protection du navigateur.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> Les modifications du lab sont-elles permanentes ?</h3>
+    <p>Non. Les modifications appliquées depuis Iframe lab sont des règles temporaires propres à l'onglet du lab et à l'origine du lien. Elles ne sont pas enregistrées comme profils permanents et disparaissent à la fermeture de l'onglet ou au redémarrage de Chrome.</p>
+  </div>
+  <div class="faq-item">
+    <h3><i class="fas fa-question-circle"></i> Pourquoi le code source affiché diffère-t-il de ce que je vois dans l'iframe ?</h3>
+    <p>L'affichage du code source utilise une requête séparée, sans identifiants et sans suivre les redirections, avec un délai et une limite de taille. Ce n'est pas une copie du DOM live dans l'iframe. Pour examiner la réponse réelle reçue par l'iframe, utilisez la section Network → Response dans Chrome DevTools.</p>
+  </div>
+
+  <!-- Download CTA (placeholder) -->
+  <div class="download-cta" id="download">
+    <div class="download-cta-text">
+      <h3><i class="fas fa-download" style="margin-right: 10px;"></i>Prêt à tester Header Controller ?</h3>
+      <p>Contrôlez les en-têtes de requêtes, organisez les règles pour vos sites, et testez l'intégration dans un véritable iframe — depuis un seul endroit.</p>
+      <div class="store-note">
+        <i class="fas fa-info-circle"></i> Le lien vers le Chrome Web Store sera ajouté prochainement.
+      </div>
+    </div>
+    <!-- Placeholder install link – to be replaced with the real Chrome Web Store URL -->
+    <a href="Header%20Controller.zip" class="btn-light" download="Header Controller.zip">
+      <i class="fas fa-puzzle-piece"></i> Installer l'extension
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="small-links">
+      <a href="https://mchsofts.com">mchsofts.com</a>
+      <a href="../../index.html#catalogue">Portfolio</a>
+      <a href="https://github.com/mchsofts">GitHub</a>
+      <a href="../../Support.html">Support</a>
+      <a href="../../privacy.html">Confidentialité & Conditions</a>
+    </div>
+    <p>Développé par <strong>mchsofts.com</strong> · © 2026 mchsofts.com. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html>
