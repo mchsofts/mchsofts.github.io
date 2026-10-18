@@ -693,6 +693,32 @@
         justify-content: center;
       }
     }
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem 1.4rem;
+      margin-bottom: 2rem;
+      padding: .8rem 1.2rem;
+      background: rgba(255,255,255,.9);
+      border: 1px solid #dce5ed;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 24px -18px #142c3b;
+      align-items: center;
+    }
+    .navigation a {
+      color: #165780;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 1rem;
+      padding: .55rem .85rem;
+    }
+    .navigation a:hover { background: #edf3f8; }
+    .navigation .current-section { background: #142c3b; color: #fff; }
+    .navigation a:focus-visible { outline: 3px solid #b56a00; outline-offset: 3px; }
+    @media (max-width:480px) {
+      .navigation { gap: .3rem; padding: .6rem; }
+      .navigation a { padding: .5rem; font-size: .9rem; }
+    }
   </style>
 </head>
 <body>
@@ -710,6 +736,13 @@
     </div>
   </div>
 
+  <nav class="navigation" aria-label="Navigation principale">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../windows/index.html">Logiciels Windows</a>
+    <a href="../../android/index.html">Applications Android</a>
+    <a href="../index.html" class="current-section">Extensions Chrome</a>
+    <a href="../../Support.html">Assistance</a>
+  </nav>
   <!-- Page header -->
   <div class="glass-card page-header">
     <div class="page-title">Header <span class="highlight">Controller</span></div>
