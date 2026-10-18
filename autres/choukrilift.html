@@ -238,6 +238,16 @@
       align-items: center;
     }
 
+    .product-hero-icon img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 24px;
+      box-shadow: 0 16px 32px -14px rgba(15, 43, 59, 0.35);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
     /* price offer block */
     .offer-card {
       background: linear-gradient(135deg, #0f2b3b 0%, #142c3b 100%);
@@ -388,10 +398,10 @@
 
     .feature-card p { color: #2c4e6e; font-size: 0.95rem; }
 
-    /* screenshots placeholders */
+    /* screenshots */
     .screens-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.6rem;
       margin: 2rem 0 1rem;
     }
@@ -402,28 +412,29 @@
       overflow: hidden;
       box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.12);
       border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.3s;
     }
 
-    .screen-placeholder {
+    .screen-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 40px -16px rgba(0, 0, 0, 0.18);
+    }
+
+    .screen-card img {
+      display: block;
+      width: 100%;
+      height: auto;
       aspect-ratio: 16 / 10;
-      background: linear-gradient(135deg, #e8f1f8 0%, #d6e6f2 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: #4a7292;
-      border-bottom: 1px dashed #b9d3e8;
+      object-fit: cover;
+      background: #eef4fa;
+      border-bottom: 1px solid #e6eef5;
     }
-
-    .screen-placeholder i { font-size: 2.6rem; opacity: 0.7; }
-    .screen-placeholder span { font-size: 0.9rem; font-weight: 600; }
 
     .screen-caption {
       padding: 1rem 1.4rem;
       font-size: 0.92rem;
       color: #2c4e6e;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .screen-caption em {
@@ -431,6 +442,7 @@
       font-size: 0.78rem;
       color: #7a94a8;
       font-style: normal;
+      font-weight: 400;
       margin-top: 2px;
     }
 
@@ -599,55 +611,6 @@
       opacity: 0.8;
     }
 
-    /* privacy box */
-    .privacy-box {
-      background: #e7f2fe;
-      border-radius: 2rem;
-      padding: 2rem 2.5rem;
-      margin: 2rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-    }
-
-    .privacy-box-text { flex: 2; }
-
-    .privacy-box-text h2 {
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: #0b2a4a;
-      margin-bottom: 1rem;
-    }
-
-    .privacy-box-text ul { list-style: none; margin: 0.5rem 0 1rem 0; }
-
-    .privacy-box-text li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 0.6rem;
-      color: #1f4668;
-      font-size: 0.97rem;
-    }
-
-    .privacy-box-text li i {
-      color: #0066cc;
-      margin-top: 5px;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-
-    .privacy-box-icon {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      font-size: 5rem;
-      color: #0066cc;
-      opacity: 0.8;
-    }
-
     /* FAQ */
     .faq-item {
       background: white;
@@ -776,7 +739,6 @@
       .product-hero { padding: 1.6rem 1.4rem; }
       .page-header { padding: 1.6rem 1.4rem; }
       .detail-card { padding: 1.6rem 1.4rem; }
-      .privacy-box { padding: 1.6rem 1.4rem; flex-direction: column; text-align: center; }
       .mobile-banner { padding: 1.6rem 1.4rem; flex-direction: column; text-align: center; }
       .download-cta { flex-direction: column; text-align: center; }
       .hero-buttons { flex-direction: column; }
@@ -833,10 +795,7 @@
       </div>
     </div>
     <div class="product-hero-icon">
-      <div class="screen-placeholder" style="width:100%;max-width:260px;aspect-ratio:1/1;border-radius:24px;border:none;">
-        <i class="fas fa-elevator" style="font-size:4.5rem;"></i>
-        <span>Visuel ChoukriLift</span>
-      </div>
+      <img src="choukrilift01.png" alt="ChoukriLift — tableau de bord de gestion de maintenance">
     </div>
   </div>
 
@@ -948,28 +907,28 @@
   <h2 class="section-title">Aperçu de l'interface</h2>
   <div class="screens-grid">
     <div class="screen-card">
-      <div class="screen-placeholder"><i class="fas fa-table-columns"></i><span>Tableau de bord</span></div>
-      <div class="screen-caption">Vue d'ensemble du parc et des indicateurs<em>Illustration de l'interface</em></div>
+      <img src="choukrilift01.png" alt="ChoukriLift — tableau de bord et vue d'ensemble du parc" loading="lazy">
+      <div class="screen-caption">Tableau de bord — vue d'ensemble du parc et des indicateurs<em>Illustration de l'interface</em></div>
     </div>
     <div class="screen-card">
-      <div class="screen-placeholder"><i class="fas fa-elevator"></i><span>Liste des appareils</span></div>
-      <div class="screen-caption">Fiches équipements, filtres et statuts<em>Illustration de l'interface</em></div>
+      <img src="choukrilift02.png" alt="ChoukriLift — liste et fiches des appareils" loading="lazy">
+      <div class="screen-caption">Liste des appareils — fiches équipements, filtres et statuts<em>Illustration de l'interface</em></div>
     </div>
     <div class="screen-card">
-      <div class="screen-placeholder"><i class="fas fa-calendar-check"></i><span>Planning & missions</span></div>
-      <div class="screen-caption">Calendrier des visites et interventions<em>Illustration de l'interface</em></div>
+      <img src="choukrilift03.png" alt="ChoukriLift — planning et missions des techniciens" loading="lazy">
+      <div class="screen-caption">Planning & missions — calendrier des visites et interventions<em>Illustration de l'interface</em></div>
     </div>
     <div class="screen-card">
-      <div class="screen-placeholder"><i class="fas fa-screwdriver-wrench"></i><span>Suivi des pannes</span></div>
-      <div class="screen-caption">Dépannages en cours et historique<em>Illustration de l'interface</em></div>
+      <img src="choukrilift04.png" alt="ChoukriLift — suivi des pannes et dépannages" loading="lazy">
+      <div class="screen-caption">Suivi des pannes — dépannages en cours et historique<em>Illustration de l'interface</em></div>
     </div>
     <div class="screen-card">
-      <div class="screen-placeholder"><i class="fas fa-chart-pie"></i><span>Analytique</span></div>
-      <div class="screen-caption">Charge de travail et performances<em>Illustration de l'interface</em></div>
+      <img src="choukrilift05.png" alt="ChoukriLift — analytique et charge de travail" loading="lazy">
+      <div class="screen-caption">Analytique — charge de travail et performances<em>Illustration de l'interface</em></div>
     </div>
     <div class="screen-card">
-      <div class="screen-placeholder"><i class="fas fa-mobile-screen"></i><span>Vue mobile</span></div>
-      <div class="screen-caption">Interface adaptée aux techniciens sur le terrain<em>Illustration de l'interface</em></div>
+      <img src="choukrilift06.png" alt="ChoukriLift — interface mobile pour les techniciens" loading="lazy">
+      <div class="screen-caption">Vue mobile — interface adaptée aux techniciens sur le terrain<em>Illustration de l'interface</em></div>
     </div>
   </div>
 
