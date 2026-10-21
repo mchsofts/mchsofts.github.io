@@ -1,300 +1,295 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ReplacePro | Rechercher et remplacer dans vos fichiers Windows</title>
-<meta name="description" content="ReplacePro est un logiciel Windows pour rechercher et remplacer du texte dans vos fichiers : aperçu des résultats, expressions régulières Regex, sauvegarde .bak, interface en 3 langues, fonctionne hors ligne.">
-<link rel="canonical" href="https://mchsofts.com/ReplacePro/">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="MCH SOFTS">
-<meta property="og:title" content="ReplacePro | Rechercher et remplacer dans vos fichiers Windows">
-<meta property="og:description" content="ReplacePro est un logiciel Windows pour rechercher et remplacer du texte dans vos fichiers : aperçu des résultats, Regex, sauvegarde .bak, interface en 3 langues, hors ligne.">
-<meta property="og:url" content="https://mchsofts.com/ReplacePro/">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/imagesloads/images@main/img_86fc5b15241b5567.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "ReplacePro",
-  "operatingSystem": "Windows 64-bit",
-  "applicationCategory": "UtilitiesApplication",
-  "url": "https://mchsofts.com/ReplacePro/",
-  "description": "Recherche et remplacement de texte dans les fichiers sous Windows : aperçu des résultats, Regex, sauvegarde .bak, interface multilingue, fonctionnement hors ligne.",
-  "inLanguage": ["fr", "ar", "en", "es"],
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  }
+<!DOCTYPE html><html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>ReplacePro | Rechercher et remplacer dans vos fichiers Windows</title> <meta name="description" content="ReplacePro est un logiciel Windows pour rechercher et remplacer du texte dans vos fichiers : aperçu des résultats, expressions régulières Regex, sauvegarde .bak, interface en 3 langues, fonctionne hors ligne."> <link rel="canonical" href="https://mchsofts.com/ReplacePro/"> <meta property="og:locale" content="fr_FR"> <meta property="og:type" content="website"> <meta property="og:site_name" content="MCH SOFTS"> <meta property="og:title" content="ReplacePro | Rechercher et remplacer dans vos fichiers Windows"> <meta property="og:description" content="ReplacePro est un logiciel Windows pour rechercher et remplacer du texte dans vos fichiers : aperçu des résultats, Regex, sauvegarde .bak, interface en 3 langues, hors ligne."> <meta property="og:url" content="https://mchsofts.com/ReplacePro/"> <meta property="og:image" content="https://cdn.jsdelivr.net/gh/imagesloads/images@main/img_86fc5b15241b5567.png"> <meta name="twitter:card" content="summary_large_image"> <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "ReplacePro", "operatingSystem": "Windows 64-bit", "applicationCategory": "UtilitiesApplication", "url": "https://mchsofts.com/ReplacePro/", "description": "Recherche et remplacement de texte dans les fichiers sous Windows : aperçu des résultats, Regex, sauvegarde .bak, interface multilingue, fonctionnement hors ligne.", "inLanguage": ["fr", "ar", "en", "es"], "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" } } </script> <style data-site-design> *{margin:0;padding:0;box-sizing:border-box} :root{ --ink:#0a1c2f; --ink-2:#143e58; --ink-3:#2c5a7a; --gold:#e2a03c; --gold-2:#f4c542; --gold-3:#f3b33d; --blue:#155d9e; --blue-2:#0c497e; --paper:#f8fafc; --line:#e0e8ee; --radius:2.5rem; --shadow-lg:0 30px 60px -30px rgba(10,28,47,.35), 0 8px 24px -18px rgba(10,28,47,.2); --shadow-md:0 18px 40px -24px rgba(10,28,47,.3); } html{scroll-behavior:smooth} body{ font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); line-height:1.6; background: radial-gradient(1200px 600px at 85% -10%, rgba(243,179,61,.10), transparent 60%), radial-gradient(900px 500px at -10% 20%, rgba(21,93,158,.08), transparent 55%), linear-gradient(160deg,#f8fafc 0%, #eef2f5 60%, #e9eef3 100%); -webkit-font-smoothing:antialiased; } a{color:var(--blue)} a:focus-visible,button:focus-visible{outline:3px solid #b56a00;outline-offset:5px;border-radius:8px} img{max-width:100%;display:block} .container{max-width:1280px;margin:0 auto;padding:2rem 2rem 4rem} .skip{position:absolute;left:-9999px} .skip:focus{left:1rem;top:1rem;background:#fff;padding:1rem;z-index:50;border-radius:12px;box-shadow:var(--shadow-md)}
+/* ---------- HEADER ---------- */
+.hero{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;margin-bottom:1.5rem}
+.brand{display:flex;align-items:center;gap:1rem;text-decoration:none}
+.logo-icon{
+width:56px;height:56px;display:grid;place-items:center;border-radius:22px;
+background:linear-gradient(135deg,#1f2e3a,#0f1a24);
+box-shadow:0 10px 24px -10px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
 }
-</script>
-<style data-site-design>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
-  color: #0a1c2f;
-  line-height: 1.5;
-  scroll-behavior: smooth;
+.logo-icon span{font-size:28px;color:#f0b90b}
+.brand strong{
+font-size:1.9rem;font-weight:800;letter-spacing:-.02em;
+background:linear-gradient(120deg,#0f2b3b,#1e4a6e);
+background-clip:text;-webkit-background-clip:text;color:transparent;
 }
-.container { max-width: 1280px; margin: 0 auto; padding: 2rem 2rem 4rem; }
-.glass-card {
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(2px);
-  border-radius: 2.5rem;
-  box-shadow: 0 20px 35px -12px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.02);
-  border: 1px solid rgba(255,255,255,.6);
-  transition: all .3s ease;
+.tagline{
+font-size:.95rem;font-weight:600;color:#2c5a7a;
+background:rgba(44,90,122,.09);padding:.55rem 1.2rem;border-radius:40px;
+border:1px solid rgba(44,90,122,.12);
 }
-.hero { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; margin-bottom: 1.5rem; }
-.brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
-.logo-icon {
-  width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
-  border-radius: 24px; background: linear-gradient(135deg, #1f2e3a, #0f1a24);
-  box-shadow: 0 8px 18px rgba(0,0,0,.1);
+
+/* ---------- NAV ---------- */
+.navigation{
+display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-bottom:2rem;
+background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
+border:1px solid #dce5ed;border-radius:1.5rem;padding:.6rem 1rem;
+box-shadow:0 8px 24px -18px #142c3b;align-items:center;
 }
-.logo-icon span { font-size: 30px; font-weight: 700; color: #f0b90b; }
-.brand strong {
-  font-size: 2rem; font-weight: 800; letter-spacing: -.02em;
-  background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
-  background-clip: text; -webkit-background-clip: text; color: transparent;
+.navigation a{
+font-weight:600;padding:.55rem .95rem;text-decoration:none;border-radius:1rem;
+color:#1c4e70;transition:background .2s,color .2s;font-size:.95rem;
 }
-.tagline {
-  font-size: 1rem; font-weight: 500; color: #2c5a7a;
-  background: rgba(44,90,122,.1); padding: .5rem 1.2rem; border-radius: 40px;
+.navigation a:hover{background:#edf3f8}
+.navigation [aria-current=page]{background:#142c3b;color:#fff}
+
+/* ---------- BREADCRUMBS ---------- */
+.breadcrumbs{margin:0 0 1rem;font-size:.9rem;color:#466479}
+.breadcrumbs a{text-decoration:none;font-weight:600}
+
+/* ---------- HERO SPLIT ---------- */
+.hero-split{
+display:grid;grid-template-columns:1.05fr .95fr;gap:2.5rem;align-items:center;
+background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+border:1px solid rgba(255,255,255,.7);border-radius:var(--radius);
+padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden;
+box-shadow:var(--shadow-lg);
 }
-.intro-section { padding: 2.5rem; margin-bottom: 3rem; background: rgba(255,255,255,.96); position: relative; overflow: hidden; border-top: 4px solid #e2a03c; }
-.intro-section:after {
-  content: ''; position: absolute; right: -65px; top: -90px; width: 240px; height: 240px;
-  border-radius: 50%; background: radial-gradient(circle, #f3b33d20, transparent 70%); pointer-events: none;
+.hero-split::before{
+content:'';position:absolute;inset:0;pointer-events:none;
+background:
+radial-gradient(600px 300px at 95% 0%, rgba(243,179,61,.12), transparent 65%),
+radial-gradient(500px 260px at 0% 100%, rgba(21,93,158,.08), transparent 60%);
 }
-.intro-title {
-  font-size: 2.6rem; font-weight: 800; line-height: 1.2; letter-spacing: -.02em; margin-bottom: 1rem;
-  background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
-  background-clip: text; -webkit-background-clip: text; color: transparent; max-width: 950px;
+.hero-split::after{
+content:'';position:absolute;top:0;left:0;width:100%;height:5px;
+background:linear-gradient(90deg,var(--gold),var(--gold-2),transparent 80%);
 }
-.intro-text { font-size: 1.2rem; color: #1e3a4d; max-width: 900px; margin-bottom: 1.8rem; font-weight: 400; }
-.stats-badge { display: flex; gap: 1.8rem; flex-wrap: wrap; margin-top: 1rem; }
-.stat-item { background: #eff3f6; padding: .4rem 1.2rem; border-radius: 60px; font-weight: 600; font-size: .9rem; color: #1c4e70; }
-.section-title { font-size: 2rem; font-weight: 700; margin: 2.5rem 0 1.2rem; letter-spacing: -.01em; position: relative; display: inline-block; }
-.section-title:after {
-  content: ''; position: absolute; bottom: -10px; left: 0; width: 60%; height: 4px;
-  background: linear-gradient(90deg, #e2a03c, #f4c542); border-radius: 4px;
+.hero-copy{position:relative;z-index:2}
+.eyebrow{
+display:inline-flex;align-items:center;gap:.5rem;
+font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+color:#8a5a00;background:#fff4df;border:1px solid #f3d9a6;
+padding:.4rem .9rem;border-radius:40px;margin-bottom:1.1rem;
 }
-.services-grid { display: flex; flex-wrap: wrap; gap: 2rem; margin: 2rem 0 1rem; align-items: stretch; }
-.service-card {
-  flex: 1; min-width: min(260px, 100%); background: white; border-radius: 2rem; padding: 2rem 1.8rem;
-  transition: transform .25s ease, box-shadow .3s;
-  box-shadow: 0 10px 20px -8px rgba(0,0,0,.05);
-  border: 1px solid #e0e8ee;
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(226,160,60,.18)}
+.intro-title{
+font-size:clamp(2rem,3.4vw,2.9rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;
+margin-bottom:1rem;
+background:linear-gradient(120deg,#0f2b3b 20%,#1e4a6e 70%);
+background-clip:text;-webkit-background-clip:text;color:transparent;
 }
-.service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 36px -14px rgba(0,0,0,.12); border-color: rgba(226,160,60,.2); }
-.service-icon {
-  width: 76px; height: 76px; display: flex; align-items: center; justify-content: center;
-  background: #eff4f8; border-radius: 24px; font-size: 2.6rem; margin-bottom: 1rem;
+.intro-title .accent{
+background:linear-gradient(120deg,#c8841f,#f0b341);
+background-clip:text;-webkit-background-clip:text;color:transparent;
 }
-.service-card h2, .service-card h3 { font-size: 1.65rem; font-weight: 700; margin-bottom: .7rem; color: #0e2f40; }
-.service-card p { color: #2c4e6e; margin-bottom: 1.2rem; }
-.tech-badge { display: inline-block; background: #f1f5f9; padding: .3rem .8rem; border-radius: 20px; font-size: .8rem; font-weight: 500; color: #2d6a4f; }
-.showcase { margin: 3rem 0 2rem; }
-.showcase-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
-.showcase-item {
-  background: #ffffffdd; backdrop-filter: blur(4px); border-radius: 1.8rem;
-  padding: 1.4rem 1.8rem; flex: 1; min-width: 200px;
-  border-left: 5px solid #f0b341; box-shadow: 0 4px 12px rgba(0,0,0,.02);
+.intro-text{font-size:1.12rem;color:#1e3a4d;max-width:52ch;margin-bottom:1.6rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.badge{
+display:inline-flex;align-items:center;gap:.4rem;
+background:#f1f6fa;border:1px solid #dbe6ef;border-radius:40px;
+padding:.42rem .95rem;font-size:.82rem;font-weight:600;color:#1c4e70;
 }
-.showcase-item h4 { font-size: 1.3rem; font-weight: 700; margin-bottom: .5rem; }
-.showcase-item p { font-size: .9rem; color: #2c5a7a; }
-.contact-area {
-  margin: 3.5rem 0 2rem; background: linear-gradient(115deg, #111f2b 0%, #142c3b 100%);
-  border-radius: 2rem; padding: 2.5rem 2rem; color: white;
-  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.8rem;
+.badge.gold{background:#fff7e8;border-color:#f3dcae;color:#8a5a00}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.button{
+display:inline-flex;align-items:center;gap:.6rem;
+background:linear-gradient(135deg,#1a6cb5,#155d9e);color:#fff;
+padding:.95rem 1.7rem;border-radius:40px;text-decoration:none;font-weight:700;
+box-shadow:0 14px 30px -14px rgba(21,93,158,.7), inset 0 1px 0 rgba(255,255,255,.2);
+transition:transform .2s,box-shadow .25s,background .25s;
 }
-.contact-text h3 { font-size: 1.8rem; font-weight: 700; letter-spacing: -.3px; }
-.contact-text p { opacity: .85; margin-top: .6rem; }
-.contact-btn {
-  background: #f3b33d; border: none; padding: .9rem 2rem; border-radius: 60px;
-  font-weight: 700; font-size: 1rem; color: #0f1f29; cursor: pointer;
-  transition: all .2s; box-shadow: 0 6px 14px rgba(0,0,0,.2); font-family: inherit;
-  text-decoration: none; display: inline-block;
+.button:hover{transform:translateY(-2px);background:linear-gradient(135deg,#1f7ac8,#0c497e);box-shadow:0 20px 36px -16px rgba(21,93,158,.8)}
+.button.gold{
+background:linear-gradient(135deg,#f3b33d,#e2a03c);color:#1a1205;
+box-shadow:0 14px 30px -14px rgba(226,160,60,.75), inset 0 1px 0 rgba(255,255,255,.4);
 }
-.contact-btn:hover { background: #ffc857; transform: scale(1.02); box-shadow: 0 12px 20px rgba(0,0,0,.25); }
-.footer { margin-top: 4rem; text-align: center; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,.08); font-size: .85rem; color: #3c657e; }
-.small-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
-.small-links a { text-decoration: none; color: #2c6285; font-weight: 500; display: inline-block; padding: .3rem; }
-.small-links a:hover { color: #e2a03c; }
-@media (max-width: 780px) {
-  .container { padding: 1.5rem; }
-  .intro-title { font-size: 2rem; }
-  .intro-text { max-width: 100%; }
-  .hero { flex-direction: column; align-items: flex-start; }
-  .contact-area { flex-direction: column; text-align: center; }
+.button.gold:hover{background:linear-gradient(135deg,#ffc857,#eaa93a)}
+.link-ghost{
+display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:#155d9e;
+text-decoration:none;padding:.9rem 1.1rem;border-radius:40px;transition:background .2s;
 }
-a { color: #165780; }
-a:focus-visible, button:focus-visible { outline: 3px solid #b56a00; outline-offset: 5px; }
-.brand { text-decoration: none; }
-.brand strong { font-size: 2rem; }
-.navigation {
-  display: flex; flex-wrap: wrap; gap: .7rem 1.4rem; margin-bottom: 2rem;
-  background: rgba(255,255,255,.9); border: 1px solid #dce5ed; border-radius: 1.5rem;
-  padding: .8rem 1.2rem; box-shadow: 0 8px 24px -18px #142c3b; align-items: center;
+.link-ghost:hover{background:#eaf2fa}
+.download-meta{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.1rem;font-size:.82rem;color:#466479}
+.download-meta span{display:inline-flex;align-items:center;gap:.4rem}
+.download-meta span::before{content:'';width:6px;height:6px;border-radius:50%;background:#3aa06a}
+
+/* ---------- SHOWCASE IMAGE SIDE ---------- */
+.hero-visual{position:relative;z-index:2;perspective:1400px}
+.frame{
+position:relative;border-radius:1.6rem;
+background:linear-gradient(160deg,#0f1a24,#1b2f3f);
+padding:12px;box-shadow:
+0 40px 80px -40px rgba(10,28,47,.6),
+0 2px 0 rgba(255,255,255,.06) inset;
+transform:rotateY(-6deg) rotateX(3deg);
+transition:transform .5s cubic-bezier(.2,.7,.3,1);
 }
-.navigation a { font-weight: 600; padding: .55rem .85rem; text-decoration: none; border-radius: 1rem; transition: background .2s; }
-.navigation a:hover { background: #edf3f8; }
-.navigation [aria-current=page] { background: #142c3b; color: #fff; text-decoration-thickness: 3px; }
-.skip { position: absolute; left: -9999px; }
-.skip:focus { left: 1rem; top: 1rem; background: white; padding: 1rem; z-index: 5; }
-.button {
-  display: inline-block; background: #155d9e; color: white; padding: .8rem 1.4rem;
-  border-radius: 30px; text-decoration: none; font-weight: 600; margin: .7rem .5rem .2rem 0;
-  box-shadow: 0 8px 18px -10px #155d9e;
+.frame:hover{transform:rotateY(-2deg) rotateX(1deg) translateY(-4px)}
+.frame::before{
+content:'';position:absolute;inset:0;border-radius:1.6rem;pointer-events:none;
+background:linear-gradient(120deg,rgba(255,255,255,.18),transparent 40%);
+mix-blend-mode:overlay;
 }
-.button:hover { background: #0c497e; }
-.muted { color: #466479; }
-.product-image { width: 100%; max-width: 760px; height: auto; border-radius: 1.4rem; margin-top: 1.5rem; border: 1px solid #e0e8ee; box-shadow: 0 14px 36px -24px #142c3b; }
-.content { background: white; padding: 2rem; border-radius: 2rem; margin: 1.5rem 0; box-shadow: 0 14px 36px -24px #142c3b; border: 1px solid #e0e8ee; }
-.content h2, .content h3 { margin: 1rem 0 .5rem; color: #143e58; }
-.content p, .content ul { margin-bottom: 1rem; }
-.content ul { padding-left: 1.4rem; }
-.content li { margin-bottom: .4rem; }
-.badge { display: inline-block; background: #edf3f8; border-radius: 20px; padding: .4rem .9rem; margin: .4rem .3rem .5rem 0; font-weight: 500; color: #1c4e70; }
-.breadcrumbs { margin: 0 0 1rem; }
-.empty { border-left: 5px solid #e2a03c; }
-h1 { overflow-wrap: anywhere; }
-@media (max-width: 480px) {
-  .container { padding: 1rem; }
-  .intro-section, .content { padding: 1.4rem; }
-  .brand strong { font-size: 1.6rem; }
-  .service-card { padding: 1.4rem; }
-  .small-links { gap: .6rem 1rem; }
-  .navigation { gap: .3rem; padding: .6rem; }
-  .navigation a { padding: .5rem; font-size: .9rem; }
+.frame-bar{
+display:flex;align-items:center;gap:.45rem;padding:.4rem .6rem .7rem;
 }
-@media (prefers-reduced-motion: reduce) {
-  * { scroll-behavior: auto !important; transition: none !important; }
+.frame-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.frame-bar i:nth-child(1){background:#ff5f57}
+.frame-bar i:nth-child(2){background:#febc2e}
+.frame-bar i:nth-child(3){background:#28c840}
+.frame-bar .url{
+margin-left:.6rem;flex:1;background:rgba(255,255,255,.08);border-radius:8px;
+padding:.25rem .6rem;font-size:.72rem;color:#a9c2d4;font-family:ui-monospace,monospace;
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.frame img{border-radius:1.1rem;width:100%;height:auto}
+.frame-glow{
+position:absolute;inset:-40px;border-radius:50%;pointer-events:none;z-index:-1;
+background:radial-gradient(circle at 50% 50%, rgba(243,179,61,.35), transparent 65%);
+filter:blur(40px);
+}
+.float-chip{
+position:absolute;display:flex;align-items:center;gap:.55rem;
+background:#fff;border:1px solid #e2e9f0;border-radius:16px;
+padding:.6rem .9rem;font-size:.8rem;font-weight:700;color:#143e58;
+box-shadow:0 18px 34px -20px rgba(10,28,47,.45);
+animation:floaty 5s ease-in-out infinite;
+}
+.float-chip .dot{width:9px;height:9px;border-radius:50%;background:#3aa06a;box-shadow:0 0 0 4px rgba(58,160,106,.18)}
+.float-chip.one{top:-14px;right:8%}
+.float-chip.two{bottom:8%;left:-14px;animation-delay:-2.4s}
+.float-chip.two .dot{background:var(--gold);box-shadow:0 0 0 4px rgba(226,160,60,.2)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ---------- SECTION HEADINGS ---------- */
+.section-title{
+font-size:clamp(1.6rem,2.4vw,2.1rem);font-weight:800;letter-spacing:-.02em;
+margin:3rem 0 1.4rem;position:relative;display:inline-block;color:var(--ink-2);
+}
+.section-title::after{
+content:'';position:absolute;bottom:-10px;left:0;width:64px;height:5px;border-radius:6px;
+background:linear-gradient(90deg,var(--gold),var(--gold-2));
+}
+.section-lead{max-width:70ch;color:#37536b;margin-top:1.3rem;font-size:1.02rem}
+
+/* ---------- FEATURE CARDS ---------- */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem;margin-top:2rem}
+.feature-card{
+background:#fff;border:1px solid var(--line);border-radius:1.8rem;padding:1.7rem 1.5rem;
+box-shadow:0 12px 30px -22px #142c3b;transition:transform .25s,box-shadow .3s,border-color .3s;
+position:relative;overflow:hidden;
+}
+.feature-card::before{
+content:'';position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,var(--gold),var(--gold-2));opacity:0;transition:opacity .3s;
+}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 26px 48px -26px rgba(10,28,47,.35);border-color:#f0dcb4}
+.feature-card:hover::before{opacity:1}
+.feature-icon{
+width:56px;height:56px;border-radius:18px;display:grid;place-items:center;
+background:linear-gradient(135deg,#fff7e8,#fdeed0);border:1px solid #f3dcae;
+font-size:1.6rem;margin-bottom:1rem;
+}
+.feature-card h3{font-size:1.15rem;font-weight:800;color:#0e2f40;margin-bottom:.45rem}
+.feature-card p{font-size:.94rem;color:#37536b}
+
+/* ---------- SPLIT CONTENT (features list) ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;align-items:start}
+.content{
+background:#fff;padding:2rem;border-radius:2rem;margin:1.5rem 0;
+box-shadow:var(--shadow-md);border:1px solid var(--line);
+}
+.content h2,.content h3{margin:0 0 .8rem;color:var(--ink-2);font-size:1.4rem}
+.content p{margin-bottom:1rem;color:#37536b}
+.checklist{list-style:none;display:grid;gap:.7rem}
+.checklist li{
+display:flex;gap:.75rem;align-items:flex-start;color:#2c4e6e;font-size:.98rem;
+padding:.55rem .7rem;border-radius:12px;transition:background .2s;
+}
+.checklist li:hover{background:#f7fafc}
+.checklist li::before{
+content:'✓';flex:0 0 24px;height:24px;border-radius:8px;
+background:linear-gradient(135deg,#e7f6ed,#d4efdf);color:#1e7a4a;
+display:grid;place-items:center;font-weight:900;font-size:.8rem;margin-top:.15rem;
+}
+.code-pill{
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem;
+background:#142c3b;color:#e9f2f8;padding:.12rem .5rem;border-radius:6px;
+}
+
+/* ---------- STEPS / TRUST ---------- */
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:1.6rem}
+.trust-card{
+background:linear-gradient(160deg,#ffffff,#f7fafc);border:1px solid var(--line);
+border-radius:1.6rem;padding:1.5rem;
+}
+.trust-card h4{font-size:1.05rem;font-weight:800;color:#0e2f40;margin-bottom:.4rem}
+.trust-card p{font-size:.92rem;color:#37536b}
+
+/* ---------- DOWNLOAD PANEL ---------- */
+.download-panel{
+margin:3rem 0 2rem;border-radius:2rem;padding:2.8rem 2.2rem;color:#fff;position:relative;overflow:hidden;
+background:linear-gradient(120deg,#0f1f2b 0%,#142c3b 45%,#1a3a4f 100%);
+box-shadow:0 40px 80px -40px rgba(10,28,47,.7);
+display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;
+}
+.download-panel::before{
+content:'';position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;
+background:radial-gradient(circle, rgba(243,179,61,.28), transparent 65%);
+}
+.download-panel h3{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.6rem}
+.download-panel p{opacity:.85;margin-bottom:1.2rem;max-width:52ch}
+.download-panel .panel-actions{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.panel-note{font-size:.8rem;opacity:.7;margin-top:.8rem;position:relative;z-index:2}
+.panel-badge{
+position:relative;z-index:2;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+border-radius:1.4rem;padding:1.4rem 1.5rem;backdrop-filter:blur(4px);
+}
+.panel-badge ul{list-style:none;display:grid;gap:.7rem;font-size:.9rem}
+.panel-badge li{display:flex;gap:.6rem;align-items:center;opacity:.95}
+.panel-badge li::before{content:'●';color:var(--gold);font-size:.7rem}
+
+/* ---------- CONTACT ---------- */
+.contact-area{
+margin:2rem 0;background:linear-gradient(115deg,#111f2b 0%,#142c3b 100%);
+border-radius:2rem;padding:2.5rem 2rem;color:#fff;
+display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.8rem;
+box-shadow:var(--shadow-md);
+}
+.contact-text h3{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.contact-text p{opacity:.85;margin-top:.5rem;max-width:60ch}
+.contact-btn{
+background:linear-gradient(135deg,#f3b33d,#e2a03c);border:none;padding:.95rem 2rem;border-radius:60px;
+font-weight:800;font-size:1rem;color:#0f1f29;cursor:pointer;text-decoration:none;display:inline-block;
+transition:all .2s;box-shadow:0 14px 28px -14px rgba(226,160,60,.8);
+}
+.contact-btn:hover{transform:translateY(-2px);background:linear-gradient(135deg,#ffc857,#eaa93a)}
+
+/* ---------- FOOTER ---------- */
+.footer{margin-top:3rem;text-align:center;padding-top:2rem;border-top:1px solid rgba(0,0,0,.08);font-size:.85rem;color:#3c657e}
+.small-links{display:flex;justify-content:center;gap:1.6rem;margin-bottom:1rem;flex-wrap:wrap}
+.small-links a{text-decoration:none;color:#2c6285;font-weight:600;padding:.3rem;border-radius:8px}
+.small-links a:hover{color:#b56a00}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1024px){
+.hero-split{grid-template-columns:1fr;padding:2.2rem;gap:2rem}
+.hero-visual{order:-1;max-width:640px;margin:0 auto;width:100%}
+.frame{transform:none}
+.split{grid-template-columns:1fr}
+.download-panel{grid-template-columns:1fr}
+}
+@media (max-width:780px){
+.container{padding:1.4rem}
+.brand strong{font-size:1.6rem}
+.hero-split{padding:1.7rem;border-radius:2rem}
+.intro-text{font-size:1.02rem}
+.float-chip.one{right:2%;top:-10px}
+.float-chip.two{left:0;bottom:2%}
+}
+@media (max-width:480px){
+.container{padding:1rem}
+.navigation{gap:.2rem;padding:.5rem}
+.navigation a{padding:.45rem .6rem;font-size:.85rem}
+.button{width:100%;justify-content:center}
+.cta-row{gap:.6rem}
+.feature-grid{gap:1rem}
+.contact-area{padding:1.8rem 1.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+*{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 </style>
-</head>
-<body>
-<a class="skip" href="#contenu">Aller au contenu</a>
-<div class="container">
 
-  <header class="hero">
-    <a class="brand" href="../index.html" aria-label="MCH SOFTS — Accueil">
-      <span class="logo-icon" aria-hidden="true"><span>⚡</span></span>
-      <strong>MCH SOFTS</strong>
-    </a>
-    <p class="tagline">Des outils pour votre quotidien</p>
-  </header>
-
-  <nav class="navigation" aria-label="Navigation principale">
-    <a href="../index.html">Accueil</a>
-    <a href="../windows/index.html">Logiciels Windows</a>
-    <a href="../android/index.html">Applications Android</a>
-    <a href="../extensions/index.html">Extensions Chrome</a>
-    <a href="../Support.html">Assistance</a>
-  </nav>
-
-  <main id="contenu">
-    <nav class="breadcrumbs" aria-label="Fil d’Ariane">
-      <a href="../index.html">Accueil</a> / <a href="../windows/index.html">Logiciels Windows</a> / ReplacePro
-    </nav>
-
-    <section class="glass-card intro-section">
-      <h1 class="intro-title">ReplacePro : recherchez et remplacez plus simplement dans vos fichiers</h1>
-      <p class="intro-text">ReplacePro est un logiciel de bureau qui vous aide à rechercher du texte dans vos fichiers, à prévisualiser les résultats et à remplacer du texte rapidement depuis une interface claire et unique. Conçu pour vous offrir un meilleur contrôle sur la recherche, avec l’affichage des fichiers correspondants et la possibilité d’ouvrir directement le fichier ou son dossier.</p>
-    </section>
-
-    <span class="badge">Windows 64-bit</span>
-    <span class="badge">Fonctionnement hors ligne</span>
-    <span class="badge">Anglais · Arabe · Espagnol</span>
-
-    <p>
-      <a class="button" href="../downloads/ReplacePro-Setup.exe" download>Télécharger pour Windows</a>
-      <a href="#fonctionnalites">Découvrir les fonctionnalités</a>
-    </p>
-
-    <img class="product-image" src="https://cdn.jsdelivr.net/gh/imagesloads/images@main/img_86fc5b15241b5567.png" alt="Aperçu de l’interface de ReplacePro" width="760" loading="lazy">
-
-    <section id="fonctionnalites" class="content">
-      <h2>Fonctionnalités principales</h2>
-      <ul>
-        <li>Rechercher un texte dans les fichiers d’un dossier choisi et de ses sous-dossiers.</li>
-        <li>Prévisualiser les résultats de la recherche avant de remplacer quoi que ce soit.</li>
-        <li>Connaître le nombre d’occurrences du texte dans chaque fichier.</li>
-        <li>Afficher le nom du fichier, son chemin, l’état du remplacement et les erreurs.</li>
-        <li>Remplacer le texte dans les fichiers correspondants, avec option de sauvegarde au format <code>.bak</code>.</li>
-        <li>Prise en charge de la recherche sensible à la casse et des expressions régulières (Regex).</li>
-        <li>Définir les types de fichiers à inclure ou à exclure à l’aide de masques de fichiers.</li>
-        <li>Prise en charge des encodages de texte courants, avec possibilité de choisir l’encodage manuellement.</li>
-        <li>Copier le chemin complet ou ouvrir le fichier / le dossier depuis le menu contextuel (clic droit).</li>
-        <li>Interface disponible en trois langues : anglais par défaut, arabe et espagnol.</li>
-        <li>Fonctionne sans connexion Internet ; l’installateur inclut les prérequis nécessaires.</li>
-      </ul>
-    </section>
-
-    <section class="showcase" aria-labelledby="points-forts">
-      <h2 class="section-title" id="points-forts">Conçu pour le bureau Windows</h2>
-      <div class="showcase-grid">
-        <div class="showcase-item">
-          <h4>Installateur complet</h4>
-          <p>Le programme est disponible sous forme d’installateur pour Windows 64-bit. Il inclut l’environnement .NET requis : inutile de le télécharger ou de le configurer séparément.</p>
-        </div>
-        <div class="showcase-item">
-          <h4>Installation simple</h4>
-          <p>Installation possible pour l’utilisateur actuel, création d’un raccourci sur le bureau ou dans le menu Démarrer, et désinstallation habituelle depuis les paramètres Windows.</p>
-        </div>
-        <div class="showcase-item">
-          <h4>Gratuit et évolutif</h4>
-          <p>ReplacePro est gratuit à l’usage, à la copie et à la redistribution. Il est conçu pour évoluer et accueillir de nouvelles fonctionnalités.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="content">
-      <h2>Pourquoi utiliser ReplacePro ?</h2>
-      <p>Lorsque vous devez modifier un mot, une expression ou un motif dans de nombreux fichiers, il est indispensable de garder le contrôle. ReplacePro vous montre d’abord ce qu’il a trouvé, vous indique où et combien de fois le texte apparaît, puis vous laisse décider quand lancer le remplacement.</p>
-      <p>Grâce à l’aperçu préalable et à l’option de sauvegarde <code>.bak</code>, vous pouvez vérifier le résultat et revenir en arrière si nécessaire. Les masques de fichiers et les expressions régulières permettent d’affiner la recherche selon vos besoins.</p>
-    </section>
-
-    <section class="content" id="confidentialite">
-      <h2>Vos fichiers restent sur votre appareil</h2>
-      <p>ReplacePro fonctionne hors ligne. Le traitement est effectué localement sur votre ordinateur, sans envoi de vos fichiers ni de leur contenu vers un serveur. L’installateur inclut les composants requis pour que le programme fonctionne directement après l’installation.</p>
-      <a href="../privacy.html">Confidentialité et conditions d’utilisation</a>
-    </section>
-
-    <section class="content empty" id="telechargement">
-      <h2>Téléchargement de ReplacePro</h2>
-      <p>Téléchargez le fichier d’installation de ReplacePro pour Windows 64-bit.</p>
-      <p class="muted">L’installateur inclut l’environnement .NET nécessaire. Le programme fonctionne hors ligne.</p>
-      <a class="button" href="../downloads/ReplacePro-Setup.exe" download>Télécharger ReplacePro (.exe)</a>
-      <a href="../Support.html">Obtenir de l’aide</a>
-    </section>
-
-    <section class="contact-area" aria-labelledby="contact-title">
-      <div class="contact-text">
-        <h3 id="contact-title">Une suggestion, une demande d’évolution ?</h3>
-        <p>ReplacePro est conçu pour évoluer. Contactez-nous pour proposer des idées ou demander des modifications.</p>
-      </div>
-      <a class="contact-btn" href="../Support.html">Nous contacter</a>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <nav class="small-links" aria-label="Liens utiles">
-      <a href="../index.html">Accueil</a>
-      <a href="../windows/index.html">Logiciels Windows</a>
-      <a href="../android/index.html">Applications Android</a>
-      <a href="../extensions/index.html">Extensions Chrome</a>
-      <a href="../Support.html">Assistance</a>
-      <a href="../privacy.html">Confidentialité et conditions</a>
-    </nav>
-    <p>© 2026 MCH SOFTS · Des outils pour votre quotidien.</p>
-  </footer>
-</div>
-</body>
-</html>
+</head> <body> <a class="skip" href="#contenu">Aller au contenu</a> <div class="container"> <header class="hero"> <a class="brand" href="../index.html" aria-label="MCH SOFTS — Accueil"> <span class="logo-icon" aria-hidden="true"><span>⚡</span></span> <strong>MCH SOFTS</strong> </a> <p class="tagline">Des outils pour votre quotidien</p> </header> <nav class="navigation" aria-label="Navigation principale"> <a href="../index.html">Accueil</a> <a href="../windows/index.html">Logiciels Windows</a> <a href="../android/index.html">Applications Android</a> <a href="../extensions/index.html">Extensions Chrome</a> <a href="../Support.html">Assistance</a> </nav> <main id="contenu"> <nav class="breadcrumbs" aria-label="Fil d’Ariane"> <a href="../index.html">Accueil</a> / <a href="../windows/index.html">Logiciels Windows</a> / ReplacePro </nav> <!-- ================= HERO ================= --> <section class="hero-split"> <div class="hero-copy"> <span class="eyebrow">Utilitaire Windows · Gratuit</span> <h1 class="intro-title">ReplacePro : <span class="accent">recherchez et remplacez</span> plus simplement dans vos fichiers</h1> <p class="intro-text">ReplacePro est un logiciel de bureau qui vous aide à rechercher du texte dans vos fichiers, à prévisualiser les résultats et à remplacer du texte rapidement depuis une interface claire et unique. Conçu pour vous offrir un meilleur contrôle sur la recherche, avec l’affichage des fichiers correspondants et la possibilité d’ouvrir directement le fichier ou son dossier.</p> <div class="badges"> <span class="badge">🪟 Windows 64-bit</span> <span class="badge">🔌 Fonctionnement hors ligne</span> <span class="badge gold">🌐 Anglais · Arabe · Espagnol</span> </div> <div class="cta-row"> <a class="button" href="../downloads/ReplacePro-Setup.exe" download> ⬇ Télécharger pour Windows </a> <a class="link-ghost" href="#fonctionnalites">Découvrir les fonctionnalités →</a> </div> <div class="download-meta"> <span>Installateur .NET inclus</span> <span>Sauvegarde .bak</span> <span>Sans télémétrie</span> </div> </div> <div class="hero-visual"> <div class="frame-glow" aria-hidden="true"></div> <div class="frame"> <div class="frame-bar" aria-hidden="true"> <i></i><i></i><i></i> <span class="url">ReplacePro — Windows 64-bit</span> </div> <img src="https://cdn.jsdelivr.net/gh/imagesloads/images@main/img_86fc5b15241b5567.png" alt="Aperçu de l’interface de ReplacePro" width="760" loading="eager"> </div> <div class="float-chip one" aria-hidden="true"><span class="dot"></span> Aperçu avant remplacement</div> <div class="float-chip two" aria-hidden="true"><span class="dot"></span> Regex &amp; masques de fichiers</div> </div> </section> <!-- ================= FEATURES ================= --> <section id="fonctionnalites" aria-labelledby="features-title"> <h2 class="section-title" id="features-title">Fonctionnalités principales</h2> <p class="section-lead">Tout ce dont vous avez besoin pour rechercher, vérifier et remplacer du texte dans vos fichiers — sans quitter une seule fenêtre.</p> <div class="feature-grid"> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🔎</div> <h3>Recherche récursive</h3> <p>Recherchez un texte dans les fichiers d’un dossier choisi et de ses sous-dossiers.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">👁️</div> <h3>Aperçu des résultats</h3> <p>Prévisualisez les résultats de la recherche avant de remplacer quoi que ce soit.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🔢</div> <h3>Comptage des occurrences</h3> <p>Connaître le nombre d’occurrences du texte dans chaque fichier.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">📄</div> <h3>Détails par fichier</h3> <p>Afficher le nom du fichier, son chemin, l’état du remplacement et les erreurs.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🛟</div> <h3>Sauvegarde .bak</h3> <p>Remplacez le texte dans les fichiers correspondants, avec option de sauvegarde au format <span class="code-pill">.bak</span>.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🧩</div> <h3>Regex &amp; casse</h3> <p>Prise en charge de la recherche sensible à la casse et des expressions régulières (Regex).</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🗂️</div> <h3>Masques de fichiers</h3> <p>Définissez les types de fichiers à inclure ou à exclure à l’aide de masques de fichiers.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🈯</div> <h3>Encodages courants</h3> <p>Prise en charge des encodages de texte courants, avec possibilité de choisir l’encodage manuellement.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🖱️</div> <h3>Menu contextuel</h3> <p>Copier le chemin complet ou ouvrir le fichier / le dossier depuis le menu contextuel (clic droit).</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">🌍</div> <h3>Interface multilingue</h3> <p>Interface disponible en trois langues : anglais par défaut, arabe et espagnol.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">📴</div> <h3>Hors ligne</h3> <p>Fonctionne sans connexion Internet ; l’installateur inclut les prérequis nécessaires.</p> </article> <article class="feature-card"> <div class="feature-icon" aria-hidden="true">⚙️</div> <h3>Installateur complet</h3> <p>Programme disponible pour Windows 64-bit, avec l’environnement .NET requis inclus.</p> </article> </div> </section> <!-- ================= SPLIT DETAIL ================= --> <section class="split"> <div class="content"> <h2>Pourquoi utiliser ReplacePro ?</h2> <p>Lorsque vous devez modifier un mot, une expression ou un motif dans de nombreux fichiers, il est indispensable de garder le contrôle. ReplacePro vous montre d’abord ce qu’il a trouvé, vous indique où et combien de fois le texte apparaît, puis vous laisse décider quand lancer le remplacement.</p> <p>Grâce à l’aperçu préalable et à l’option de sauvegarde <span class="code-pill">.bak</span>, vous pouvez vérifier le résultat et revenir en arrière si nécessaire. Les masques de fichiers et les expressions régulières permettent d’affiner la recherche selon vos besoins.</p> <ul class="checklist"> <li>Contrôle total avant toute modification</li> <li>Retour arrière possible grâce à la sauvegarde</li> <li>Recherche ciblée par type de fichier</li> </ul> </div> <div class="content" id="confidentialite"> <h2>Vos fichiers restent sur votre appareil</h2> <p>ReplacePro fonctionne hors ligne. Le traitement est effectué localement sur votre ordinateur, sans envoi de vos fichiers ni de leur contenu vers un serveur. L’installateur inclut les composants requis pour que le programme fonctionne directement après l’installation.</p> <div class="trust-grid"> <div class="trust-card"> <h4>100 % local</h4> <p>Traitement effectué sur votre machine, sans envoi de contenu.</p> </div> <div class="trust-card"> <h4>Prêt à l’emploi</h4> <p>L’environnement .NET requis est inclus dans l’installateur.</p> </div> <div class="trust-card"> <h4>Gratuit &amp; évolutif</h4> <p>Usage, copie et redistribution gratuits ; conçu pour évoluer.</p> </div> </div> <p style="margin-top:1.2rem"><a href="../privacy.html">Confidentialité et conditions d’utilisation</a></p> </div> </section> <!-- ================= DOWNLOAD ================= --> <section class="download-panel" id="telechargement" aria-labelledby="download-title"> <div> <h3 id="download-title">Téléchargement de ReplacePro</h3> <p>Téléchargez le fichier d’installation de ReplacePro pour Windows 64-bit. L’installateur inclut l’environnement .NET nécessaire. Le programme fonctionne hors ligne.</p> <div class="panel-actions"> <a class="button gold" href="../downloads/ReplacePro-Setup.exe" download>⬇ Télécharger ReplacePro (.exe)</a> <a class="link-ghost" style="color:#fff" href="../Support.html">Obtenir de l’aide</a> </div> <p class="panel-note">Installation pour l’utilisateur actuel · Raccourci bureau / menu Démarrer · Désinstallation standard</p> </div> <aside class="panel-badge" aria-label="Résumé"> <ul> <li>Windows 64-bit</li> <li>Installateur avec .NET inclus</li> <li>Interface en 3 langues</li> <li>Fonctionne hors ligne</li> </ul> </aside> </section> <!-- ================= CONTACT ================= --> <section class="contact-area" aria-labelledby="contact-title"> <div class="contact-text"> <h3 id="contact-title">Une suggestion, une demande d’évolution ?</h3> <p>ReplacePro est conçu pour évoluer. Contactez-nous pour proposer des idées ou demander des modifications.</p> </div> <a class="contact-btn" href="../Support.html">Nous contacter</a> </section> </main> <footer class="footer"> <nav class="small-links" aria-label="Liens utiles"> <a href="../index.html">Accueil</a> <a href="../windows/index.html">Logiciels Windows</a> <a href="../android/index.html">Applications Android</a> <a href="../extensions/index.html">Extensions Chrome</a> <a href="../Support.html">Assistance</a> <a href="../privacy.html">Confidentialité et conditions</a> </nav> <p>© 2026 MCH SOFTS · Des outils pour votre quotidien.</p> </footer> </div> </body> </html>
