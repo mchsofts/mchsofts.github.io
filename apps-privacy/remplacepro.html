@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | ReplacePro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1020;
+    --bg-soft:#111834;
+    --card:#151d3b;
+    --text:#e8ecf7;
+    --muted:#a3aecb;
+    --line:rgba(255,255,255,.08);
+    --brand:#5b8cff;
+    --brand-2:#8b5bff;
+    --accent:#22d3a6;
+    --shadow:0 18px 50px rgba(0,0,0,.35);
+    --radius:20px;
+  }
+
+  *{box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(139,91,255,.18), transparent 60%),
+      radial-gradient(900px 500px at 10% 0%, rgba(91,140,255,.16), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+
+  /* ===== Header ===== */
+  header.hero{
+    position:relative;
+    padding:72px 0 46px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  header.hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    background:rgba(91,140,255,.12);
+    border:1px solid rgba(91,140,255,.35);
+    color:#c9d8ff;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:.82rem;
+    font-weight:600;
+    letter-spacing:.3px;
+  }
+  .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px rgba(34,211,166,.18);
+  }
+
+  h1{
+    margin:22px 0 10px;
+    font-size:clamp(2rem, 5vw, 3.2rem);
+    font-weight:800;
+    letter-spacing:-.5px;
+    line-height:1.2;
+  }
+  .grad{
+    background:linear-gradient(90deg,var(--brand),var(--brand-2) 55%,var(--accent));
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .sub{
+    color:var(--muted);
+    font-size:1.02rem;
+    max-width:640px;
+    margin:0;
+  }
+
+  .meta{
+    display:flex;flex-wrap:wrap;gap:12px;
+    margin-top:28px;
+  }
+  .meta-chip{
+    display:flex;flex-direction:column;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 18px;
+    min-width:160px;
+  }
+  .meta-chip span{font-size:.72rem;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+  .meta-chip strong{font-size:.95rem;font-weight:700;margin-top:2px}
+
+  /* ===== Layout ===== */
+  .layout{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:36px;
+    padding:48px 0 80px;
+    align-items:start;
+  }
+
+  /* ===== TOC ===== */
+  nav.toc{
+    position:sticky;
+    top:24px;
+    background:linear-gradient(180deg,var(--card),var(--bg-soft));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 18px;
+    box-shadow:var(--shadow);
+  }
+  nav.toc h2{
+    margin:0 0 14px;
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    color:var(--muted);
+    font-weight:700;
+  }
+  nav.toc ol{
+    list-style:none;margin:0;padding:0;
+    counter-reset:toc;
+  }
+  nav.toc li{counter-increment:toc;margin-bottom:4px}
+  nav.toc a{
+    display:flex;gap:10px;align-items:baseline;
+    color:var(--muted);
+    padding:8px 10px;
+    border-radius:10px;
+    font-size:.9rem;
+    font-weight:600;
+    transition:.2s;
+    border:1px solid transparent;
+  }
+  nav.toc a::before{
+    content:counter(toc,decimal-leading-zero);
+    color:var(--brand);
+    font-size:.72rem;
+    font-weight:700;
+    opacity:.8;
+    flex:none;
+  }
+  nav.toc a:hover{
+    background:rgba(91,140,255,.1);
+    color:var(--text);
+    text-decoration:none;
+    border-color:rgba(91,140,255,.2);
+  }
+
+  /* ===== Content ===== */
+  main{min-width:0}
+
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px 32px;
+    margin-bottom:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.22);
+    scroll-margin-top:24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::after{
+    content:"";
+    position:absolute;top:0;right:0;left:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--brand),var(--brand-2),transparent);
+    opacity:.55;
+  }
+
+  .card h2{
+    display:flex;align-items:center;gap:14px;
+    margin:0 0 14px;
+    font-size:1.22rem;
+    font-weight:800;
+    letter-spacing:-.2px;
+  }
+  .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:40px;height:40px;flex:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,rgba(91,140,255,.22),rgba(139,91,255,.22));
+    border:1px solid rgba(91,140,255,.32);
+    color:#cdd9ff;
+    font-size:.85rem;
+    font-weight:800;
+  }
+
+  .card p{margin:0 0 14px;color:#d5dcee}
+  .card p:last-child{margin-bottom:0}
+
+  .callout{
+    display:flex;gap:14px;
+    background:rgba(34,211,166,.07);
+    border:1px solid rgba(34,211,166,.25);
+    border-radius:14px;
+    padding:16px 18px;
+    margin:18px 0;
+  }
+  .callout .ico{
+    flex:none;
+    width:36px;height:36px;border-radius:10px;
+    display:grid;place-items:center;
+    background:rgba(34,211,166,.16);
+    color:var(--accent);
+    font-weight:800;
+  }
+  .callout p{margin:0;font-size:.94rem;color:#cfe9e2}
+
+  .callout.warn{
+    background:rgba(255,193,7,.07);
+    border-color:rgba(255,193,7,.28);
+  }
+  .callout.warn .ico{background:rgba(255,193,7,.16);color:#ffc107}
+  .callout.warn p{color:#f0e3bd}
+
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.86em;
+    background:rgba(91,140,255,.12);
+    border:1px solid rgba(91,140,255,.22);
+    color:#c9d8ff;
+    padding:2px 7px;
+    border-radius:7px;
+    display:inline-block;
+    word-break:break-all;
+  }
+
+  /* Contact */
+  .contact-card{
+    background:linear-gradient(135deg, rgba(91,140,255,.14), rgba(139,91,255,.1) 55%, rgba(34,211,166,.08));
+    border:1px solid rgba(91,140,255,.3);
+  }
+  .contact-card::after{opacity:1}
+  .contact-actions{
+    display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:12px 22px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:.92rem;
+    transition:.2s;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    color:#fff;
+    box-shadow:0 10px 24px rgba(91,140,255,.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 14px 30px rgba(91,140,255,.4)}
+  .btn-ghost{
+    background:rgba(255,255,255,.04);
+    border-color:var(--line);
+    color:var(--text);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.08);text-decoration:none}
+
+  /* ===== Footer ===== */
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 0 40px;
+    color:var(--muted);
+    font-size:.86rem;
+  }
+  footer .wrap{
+    display:flex;flex-wrap:wrap;justify-content:space-between;
+    gap:12px;align-items:center;
+  }
+  footer strong{color:var(--text)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;gap:24px;padding-top:36px}
+    nav.toc{position:static;order:2}
+    main{order:1}
+    .card{padding:24px 20px}
+    header.hero{padding:52px 0 36px}
+  }
+  @media (max-width:520px){
+    .meta-chip{min-width:100%;flex:1}
+    .card h2{font-size:1.08rem;gap:10px}
+    .num{width:34px;height:34px;font-size:.76rem}
+    .contact-actions .btn{width:100%;justify-content:center}
+  }
+
+  @media print{
+    body{background:#fff;color:#000}
+    header.hero,nav.toc,.contact-actions{display:none}
+    .layout{display:block;padding:0}
+    .card{box-shadow:none;border:1px solid #ddd;background:#fff;break-inside:avoid}
+    .card p{color:#222}
+    .grad{-webkit-text-fill-color:#000;color:#000}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="badge"><span class="dot"></span> ReplacePro for Windows</span>
+    <h1>Privacy <span class="grad">Policy</span></h1>
+    <p class="sub">
+      This page explains how ReplacePro handles information on your computer,
+      and how MCHSofts handles the information you voluntarily provide when you contact us.
+    </p>
+    <div class="meta">
+      <div class="meta-chip">
+        <span>Effective Date</span>
+        <strong>[Publication date]</strong>
+      </div>
+      <div class="meta-chip">
+        <span>Publisher</span>
+        <strong>MCHSofts</strong>
+      </div>
+      <div class="meta-chip">
+        <span>Platform</span>
+        <strong>Windows</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+
+  <!-- ===== Table of Contents ===== -->
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#files">Files and Search Data</a></li>
+      <li><a href="#settings">Settings, Backups, and Clipboard</a></li>
+      <li><a href="#store">Microsoft Store and Windows</a></li>
+      <li><a href="#support">Support and Privacy Requests</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <!-- ===== Content ===== -->
+  <main>
+
+    <section class="card" id="files">
+      <h2><span class="num">01</span> Files and Search Data</h2>
+      <p>
+        ReplacePro is a desktop app for finding and replacing text across files. When you start a search
+        or replacement, the app reads the names, paths, and contents of files in the folder you select,
+        subject to your search filters and subfolder settings. It uses the search and replacement text you
+        enter to find matches, display results, and make the changes you request. The files and paths you
+        select may contain personal information.
+      </p>
+      <div class="callout">
+        <div class="ico">✓</div>
+        <p>
+          ReplacePro performs these operations on your computer. The app does not upload your files,
+          file paths, search terms, replacement text, or results to MCHSofts or to an external service.
+          It does not require a ReplacePro account or include advertising, usage analytics, or telemetry.
+        </p>
+      </div>
+    </section>
+
+    <section class="card" id="settings">
+      <h2><span class="num">02</span> Settings, Backups, and Clipboard</h2>
+      <p>
+        ReplacePro stores your language preference in a settings file in your Windows user profile at:
+      </p>
+      <p><code>%APPDATA%\MCHSofts\ReplacePro\settings.json</code></p>
+      <p>The app does not save a search or replacement history in this file.</p>
+
+      <p>
+        If you enable <strong>Create .bak backups</strong> in the desktop app, ReplacePro can save a copy of
+        the original file alongside the file it modifies. This option is <strong>off by default</strong>.
+        Backup files may contain the same personal information as the originals and are stored as ordinary
+        files, subject to the permissions and protections of the folder where they are saved. You can view
+        or delete these copies in File Explorer and reset your language preference by deleting the settings
+        file after closing the app.
+      </p>
+
+      <p>
+        If you choose <strong>Copy full path</strong>, ReplacePro writes the selected file path to the Windows
+        clipboard. Clipboard history and syncing, when enabled, are controlled by your Windows settings.
+        If you choose a network or cloud-synced folder, the permissions and syncing behavior of that location
+        are controlled by the service or system that manages it.
+      </p>
+
+      <div class="callout warn">
+        <div class="ico">!</div>
+        <p>
+          Backup files may contain the same personal information as the originals. Protect the folder where
+          they are saved, or delete any copies you no longer need.
+        </p>
+      </div>
+    </section>
+
+    <section class="card" id="store">
+      <h2><span class="num">03</span> Microsoft Store and Windows</h2>
+      <p>
+        Microsoft may process information when you use the Microsoft Store to download or update the app,
+        or when you use Windows features. Microsoft handles that information under the Microsoft Privacy
+        Statement.
+      </p>
+    </section>
+
+    <section class="card" id="support">
+      <h2><span class="num">04</span> Support and Privacy Requests</h2>
+      <p>
+        If you email MCHSofts, we receive your email address, the contents of your message, and any
+        attachments you choose to send. We use this information to respond to your inquiry and follow up
+        as needed.
+      </p>
+      <div class="callout warn">
+        <div class="ico">!</div>
+        <p>
+          Please remove sensitive information from any files, screenshots, or examples you send for support.
+        </p>
+      </div>
+      <p>
+        You can contact us to ask about, correct, or request deletion of personal information you provided
+        directly to us. Files processed in ReplacePro remain under your control in the locations you select.
+      </p>
+    </section>
+
+    <section class="card" id="changes">
+      <h2><span class="num">05</span> Changes to This Policy</h2>
+      <p>
+        If ReplacePro's data practices change, we will update this page and revise the effective date.
+      </p>
+    </section>
+
+    <section class="card contact-card" id="contact">
+      <h2><span class="num">06</span> Contact</h2>
+      <p>
+        For questions about this policy or privacy requests, contact MCHSofts at:
+      </p>
+      <p><code>contact@mchsofts.com</code></p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:contact@mchsofts.com">Send an Email</a>
+        <a class="btn btn-ghost" href="#files">Back to Top</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="year"></span> <strong>MCHSofts</strong> — All rights reserved.</div>
+    <div>ReplacePro for Windows · Privacy Policy</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
