@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy for NAYRO ADVENTURE by MCH Softs." />
+  <title>Privacy Policy — NAYRO ADVENTURE</title>
+
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-soft: #eef4ff;
+      --text: #172033;
+      --muted: #5d6b82;
+      --line: #dbe4f0;
+      --primary: #1d4ed8;
+      --primary-dark: #15358f;
+      --accent: #06b6d4;
+      --shadow: 0 18px 50px rgba(23, 32, 51, 0.10);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.28), transparent 34%),
+        radial-gradient(circle at 85% 10%, rgba(99, 102, 241, 0.30), transparent 30%),
+        linear-gradient(135deg, #0b1430 0%, #13245a 55%, #1d4ed8 100%);
+      color: #ffffff;
+      padding: 68px 0 56px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -120px -10%;
+      height: 220px;
+      background: var(--bg);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      opacity: 0.95;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.18);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .hero .eyebrow {
+      margin: 14px 0 0;
+      color: #b9d7ff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero p.lede {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: #dbe9ff;
+      font-size: 1.06rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #eef6ff;
+      font-size: 0.88rem;
+    }
+
+    /* Layout */
+    .layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+      padding: 0 0 60px;
+      margin-top: 8px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .toc nav {
+      display: grid;
+      gap: 4px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      background: var(--surface-soft);
+      color: var(--primary-dark);
+      text-decoration: none;
+      outline: none;
+    }
+
+    .policy {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 48px);
+    }
+
+    .policy section {
+      scroll-margin-top: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .policy section:first-of-type {
+      padding-top: 0;
+    }
+
+    .policy section:last-of-type {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .policy h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 12px;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .section-number {
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(29, 78, 216, 0.22);
+    }
+
+    .policy p {
+      margin: 0 0 14px;
+      color: #2d3a50;
+    }
+
+    .policy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy ul {
+      margin: 12px 0 16px;
+      padding-left: 22px;
+      color: #2d3a50;
+    }
+
+    .policy li {
+      margin: 6px 0;
+      padding-left: 4px;
+    }
+
+    .notice {
+      margin: 18px 0;
+      padding: 16px 18px;
+      border: 1px solid #cfe0ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+      background: #f3f8ff;
+      color: #20304d;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid #cfe0ff;
+      border-radius: 999px;
+      background: #f7faff;
+      font-size: 0.9rem;
+    }
+
+    .links a:hover {
+      background: #eaf2ff;
+      text-decoration: none;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-soft);
+    }
+
+    .contact-card strong {
+      font-size: 1.02rem;
+    }
+
+    .contact-card span {
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      background: #0b1430;
+      color: #b9c7df;
+      padding: 28px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    footer a {
+      color: #dce9ff;
+    }
+
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      z-index: 99;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #ffffff;
+      color: var(--primary-dark);
+      box-shadow: var(--shadow);
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(6, 182, 212, 0.55);
+      outline-offset: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-bottom: 42px;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .toc nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 48px 0 44px;
+      }
+
+      .toc nav {
+        grid-template-columns: 1fr;
+      }
+
+      .policy {
+        padding: 20px;
+      }
+
+      .policy h2 {
+        align-items: flex-start;
+      }
+
+      .section-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.78rem;
+      }
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .hero {
+        background: #ffffff;
+        color: #000000;
+        padding: 20px 0;
+      }
+
+      .hero::after,
+      .toc,
+      footer {
+        display: none;
+      }
+
+      .hero .eyebrow,
+      .hero p.lede,
+      .meta span {
+        color: #000000;
+        background: transparent;
+        border: 0;
+      }
+
+      .layout {
+        display: block;
+        padding: 0;
+      }
+
+      .policy {
+        box-shadow: none;
+        border: 0;
+        padding: 0;
+      }
+
+      .section-number {
+        background: #000000;
+        box-shadow: none;
+      }
+
+      a {
+        color: #000000;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="brand-row">
+          <span class="brand-badge">
+            <span class="dot" aria-hidden="true"></span>
+            MCH Softs
+          </span>
+        </div>
+
+        <h1>NAYRO ADVENTURE</h1>
+        <p class="eyebrow">Privacy Policy</p>
+        <p class="lede">
+          This Privacy Policy explains how information may be handled when you use
+          NAYRO ADVENTURE, developed and operated by MCH Softs.
+        </p>
+
+        <div class="meta" aria-label="Policy information">
+          <span><strong>Last updated:</strong>&nbsp; November 14, 2026</span>
+          <span><strong>Applies to:</strong>&nbsp; NAYRO ADVENTURE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container layout">
+    <aside class="toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#local-information">Information Stored Locally</a>
+        <a href="#advertising">Advertising</a>
+        <a href="#childrens-privacy">Children’s Privacy</a>
+        <a href="#app-updates">App Updates</a>
+        <a href="#third-party-services">Third-Party Services</a>
+        <a href="#data-security">Data Security</a>
+        <a href="#changes">Changes to This Policy</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+    </aside>
+
+    <article class="policy">
+      <section id="introduction">
+        <h2>
+          <span class="section-number">01</span>
+          Introduction
+        </h2>
+        <p>
+          MCH Softs (“we”, “us”, or “our”) developed and operates
+          <strong>NAYRO ADVENTURE</strong>.
+        </p>
+        <p>
+          This Privacy Policy explains how information may be handled when you use
+          the game.
+        </p>
+      </section>
+
+      <section id="local-information">
+        <h2>
+          <span class="section-number">02</span>
+          Information Stored Locally
+        </h2>
+        <p>
+          NAYRO ADVENTURE stores certain game settings and progress locally on your
+          device, including:
+        </p>
+        <ul>
+          <li>Level progress and unlocked levels</li>
+          <li>Scores, coins, gems, and saved checkpoints</li>
+          <li>Sound and music preferences</li>
+          <li>Update and advertising timing preferences</li>
+        </ul>
+        <p>
+          This information is stored on your device and is not directly sent to us.
+        </p>
+      </section>
+
+      <section id="advertising">
+        <h2>
+          <span class="section-number">03</span>
+          Advertising
+        </h2>
+        <p>
+          NAYRO ADVENTURE uses <strong>Google AdMob</strong> to display
+          advertisements.
+        </p>
+        <p>
+          Google AdMob may collect or process certain information, such as:
+        </p>
+        <ul>
+          <li>Device information</li>
+          <li>Advertising identifiers</li>
+          <li>IP address</li>
+          <li>Approximate location</li>
+          <li>Advertising and interaction data</li>
+        </ul>
+        <p>
+          This information may be used to provide, measure, and improve advertising
+          services. Google may use cookies, mobile identifiers, or similar
+          technologies.
+        </p>
+
+        <div class="notice">
+          <strong>Advertising frequency:</strong>
+          We use interstitial advertisements only at selected game transitions and
+          apply a minimum interval between advertisements to avoid excessive
+          interruptions.
+        </div>
+
+        <p>For more information, please review:</p>
+        <div class="links">
+          <a
+            href="https://policies.google.com/technologies/apps?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            How Google uses information from apps
+          </a>
+          <a
+            href="https://policies.google.com/privacy?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Privacy Policy
+          </a>
+        </div>
+      </section>
+
+      <section id="childrens-privacy">
+        <h2>
+          <span class="section-number">04</span>
+          Children’s Privacy
+        </h2>
+        <p>
+          NAYRO ADVENTURE is intended for a general audience. We do not knowingly
+          collect personal information directly from children.
+        </p>
+        <p>
+          Where required by applicable law, advertising and data collection settings
+          should be configured in Google AdMob for child-directed treatment and
+          applicable regional requirements.
+        </p>
+        <p>
+          Parents or guardians who believe that a child has provided personal
+          information may contact us so that we can review and address the request.
+        </p>
+      </section>
+
+      <section id="app-updates">
+        <h2>
+          <span class="section-number">05</span>
+          App Updates
+        </h2>
+        <p>
+          The application may retrieve update information from our remote
+          configuration file. This may include:
+        </p>
+        <ul>
+          <li>The latest application version</li>
+          <li>An update download URL</li>
+          <li>Update availability settings</li>
+        </ul>
+        <p>
+          The application does not use this information to identify users personally.
+        </p>
+      </section>
+
+      <section id="third-party-services">
+        <h2>
+          <span class="section-number">06</span>
+          Third-Party Services
+        </h2>
+        <p>
+          The application uses third-party services, including Google Mobile Ads
+          (AdMob). These services may process information according to their own
+          privacy policies.
+        </p>
+        <p>
+          We encourage users to review the privacy policies of these third-party
+          providers.
+        </p>
+      </section>
+
+      <section id="data-security">
+        <h2>
+          <span class="section-number">07</span>
+          Data Security
+        </h2>
+        <p>
+          We take reasonable measures to protect locally stored application data.
+          However, no electronic storage or transmission method can be guaranteed to
+          be completely secure.
+        </p>
+      </section>
+
+      <section id="changes">
+        <h2>
+          <span class="section-number">08</span>
+          Changes to This Privacy Policy
+        </h2>
+        <p>
+          We may update this Privacy Policy from time to time. Any changes will be
+          published on this page with an updated “Last updated” date.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>
+          <span class="section-number">09</span>
+          Contact Us
+        </h2>
+        <p>
+          If you have questions about this Privacy Policy, please contact:
+        </p>
+
+        <div class="contact-card">
+          <strong>Mohammed Choukri</strong>
+          <span>
+            Website:
+            <a
+              href="https://mchsofts.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://mchsofts.com
+            </a>
+          </span>
+          <span>
+            Email:
+            <a href="mailto:contcat@mchsofts.com">contcat@mchsofts.com</a>
+          </span>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 MCH Softs. All rights reserved.</span>
+      <span>
+        <a href="https://mchsofts.com" target="_blank" rel="noopener noreferrer">
+          mchsofts.com
+        </a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
