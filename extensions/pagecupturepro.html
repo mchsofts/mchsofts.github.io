@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>PageCapture Pro | MCH SOFTS</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      color: #0a1c2f;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    /* glass card style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* header area (same as original site) */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      background: #1e2f3e;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1f2e3a, #0f1a24);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-icon span {
+      font-size: 30px;
+      font-weight: 700;
+      color: #f0b90b;
+    }
+
+    .brand h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b3b, #1e4a6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2c5a7a;
+      background: rgba(44, 90, 122, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* page header */
+    .page-header {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .page-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title .highlight {
+      background: linear-gradient(120deg, #dd8e2c, #f2b341);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: #1e3a4d;
+      max-width: 85%;
+    }
+
+    /* hero product section */
+    .product-hero {
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .product-hero-text {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .product-hero-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0e2f40;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-hero-text p {
+      font-size: 1.1rem;
+      color: #1e3a4d;
+      margin-bottom: 1.4rem;
+    }
+
+    .product-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e7f2fe;
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+      border: 1px solid #d0e4ff;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0066cc;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      box-shadow: 0 10px 22px -8px rgba(0, 102, 204, 0.45);
+      transition: all 0.2s ease;
+      border: 1px solid #0055aa;
+      font-family: inherit;
+    }
+
+    .btn-primary i {
+      font-size: 1.1rem;
+    }
+
+    .btn-primary:hover {
+      background: #0055aa;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -8px rgba(0, 85, 170, 0.55);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      border: 1.5px solid #b0d0f0;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-secondary:hover {
+      background: #e6f0fe;
+      border-color: #0066cc;
+      transform: translateY(-2px);
+    }
+
+    .product-hero-icon {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+      justify-content: center;
+      font-size: 6.5rem;
+      color: #0066cc;
+      opacity: 0.8;
+    }
+
+    /* section title */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, #e2a03c, #f4c542);
+      border-radius: 4px;
+    }
+
+    /* features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.8rem 1.6rem;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -14px rgba(0, 0, 0, 0.12);
+      border-color: rgba(226, 160, 60, 0.25);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0066cc;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: #0e2f40;
+    }
+
+    .feature-card p {
+      color: #2c4e6e;
+      font-size: 0.95rem;
+    }
+
+    /* detailed sections */
+    .detail-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 10px 28px -10px rgba(0, 40, 80, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .detail-card h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0e2f40;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .detail-card h2 i {
+      color: #0066cc;
+      font-size: 1.4rem;
+    }
+
+    .detail-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #103a5e;
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    .detail-card p {
+      color: #2c4e6e;
+      margin-bottom: 0.9rem;
+    }
+
+    .detail-card ul {
+      list-style: none;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .detail-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.65rem;
+      color: #2c4e6e;
+    }
+
+    .detail-card li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* iframe lab specific card */
+    .lab-card {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.8rem;
+      margin: 1.2rem 0 0.5rem;
+      border-left: 5px solid #0066cc;
+    }
+
+    .lab-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lab-card h4 i {
+      color: #0066cc;
+      font-size: 0.95rem;
+    }
+
+    .lab-card p, .lab-card ul {
+      font-size: 0.93rem;
+      color: #3f5e7a;
+      margin-bottom: 0.6rem;
+    }
+
+    .lab-card ul {
+      list-style: none;
+      margin: 0.5rem 0 0.3rem;
+    }
+
+    .lab-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 0.45rem;
+      color: #3f5e7a;
+    }
+
+    .lab-card li i {
+      color: #0066cc;
+      margin-top: 4px;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* steps grid */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .step-item {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #0066cc;
+      position: relative;
+    }
+
+    .step-item .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0066cc;
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .step-item h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 4px;
+    }
+
+    .step-item p {
+      font-size: 0.86rem;
+      color: #3f5e7a;
+      margin-bottom: 0;
+    }
+
+    /* privacy box */
+    .privacy-box {
+      background: #e7f2fe;
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .privacy-box-text {
+      flex: 2;
+    }
+
+    .privacy-box-text h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-box-text ul {
+      list-style: none;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .privacy-box-text li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.6rem;
+      color: #1f4668;
+      font-size: 0.97rem;
+    }
+
+    .privacy-box-text li i {
+      color: #0066cc;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .privacy-box-icon {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      font-size: 5rem;
+      color: #0066cc;
+      opacity: 0.8;
+    }
+
+    /* limitations grid */
+    .limits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .limit-item {
+      background: #fff8e6;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #dd8e2c;
+    }
+
+    .limit-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #6b4a00;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .limit-item h4 i {
+      font-size: 0.9rem;
+      color: #dd8e2c;
+    }
+
+    .limit-item p {
+      font-size: 0.88rem;
+      color: #5a4a1a;
+      margin-bottom: 0;
+    }
+
+    /* FAQ mini section */
+    .faq-item {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 14px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0e2f40;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-item h3 i {
+      color: #0066cc;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      margin-top: 0.5rem;
+      color: #2c4e6e;
+      font-size: 0.95rem;
+      padding-left: 28px;
+    }
+
+    /* download CTA */
+    .download-cta {
+      background: linear-gradient(115deg, #111f2b 0%, #142c3b 100%);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    .download-cta-text h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .download-cta-text p {
+      opacity: 0.85;
+      margin-top: 0.6rem;
+      max-width: 550px;
+    }
+
+    .btn-light {
+      background: #f3b33d;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0f1f29;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-light i {
+      font-size: 1.1rem;
+    }
+
+    .btn-light:hover {
+      background: #ffc857;
+      transform: scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .store-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.85rem;
+      color: #3c657e;
+    }
+
+    .small-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .small-links a {
+      text-decoration: none;
+      color: #2c6285;
+      font-weight: 500;
+    }
+
+    .small-links a:hover {
+      color: #e2a03c;
+    }
+
+    /* responsiveness */
+    @media (max-width: 780px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .page-title {
+        font-size: 2rem;
+      }
+      .page-subtitle {
+        max-width: 100%;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .product-hero {
+        padding: 1.6rem 1.4rem;
+      }
+      .page-header {
+        padding: 1.6rem 1.4rem;
+      }
+      .detail-card {
+        padding: 1.6rem 1.4rem;
+      }
+      .privacy-box {
+        padding: 1.6rem 1.4rem;
+        flex-direction: column;
+        text-align: center;
+      }
+      .download-cta {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-buttons {
+        flex-direction: column;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem 1.4rem;
+      margin-bottom: 2rem;
+      padding: .8rem 1.2rem;
+      background: rgba(255,255,255,.9);
+      border: 1px solid #dce5ed;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 24px -18px #142c3b;
+      align-items: center;
+    }
+    .navigation a {
+      color: #165780;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 1rem;
+      padding: .55rem .85rem;
+    }
+    .navigation a:hover { background: #edf3f8; }
+    .navigation .current-section { background: #142c3b; color: #fff; }
+    .navigation a:focus-visible { outline: 3px solid #b56a00; outline-offset: 3px; }
+    @media (max-width:480px) {
+      .navigation { gap: .3rem; padding: .6rem; }
+      .navigation a { padding: .5rem; font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero"><div class="brand"><div class="logo-icon"><span>⚡</span></div><h1>MCH SOFTS</h1></div><div class="tagline">🖥️ Windows • 📱 Android • 🌐 Extensions Chrome</div></div>
+  <nav class="navigation" aria-label="Navigation principale"><a href="../../index.html">Accueil</a><a href="../../windows/index.html">Logiciels Windows</a><a href="../../android/index.html">Applications Android</a><a href="../index.html" class="current-section">Extensions Chrome</a><a href="../../Support.html">Assistance</a></nav>
+  <div class="glass-card page-header"><div class="page-title">PageCapture <span class="highlight">Pro</span></div><div class="page-subtitle">Capturez une page web complète, une zone visible ou une sélection avec une extension Chrome rapide et simple.</div></div>
+  <div class="glass-card product-hero"><div class="product-hero-text"><div class="product-hero-badge"><i class="fas fa-puzzle-piece"></i> Extension Chrome · Capture d’écran</div><h2>PageCapture Pro</h2><p>PageCapture Pro vous permet de capturer des pages web entières, même lorsqu’elles sont plus longues que l’écran, avec une prévisualisation claire et un export de haute qualité.</p><p style="font-size:1rem">Une solution pratique pour documenter, partager et archiver vos pages web depuis Chrome.</p><div class="hero-buttons"><a href="https://chromewebstore.google.com/detail/page-capture-pro/iepcjceengdofkaghmlklmajabcbmodd" class="btn-primary" target="_blank" rel="noopener"><i class="fas fa-download"></i> Installer sur Chrome</a><a href="#features" class="btn-secondary"><i class="fas fa-arrow-down"></i> Découvrir les fonctionnalités</a></div></div><div class="product-hero-icon"><img src="page-capture-pro.png" alt="PageCapture Pro" style="width:100%;max-width:360px;height:auto;object-fit:contain;border-radius:24px"></div></div>
+  <div id="features"><h2 class="section-title">Fonctionnalités principales</h2><div class="features-grid"><div class="feature-card"><div class="feature-icon"><i class="fas fa-camera"></i></div><h3>Capture de page entière</h3><p>Capturez automatiquement toute la page, y compris les contenus qui dépassent l’écran.</p></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-display"></i></div><h3>Zone visible</h3><p>Enregistrez rapidement la partie actuellement affichée dans votre navigateur.</p></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-crop-simple"></i></div><h3>Zone sélectionnée</h3><p>Sélectionnez précisément la zone à capturer avant de l’exporter.</p></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-arrows-down-to-line"></i></div><h3>Défilement automatique</h3><p>La page défile automatiquement pour assembler une capture complète et continue.</p></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-image"></i></div><h3>Image de haute qualité</h3><p>Obtenez des captures PNG nettes, adaptées au partage et à la documentation.</p></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3>Un clic</h3><p>Accédez aux fonctions principales depuis l’interface simple de l’extension.</p></div></div></div>
+  <h2 class="section-title">Comment l’utiliser</h2><div class="detail-card"><h2><i class="fas fa-list-ol"></i> Installation et première capture</h2><div class="steps-grid"><div class="step-item"><span class="step-number">1</span><h4>Ouvrez Chrome Web Store</h4><p>Cliquez sur le bouton Installer sur Chrome.</p></div><div class="step-item"><span class="step-number">2</span><h4>Ajoutez l’extension</h4><p>Confirmez l’installation dans Chrome.</p></div><div class="step-item"><span class="step-number">3</span><h4>Ouvrez une page</h4><p>Accédez à la page que vous souhaitez capturer.</p></div><div class="step-item"><span class="step-number">4</span><h4>Choisissez le mode</h4><p>Capturez la page entière, la zone visible ou une sélection.</p></div></div></div>
+  <div class="privacy-box"><div class="privacy-box-text"><h2><i class="fas fa-shield-haltered" style="margin-right:12px;color:#0066cc"></i>Confidentialité</h2><ul><li><i class="fas fa-check-circle"></i> L’extension fonctionne directement dans Chrome.</li><li><i class="fas fa-check-circle"></i> Elle ne nécessite pas de compte utilisateur.</li><li><i class="fas fa-check-circle"></i> Les captures sont enregistrées selon l’action de l’utilisateur.</li><li><i class="fas fa-check-circle"></i> Consultez notre politique de confidentialité pour plus d’informations.</li></ul></div><div class="privacy-box-icon"><i class="fas fa-lock"></i></div></div>
+  <div class="download-cta" id="download"><div class="download-cta-text"><h3><i class="fas fa-download" style="margin-right:10px"></i>Prêt à capturer vos pages ?</h3><p>Installez PageCapture Pro depuis la fiche officielle Chrome Web Store.</p></div><a href="https://chromewebstore.google.com/detail/page-capture-pro/iepcjceengdofkaghmlklmajabcbmodd" class="btn-light" target="_blank" rel="noopener"><i class="fas fa-puzzle-piece"></i> Installer l’extension</a></div>
+  <div class="footer"><div class="small-links"><a href="https://mchsofts.com">mchsofts.com</a><a href="../../index.html#catalogue">Portfolio</a><a href="https://github.com/mchsofts">GitHub</a><a href="../../Support.html">Support</a><a href="../../privacy.html">Confidentialité & Conditions</a></div><p>Développé par <strong>mchsofts.com</strong> · © 2026 mchsofts.com. All rights reserved.</p></div>
+</div>
+</body>
+</html>
