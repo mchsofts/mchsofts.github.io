@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ondelyra – Online Radio Player | MCH SOFTS</title>
+<meta name="description" content="Découvrez Ondelyra, le lecteur de radios arabes et internationales pour Windows. Recherche de stations, favoris et téléchargement sur le Microsoft Store.">
+<link rel="canonical" href="https://mchsofts.com/windows/onlineradioplayer.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MCH SOFTS">
+<meta property="og:title" content="Ondelyra – Online Radio Player">
+<meta property="og:description" content="Vos radios arabes et internationales sur Windows. Découvrez Ondelyra et téléchargez l’application sur le Microsoft Store.">
+<meta property="og:url" content="https://mchsofts.com/windows/onlineradioplayer.html">
+<meta property="og:image" content="https://mchsofts.com/assets/images/ondelyra-online-radio-player.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<style data-site-design>
+ *{margin:0;padding:0;box-sizing:border-box} :root{ --ink:#0a1c2f; --ink-2:#143e58; --ink-3:#2c5a7a; --gold:#e2a03c; --gold-2:#f4c542; --gold-3:#f3b33d; --blue:#155d9e; --blue-2:#0c497e; --paper:#f8fafc; --line:#e0e8ee; --radius:2.5rem; --shadow-lg:0 30px 60px -30px rgba(10,28,47,.35), 0 8px 24px -18px rgba(10,28,47,.2); --shadow-md:0 18px 40px -24px rgba(10,28,47,.3); } html{scroll-behavior:smooth} body{ font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); line-height:1.6; background: radial-gradient(1200px 600px at 85% -10%, rgba(243,179,61,.10), transparent 60%), radial-gradient(900px 500px at -10% 20%, rgba(21,93,158,.08), transparent 55%), linear-gradient(160deg,#f8fafc 0%, #eef2f5 60%, #e9eef3 100%); -webkit-font-smoothing:antialiased; } a{color:var(--blue)} a:focus-visible,button:focus-visible{outline:3px solid #b56a00;outline-offset:5px;border-radius:8px} img{max-width:100%;display:block} .container{max-width:1280px;margin:0 auto;padding:2rem 2rem 4rem} .skip{position:absolute;left:-9999px} .skip:focus{left:1rem;top:1rem;background:#fff;padding:1rem;z-index:50;border-radius:12px;box-shadow:var(--shadow-md)}
+/* ---------- HEADER ---------- */
+.hero{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;margin-bottom:1.5rem}
+.brand{display:flex;align-items:center;gap:1rem;text-decoration:none}
+.logo-icon{
+width:56px;height:56px;display:grid;place-items:center;border-radius:22px;
+background:linear-gradient(135deg,#1f2e3a,#0f1a24);
+box-shadow:0 10px 24px -10px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.logo-icon span{font-size:28px;color:#f0b90b}
+.brand strong{
+font-size:1.9rem;font-weight:800;letter-spacing:-.02em;
+background:linear-gradient(120deg,#0f2b3b,#1e4a6e);
+background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+.tagline{
+font-size:.95rem;font-weight:600;color:#2c5a7a;
+background:rgba(44,90,122,.09);padding:.55rem 1.2rem;border-radius:40px;
+border:1px solid rgba(44,90,122,.12);
+}
+
+/* ---------- NAV ---------- */
+.navigation{
+display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-bottom:2rem;
+background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
+border:1px solid #dce5ed;border-radius:1.5rem;padding:.6rem 1rem;
+box-shadow:0 8px 24px -18px #142c3b;align-items:center;
+}
+.navigation a{
+font-weight:600;padding:.55rem .95rem;text-decoration:none;border-radius:1rem;
+color:#1c4e70;transition:background .2s,color .2s;font-size:.95rem;
+}
+.navigation a:hover{background:#edf3f8}
+.navigation [aria-current=page]{background:#142c3b;color:#fff}
+
+/* ---------- BREADCRUMBS ---------- */
+.breadcrumbs{margin:0 0 1rem;font-size:.9rem;color:#466479}
+.breadcrumbs a{text-decoration:none;font-weight:600}
+
+/* ---------- HERO SPLIT ---------- */
+.hero-split{
+display:grid;grid-template-columns:1.05fr .95fr;gap:2.5rem;align-items:center;
+background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+border:1px solid rgba(255,255,255,.7);border-radius:var(--radius);
+padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden;
+box-shadow:var(--shadow-lg);
+}
+.hero-split::before{
+content:'';position:absolute;inset:0;pointer-events:none;
+background:
+radial-gradient(600px 300px at 95% 0%, rgba(243,179,61,.12), transparent 65%),
+radial-gradient(500px 260px at 0% 100%, rgba(21,93,158,.08), transparent 60%);
+}
+.hero-split::after{
+content:'';position:absolute;top:0;left:0;width:100%;height:5px;
+background:linear-gradient(90deg,var(--gold),var(--gold-2),transparent 80%);
+}
+.hero-copy{position:relative;z-index:2}
+.eyebrow{
+display:inline-flex;align-items:center;gap:.5rem;
+font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+color:#8a5a00;background:#fff4df;border:1px solid #f3d9a6;
+padding:.4rem .9rem;border-radius:40px;margin-bottom:1.1rem;
+}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(226,160,60,.18)}
+.intro-title{
+font-size:clamp(2rem,3.4vw,2.9rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;
+margin-bottom:1rem;
+background:linear-gradient(120deg,#0f2b3b 20%,#1e4a6e 70%);
+background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+.intro-title .accent{
+background:linear-gradient(120deg,#c8841f,#f0b341);
+background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+.intro-text{font-size:1.12rem;color:#1e3a4d;max-width:52ch;margin-bottom:1.6rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.badge{
+display:inline-flex;align-items:center;gap:.4rem;
+background:#f1f6fa;border:1px solid #dbe6ef;border-radius:40px;
+padding:.42rem .95rem;font-size:.82rem;font-weight:600;color:#1c4e70;
+}
+.badge.gold{background:#fff7e8;border-color:#f3dcae;color:#8a5a00}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.button{
+display:inline-flex;align-items:center;gap:.6rem;
+background:linear-gradient(135deg,#1a6cb5,#155d9e);color:#fff;
+padding:.95rem 1.7rem;border-radius:40px;text-decoration:none;font-weight:700;
+box-shadow:0 14px 30px -14px rgba(21,93,158,.7), inset 0 1px 0 rgba(255,255,255,.2);
+transition:transform .2s,box-shadow .25s,background .25s;
+}
+.button:hover{transform:translateY(-2px);background:linear-gradient(135deg,#1f7ac8,#0c497e);box-shadow:0 20px 36px -16px rgba(21,93,158,.8)}
+.button.gold{
+background:linear-gradient(135deg,#f3b33d,#e2a03c);color:#1a1205;
+box-shadow:0 14px 30px -14px rgba(226,160,60,.75), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.button.gold:hover{background:linear-gradient(135deg,#ffc857,#eaa93a)}
+.store-button{
+display:inline-flex;align-items:center;justify-content:center;max-width:100%;
+background:#fff;border:1px solid var(--line);border-radius:12px;
+box-shadow:var(--shadow-md);text-decoration:none;
+transition:transform .2s,box-shadow .25s,border-color .25s;
+}
+.store-button img{width:200px;height:auto;border-radius:11px;color:var(--ink);font-weight:700}
+.store-button:hover{
+transform:translateY(-2px);border-color:var(--gold);
+box-shadow:0 14px 30px -14px rgba(21,93,158,.65);
+}
+.link-ghost{
+display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:#155d9e;
+text-decoration:none;padding:.9rem 1.1rem;border-radius:40px;transition:background .2s;
+}
+.link-ghost:hover{background:#eaf2fa}
+.download-meta{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.1rem;font-size:.82rem;color:#466479}
+.download-meta span{display:inline-flex;align-items:center;gap:.4rem}
+.download-meta span::before{content:'';width:6px;height:6px;border-radius:50%;background:#3aa06a}
+
+/* ---------- SHOWCASE IMAGE SIDE ---------- */
+.hero-visual{position:relative;z-index:2;perspective:1400px}
+.frame{
+position:relative;border-radius:1.6rem;
+background:linear-gradient(160deg,#0f1a24,#1b2f3f);
+padding:12px;box-shadow:
+0 40px 80px -40px rgba(10,28,47,.6),
+0 2px 0 rgba(255,255,255,.06) inset;
+transform:rotateY(-6deg) rotateX(3deg);
+transition:transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.frame:hover{transform:rotateY(-2deg) rotateX(1deg) translateY(-4px)}
+.frame::before{
+content:'';position:absolute;inset:0;border-radius:1.6rem;pointer-events:none;
+background:linear-gradient(120deg,rgba(255,255,255,.18),transparent 40%);
+mix-blend-mode:overlay;
+}
+.frame-bar{
+display:flex;align-items:center;gap:.45rem;padding:.4rem .6rem .7rem;
+}
+.frame-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.frame-bar i:nth-child(1){background:#ff5f57}
+.frame-bar i:nth-child(2){background:#febc2e}
+.frame-bar i:nth-child(3){background:#28c840}
+.frame-bar .url{
+margin-left:.6rem;flex:1;background:rgba(255,255,255,.08);border-radius:8px;
+padding:.25rem .6rem;font-size:.72rem;color:#a9c2d4;font-family:ui-monospace,monospace;
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.frame img{border-radius:1.1rem;width:100%;height:auto}
+.frame-glow{
+position:absolute;inset:-40px;border-radius:50%;pointer-events:none;z-index:-1;
+background:radial-gradient(circle at 50% 50%, rgba(243,179,61,.35), transparent 65%);
+filter:blur(40px);
+}
+.float-chip{
+position:absolute;display:flex;align-items:center;gap:.55rem;
+background:#fff;border:1px solid #e2e9f0;border-radius:16px;
+padding:.6rem .9rem;font-size:.8rem;font-weight:700;color:#143e58;
+box-shadow:0 18px 34px -20px rgba(10,28,47,.45);
+animation:floaty 5s ease-in-out infinite;
+}
+.float-chip .dot{width:9px;height:9px;border-radius:50%;background:#3aa06a;box-shadow:0 0 0 4px rgba(58,160,106,.18)}
+.float-chip.one{top:-14px;right:8%}
+.float-chip.two{bottom:8%;left:-14px;animation-delay:-2.4s}
+.float-chip.two .dot{background:var(--gold);box-shadow:0 0 0 4px rgba(226,160,60,.2)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ---------- SECTION HEADINGS ---------- */
+.section-title{
+font-size:clamp(1.6rem,2.4vw,2.1rem);font-weight:800;letter-spacing:-.02em;
+margin:3rem 0 1.4rem;position:relative;display:inline-block;color:var(--ink-2);
+}
+.section-title::after{
+content:'';position:absolute;bottom:-10px;left:0;width:64px;height:5px;border-radius:6px;
+background:linear-gradient(90deg,var(--gold),var(--gold-2));
+}
+.section-lead{max-width:70ch;color:#37536b;margin-top:1.3rem;font-size:1.02rem}
+
+/* ---------- FEATURE CARDS ---------- */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem;margin-top:2rem}
+.feature-card{
+background:#fff;border:1px solid var(--line);border-radius:1.8rem;padding:1.7rem 1.5rem;
+box-shadow:0 12px 30px -22px #142c3b;transition:transform .25s,box-shadow .3s,border-color .3s;
+position:relative;overflow:hidden;
+}
+.feature-card::before{
+content:'';position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,var(--gold),var(--gold-2));opacity:0;transition:opacity .3s;
+}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 26px 48px -26px rgba(10,28,47,.35);border-color:#f0dcb4}
+.feature-card:hover::before{opacity:1}
+.feature-icon{
+width:56px;height:56px;border-radius:18px;display:grid;place-items:center;
+background:linear-gradient(135deg,#fff7e8,#fdeed0);border:1px solid #f3dcae;
+font-size:1.6rem;margin-bottom:1rem;
+}
+.feature-card h3{font-size:1.15rem;font-weight:800;color:#0e2f40;margin-bottom:.45rem}
+.feature-card p{font-size:.94rem;color:#37536b}
+
+/* ---------- SPLIT CONTENT (features list) ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;align-items:start}
+.content{
+background:#fff;padding:2rem;border-radius:2rem;margin:1.5rem 0;
+box-shadow:var(--shadow-md);border:1px solid var(--line);
+}
+.content h2,.content h3{margin:0 0 .8rem;color:var(--ink-2);font-size:1.4rem}
+.content p{margin-bottom:1rem;color:#37536b}
+.checklist{list-style:none;display:grid;gap:.7rem}
+.checklist li{
+display:flex;gap:.75rem;align-items:flex-start;color:#2c4e6e;font-size:.98rem;
+padding:.55rem .7rem;border-radius:12px;transition:background .2s;
+}
+.checklist li:hover{background:#f7fafc}
+.checklist li::before{
+content:'✓';flex:0 0 24px;height:24px;border-radius:8px;
+background:linear-gradient(135deg,#e7f6ed,#d4efdf);color:#1e7a4a;
+display:grid;place-items:center;font-weight:900;font-size:.8rem;margin-top:.15rem;
+}
+.code-pill{
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem;
+background:#142c3b;color:#e9f2f8;padding:.12rem .5rem;border-radius:6px;
+}
+
+/* ---------- STEPS / TRUST ---------- */
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:1.6rem}
+.trust-card{
+background:linear-gradient(160deg,#ffffff,#f7fafc);border:1px solid var(--line);
+border-radius:1.6rem;padding:1.5rem;
+}
+.trust-card h4{font-size:1.05rem;font-weight:800;color:#0e2f40;margin-bottom:.4rem}
+.trust-card p{font-size:.92rem;color:#37536b}
+
+/* ---------- DOWNLOAD PANEL ---------- */
+.download-panel{
+margin:3rem 0 2rem;border-radius:2rem;padding:2.8rem 2.2rem;color:#fff;position:relative;overflow:hidden;
+background:linear-gradient(120deg,#0f1f2b 0%,#142c3b 45%,#1a3a4f 100%);
+box-shadow:0 40px 80px -40px rgba(10,28,47,.7);
+display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;
+}
+.download-panel::before{
+content:'';position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;
+background:radial-gradient(circle, rgba(243,179,61,.28), transparent 65%);
+}
+.download-panel h3{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.6rem}
+.download-panel p{opacity:.85;margin-bottom:1.2rem;max-width:52ch}
+.download-panel .panel-actions{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.panel-note{font-size:.8rem;opacity:.7;margin-top:.8rem;position:relative;z-index:2}
+.panel-badge{
+position:relative;z-index:2;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+border-radius:1.4rem;padding:1.4rem 1.5rem;backdrop-filter:blur(4px);
+}
+.panel-badge ul{list-style:none;display:grid;gap:.7rem;font-size:.9rem}
+.panel-badge li{display:flex;gap:.6rem;align-items:center;opacity:.95}
+.panel-badge li::before{content:'●';color:var(--gold);font-size:.7rem}
+
+/* ---------- CONTACT ---------- */
+.contact-area{
+margin:2rem 0;background:linear-gradient(115deg,#111f2b 0%,#142c3b 100%);
+border-radius:2rem;padding:2.5rem 2rem;color:#fff;
+display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.8rem;
+box-shadow:var(--shadow-md);
+}
+.contact-text h3{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.contact-text p{opacity:.85;margin-top:.5rem;max-width:60ch}
+.contact-btn{
+background:linear-gradient(135deg,#f3b33d,#e2a03c);border:none;padding:.95rem 2rem;border-radius:60px;
+font-weight:800;font-size:1rem;color:#0f1f29;cursor:pointer;text-decoration:none;display:inline-block;
+transition:all .2s;box-shadow:0 14px 28px -14px rgba(226,160,60,.8);
+}
+.contact-btn:hover{transform:translateY(-2px);background:linear-gradient(135deg,#ffc857,#eaa93a)}
+
+/* ---------- FOOTER ---------- */
+.footer{margin-top:3rem;text-align:center;padding-top:2rem;border-top:1px solid rgba(0,0,0,.08);font-size:.85rem;color:#3c657e}
+.small-links{display:flex;justify-content:center;gap:1.6rem;margin-bottom:1rem;flex-wrap:wrap}
+.small-links a{text-decoration:none;color:#2c6285;font-weight:600;padding:.3rem;border-radius:8px}
+.small-links a:hover{color:#b56a00}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1024px){
+.hero-split{grid-template-columns:1fr;padding:2.2rem;gap:2rem}
+.hero-visual{order:-1;max-width:640px;margin:0 auto;width:100%}
+.frame{transform:none}
+.split{grid-template-columns:1fr}
+.download-panel{grid-template-columns:1fr}
+}
+@media (max-width:780px){
+.container{padding:1.4rem}
+.brand strong{font-size:1.6rem}
+.hero-split{padding:1.7rem;border-radius:2rem}
+.intro-text{font-size:1.02rem}
+.float-chip.one{right:2%;top:-10px}
+.float-chip.two{left:0;bottom:2%}
+}
+@media (max-width:480px){
+.container{padding:1rem}
+.navigation{gap:.2rem;padding:.5rem}
+.navigation a{padding:.45rem .6rem;font-size:.85rem}
+.button,.store-button{width:100%;justify-content:center}
+.cta-row{gap:.6rem}
+.feature-grid{gap:1rem}
+.contact-area{padding:1.8rem 1.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+*{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+.radio-hero{grid-template-columns:1fr;padding:3rem;background:radial-gradient(ellipse at top right,rgba(151,36,246,.12),transparent 65%),#fff}
+.radio-hero .intro-title{max-width:24ch}
+.radio-hero .intro-text{max-width:70ch}
+.radio-note{margin-top:1rem;color:#466479;font-size:.9rem}
+.radio-preview{margin:2rem 0;border-radius:1.5rem;overflow:hidden;background:#0d1528;border:1px solid #354263;box-shadow:var(--shadow-lg)}
+.radio-preview img{width:100%;height:auto}
+.radio-preview figcaption{padding:.8rem 1.2rem;color:#cbd5e1;font-size:.9rem}
+#download-title{font-size:1.8rem;line-height:1.2;margin-bottom:1rem}
+@media(max-width:480px){.radio-hero{padding:1.5rem}.radio-preview{border-radius:1rem}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="container">
+<header class="hero"> <a class="brand" href="../index.html" aria-label="MCH SOFTS — Accueil"> <span class="logo-icon" aria-hidden="true"><span>⚡</span></span> <strong>MCH SOFTS</strong> </a> <p class="tagline">Des outils pour votre quotidien</p> </header> <nav class="navigation" aria-label="Navigation principale"> <a href="../index.html">Accueil</a> <a href="../windows/index.html">Logiciels Windows</a> <a href="../android/index.html">Applications Android</a> <a href="../extensions/index.html">Extensions Chrome</a> <a href="../Support.html">Assistance</a> </nav>
+<main id="contenu">
+<nav class="breadcrumbs" aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> / <a href="index.html">Logiciels Windows</a> / Ondelyra</nav>
+<section class="hero-split radio-hero">
+<div class="hero-copy">
+<span class="eyebrow">Radio en ligne · Windows</span>
+<h1 class="intro-title">Ondelyra <span class="accent">– Online Radio Player</span></h1>
+<p class="intro-text">Les radios arabes et internationales, réunies sur votre ordinateur. Retrouvez vos stations, explorez les pays et profitez d’une interface de lecture claire, aux couleurs de la radio.</p>
+<div class="badges"><span class="badge">🪟 Application Windows</span><span class="badge">🌍 Radios arabes et internationales</span><span class="badge gold">🎧 Écoute en ligne</span></div>
+<div class="cta-row">
+<a class="store-button" href="https://apps.microsoft.com/detail/9nm9kpf1930f?hl=fr-FR&amp;gl=FR"><img src="https://get.microsoft.com/images/en-us%20light.svg" alt="Télécharger Ondelyra depuis le Microsoft Store" width="200"></a>
+<a class="link-ghost" href="#apercu">Voir l’interface →</a>
+</div>
+<p class="radio-note">Une connexion Internet est nécessaire pour écouter les stations.</p>
+</div>
+</section>
+<section id="apercu" aria-labelledby="preview-title">
+<h2 class="section-title" id="preview-title">Votre espace radio sur Windows</h2>
+<p class="section-lead">Recherche, stations à la une, favoris et commandes de lecture accessibles depuis une même fenêtre.</p>
+<figure class="radio-preview">
+<a href="../assets/images/ondelyra-online-radio-player.png" aria-label="Agrandir la capture d’écran d’Ondelyra">
+<img src="../assets/images/ondelyra-online-radio-player.png" alt="Interface d’Ondelyra avec recherche de stations, filtres par pays, favoris et lecteur audio en bas de la fenêtre." width="1663" height="937" fetchpriority="high">
+</a>
+<figcaption>Un aperçu de l’application et de ses stations de radio.</figcaption>
+</figure>
+</section>
+<section aria-labelledby="features-title">
+<h2 class="section-title" id="features-title">Retrouvez la radio qui vous accompagne</h2>
+<div class="feature-grid">
+<article class="feature-card"><div class="feature-icon" aria-hidden="true">🔎</div><h3>Recherchez une station</h3><p>Retrouvez une radio par son nom grâce à la barre de recherche et parcourez les stations par pays.</p></article>
+<article class="feature-card"><div class="feature-icon" aria-hidden="true">🌍</div><h3>Explorez les radios</h3><p>Découvrez des stations arabes et internationales, avec une sélection de radios à la une.</p></article>
+<article class="feature-card"><div class="feature-icon" aria-hidden="true">♡</div><h3>Gardez vos favoris</h3><p>Accédez à vos stations préférées depuis la rubrique Favorites et retrouvez vos écoutes dans Recent Plays.</p></article>
+<article class="feature-card"><div class="feature-icon" aria-hidden="true">🎧</div><h3>Pilotez votre écoute</h3><p>Le lecteur rassemble les commandes de lecture, le réglage du volume et les informations de la station sélectionnée.</p></article>
+</div>
+</section>
+<section class="download-panel" id="telechargement" aria-labelledby="download-title">
+<div><h2 id="download-title">Écoutez avec Ondelyra</h2><p>Retrouvez Ondelyra – Online Radio Player sur le Microsoft Store pour consulter sa fiche et l’installer sur votre PC Windows.</p>
+<div class="panel-actions"><a class="store-button" href="https://apps.microsoft.com/detail/9nm9kpf1930f?hl=fr-FR&amp;gl=FR"><img src="https://get.microsoft.com/images/en-us%20light.svg" alt="Télécharger Ondelyra depuis le Microsoft Store" width="200" loading="lazy"></a></div>
+</div>
+<aside class="panel-badge" aria-label="Informations pratiques"><ul><li>Application Windows</li><li>Stations en ligne</li><li>Connexion Internet requise</li></ul></aside>
+</section>
+<section class="contact-area" aria-labelledby="contact-title"><div class="contact-text"><h2 id="contact-title">Besoin d’aide avec Ondelyra ?</h2><p>Contactez-nous pour une question ou une suggestion.</p></div><a class="contact-btn" href="../Support.html">Nous contacter</a></section>
+</main>
+<footer class="footer"> <nav class="small-links" aria-label="Liens utiles"> <a href="../index.html">Accueil</a> <a href="../windows/index.html">Logiciels Windows</a> <a href="../android/index.html">Applications Android</a> <a href="../extensions/index.html">Extensions Chrome</a> <a href="../Support.html">Assistance</a> <a href="../privacy.html">Confidentialité et conditions</a> </nav> <p>© 2026 MCH SOFTS · Des outils pour votre quotidien.</p> </footer>
+</div>
+</body>
+</html>
